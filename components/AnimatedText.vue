@@ -6,23 +6,28 @@
     const emit = defineEmits(['done']);
 
     const animatedText = ref("");
+    const loading = ref(true);
 
-    function animateText() {
+    async function animateText() {
         let index = 0;
-        const interval = setInterval(() => {
-            if(index < text.length) {
-                animatedText.value += text[index];
-                index++;
-            } else {
-                clearInterval(interval);
-                emit('done');
-            }
-        }, speed);
+        await setTimeout(() => {
+            loading.value = false;
+            const interval = setInterval(() => {
+                if(index < text.length) {
+                    animatedText.value += text[index];
+                    index++;
+                } else {
+                    clearInterval(interval);
+                    emit('done');
+                }
+            }, speed);
+        }, 3000)
     }
 
-    onMounted(() => animateText());
+    onMounted(async() => await animateText());
 </script>
 
 <template>
-    <p>{{animatedText}}</p>
+    <Icon class="text-gray-400" size="30px" v-if="loading" name="eos-icons:three-dots-loading"></Icon>
+    <p v-else>{{animatedText}}</p>
 </template>

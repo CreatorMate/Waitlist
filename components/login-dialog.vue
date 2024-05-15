@@ -1,6 +1,10 @@
 <script setup lang='ts'>
 
+    import {useAccountStore} from "~/src/account/AccountStore";
+
     const supabase = useSupabaseClient();
+    const user = useSupabaseUser();
+    const accountStore = useAccountStore();
     const email = ref("");
     const password = ref("");
     const createAccount = ref(true);
@@ -17,8 +21,6 @@
         inputs.forEach((input) => {
             text.value += input.value;
         });
-
-        console.log(text.value)
 
         if (text.value.length === 6) {
             // await verify();
@@ -38,8 +40,6 @@
                 redirectTo: `${window.location.origin}/login`,
             }
         });
-
-        console.log(data);
     }
 
     async function signIn() {
@@ -49,9 +49,12 @@
 
     async function verify() {
         loading.value = true;
-        console.log(text)
-        await supabase.auth.verifyOtp({email: email.value, token: text.value, type: 'email'});
+        const {error, data} = await supabase.auth.verifyOtp({email: email.value, token: text.value, type: 'email'});
         loading.value = false;
+
+        if(error) return;
+
+        await accountStore.get(user.value?.id);
     }
 
     onMounted(() => {
