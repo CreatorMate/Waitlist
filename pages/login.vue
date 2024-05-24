@@ -14,31 +14,14 @@
     const madeCall = ref(false);
     const success: Ref<null|boolean> = ref(false);
 
+    onMounted(async () => {
+        if(!user.value) return;
+
+        await router.push('/home');
+    })
+
     async function logout() {
         await client.auth.signOut();
-    }
-
-    async function test() {
-        const {data: {session}} = await client.auth.getSession();
-        const user = await client.auth.getUser(session?.access_token);
-        console.log(user);
-
-
-        console.log(session?.access_token)
-        const call = await fetch('http://localhost:5179/WeatherForecast', {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Authorization": "Bearer " + session?.access_token,
-            },
-        });
-
-        madeCall.value = true;
-        success.value = call.ok;
-
-        const response = await call.json();
-        console.log(response);
     }
 
     const router = useRouter();

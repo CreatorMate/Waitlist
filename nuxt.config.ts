@@ -3,6 +3,12 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/robots', '@nuxtjs/sitemap', "@nuxtjs/supabase", '@pinia/nuxt', 'nuxt-icon'],
   runtimeConfig: {
+    royalution: {
+      apiKey: process.env.NUXT_ONBOARDING_API_KEY,
+    },
+    openAi: {
+      secretKey: process.env.NUXT_OPENAI_API_KEY,
+    },
   },
   supabase: {
     redirectOptions: {

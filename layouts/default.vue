@@ -6,7 +6,7 @@
 <template>
     <div class="flex flex-grow max-h-screen ">
         <Sidebar></Sidebar>
-        <section class="w-full h-full overflow-scroll p-6">
+        <section class="w-full h-full p-6">
             <slot>
 
             </slot>
