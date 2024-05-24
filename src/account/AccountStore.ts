@@ -1,14 +1,18 @@
 //@ts-ignore
 import {defineStore} from "pinia";
+import {useToastStore} from "~/src/toast/ToastStore";
+import {ToastType} from "~/src/toast/ToastType";
 
 export const useAccountStore = defineStore("account", () => {
     const username = ref("");
     const completedOnboarding = ref(false);
     const userId = ref("");
     const avatar_url = ref("");
+    const isAdmin = ref(false);
     const points = ref(0);
     const supabaseClient = useSupabaseClient();
     const router = useRouter();
+    const toastStore = useToastStore();
 
     async function logout() {
         await supabaseClient.auth.signOut();
@@ -21,7 +25,7 @@ export const useAccountStore = defineStore("account", () => {
     async function get( id: string) {
         const {data} = await supabaseClient
             .from('profiles')
-            .select(`username, avatar_url, points, id, completed_onboarding`)
+            .select(`username, avatar_url, points, id, completed_onboarding, is_admin`)
             .eq('id', id)
             .single();
 
@@ -32,6 +36,7 @@ export const useAccountStore = defineStore("account", () => {
         points.value = data.points;
         completedOnboarding.value = data.completed_onboarding;
         userId.value = data.id
+        isAdmin.value = data.is_admin
     }
 
     async function update() {
@@ -48,10 +53,10 @@ export const useAccountStore = defineStore("account", () => {
             const {error} = await supabaseClient.from('profiles').upsert(updates, {
                 returning: 'minimal',
             });
-
+            console.log(error)
             if(error) throw error;
         } catch(e) {
-            alert(e)
+            toastStore.addToast("Not all data could be saved", ToastType.WARNING)
         }
     }
 
@@ -59,5 +64,5 @@ export const useAccountStore = defineStore("account", () => {
         return `https://jrirqcnnxpbhvmuugxnl.supabase.co/storage/v1/object/public/avatars/${avatar_url.value}`;
     }
 
-    return {username, points, avatar_url, get, update, logout, getProfileImageSrc, completedOnboarding, userId}
+    return {username, points, avatar_url, get, update, logout, getProfileImageSrc, completedOnboarding, userId, isAdmin}
 })
