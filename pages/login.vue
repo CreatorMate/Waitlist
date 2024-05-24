@@ -16,9 +16,8 @@
 
     onMounted(async () => {
         if(!user.value) return;
-
         await router.push('/home');
-    })
+    });
 
     async function logout() {
         await client.auth.signOut();
@@ -37,7 +36,6 @@
         <p></p>
         <div class="flex gap-4">
             <button @click="logout" class="px-4 py-2 bg-white text-black font-semibold hover:bg-gray-100">Logout</button>
-            <button @click="test" class="px-4 py-2 bg-white text-black font-semibold hover:bg-gray-100">Make call</button>
             <button @click="router.push('onboarding')" class="px-4 py-2 bg-white text-black font-semibold hover:bg-gray-100">Account</button>
         </div>
     </section>
