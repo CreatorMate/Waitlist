@@ -6,6 +6,7 @@
     import {OnboardingHandler} from "~/src/onboarding/OnboardingHandler";
     import type {OnboardingMessage} from "~/src/onboarding/OnboardingMessage";
     import {OnboardingMessageType} from "~/src/onboarding/OnboardingMessageType";
+    import {useAccountStore} from "~/src/account/AccountStore";
 
     definePageMeta({
         layout: 'empty'
@@ -17,10 +18,13 @@
     let id = 0;
     const chatContainer = ref<HTMLElement | null>(null);
     const isAtBottom = ref(true);
-
+    const accountStore = useAccountStore();
+    const user = useSupabaseUser();
     const disabled = ref(true);
 
-    onMounted(() => {
+    onMounted(async () => {
+        if(!user.value) return;
+        await accountStore.get(user.value.id);
         let firstQuestion = onboardingHandler.getQuestionByStep();
         chats.value.push({
             message: firstQuestion,
