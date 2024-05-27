@@ -29,7 +29,7 @@
         chats.value.push({
             message: firstQuestion,
             sender: Sender.CREATORMATE,
-            type: OnboardingMessageType.PICTURE,
+            type: OnboardingMessageType.AI,
             id: nextID()
         });
         onboardingHandler.chatHistory.push({

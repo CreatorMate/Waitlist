@@ -19,7 +19,7 @@ export class OnboardingHandler {
     private toastStore = useToastStore();
     private accountStore= useAccountStore();
     private router = useRouter();
-    public step = ref(4);
+    public step = ref(1);
     public total = ref(4);
     public name: string = "";
     public chatHistory: OnboardingHistoryItem[] = [];

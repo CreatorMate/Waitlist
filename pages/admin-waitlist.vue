@@ -2,6 +2,8 @@
     import {RealtimeChannel} from "@supabase/realtime-js";
     import {SupabaseTables} from "~/src/SupabaseTypes";
     import {definePageMeta} from "#imports";
+    import {useAccountStore} from "~/src/account/AccountStore";
+    import {useRouter} from "#app";
 
     definePageMeta({
         layout: 'empty'
@@ -9,6 +11,13 @@
 
     const client = useSupabaseClient();
     const activeProfilesCounter = ref("00000");
+    const accountStore = useAccountStore();
+    const router = useRouter();
+
+    if(!accountStore.isAdmin) {
+        await router.replace('/home')
+    }
+
     let realtimeChannel: RealtimeChannel
     onMounted(async () => {
 
