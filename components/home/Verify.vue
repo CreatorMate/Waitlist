@@ -1,14 +1,18 @@
 <script setup lang='ts'>
     import {useAccountStore} from "~/src/account/AccountStore";
     import {useRouter} from "#app";
+    import {ToastType} from "~/src/toast/ToastType";
+    import {useToastStore} from "~/src/toast/ToastStore";
 
     let text = ref("");
     const loading = ref(false);
     const supabase = useSupabaseClient();
     const user = useSupabaseUser();
     const accountStore = useAccountStore();
+    const toastStore = useToastStore();
     const form = ref();
     const router = useRouter();
+    const verificationError = ref(false)
 
     const {email} = defineProps<{
         email: string
@@ -19,9 +23,15 @@
     async function reSend() {
         const response = await supabase.auth.signInWithOtp({email: email});
         if(response.error) {
-            //@todo show error
+            if(response.error.status === 429) {
+                toastStore.addToast("Email was just send please wait a little while", ToastType.ERROR);
+            } else {
+                toastStore.addToast("something went wrong while trying to email you, come back again later", ToastType.ERROR);
+            }
+
             return;
         }
+        toastStore.addToast(`Email send to ${email}`, ToastType.SUCCESS);
     }
 
     async function verify() {
@@ -29,8 +39,10 @@
         const {error, data} = await supabase.auth.verifyOtp({email: email, token: text.value, type: 'email'});
         loading.value = false;
 
-        //@todo display error
-        if(error) return;
+        if(error) {
+            verificationError.value = true;
+            return;
+        }
         await router.push('/callback');
     }
 
@@ -99,11 +111,12 @@
 
 <template>
     <h2 class="text-2xl mb-6 font-medium">verify email</h2>
-    <p class="text-white text-opacity-40 mb-4">enter the code sent to your email address</p>
-    <form ref="form" @submit.prevent="verify" class="h-full">
+    <p class="text-white text-opacity-40">enter the code sent to your email address</p>
+    <form ref="form" @submit.prevent="verify" class="h-full my-6">
         <div class="grid grid-cols-6 gap-2">
             <input v-for="index in inputs" :key="index"
                    @change="updateText"
+                   :disabled="loading"
                    @input="handleInput"
                    @paste="handlePaste"
                    @keydown="handleKeyDown"
@@ -111,8 +124,8 @@
                    class="p-4 h-[56px] text-center text-white bg-white bg-opacity-10 rounded border border-white border-opacity-20 active:border-opacity-0"
                    pattern="\d*" maxlength="1"/>
         </div>
-        <div class="max-w-[260px] mx-auto mt-4">
-        </div>
     </form>
-    <p class="text-white text-opacity-40">didn't receive the code? <span class="font-medium text-white">resend</span></p>
+    <Icon v-if="loading" size="24" class="mb-6" name="line-md:loading-loop"></Icon>
+    <p v-if="verificationError" class="text-red-500 mb-6">You're code is either incorrect or expired</p>
+    <p class="text-white text-opacity-40">didn't receive the code? <span @click="reSend" class="font-medium text-white cursor-pointer hover:underline">resend</span></p>
 </template>
