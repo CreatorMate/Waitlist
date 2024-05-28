@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/robots', '@nuxtjs/sitemap', "@nuxtjs/supabase", '@pinia/nuxt', 'nuxt-icon'],
+  plugins: ['~/plugins/click-outside.js'],
   runtimeConfig: {
     royalution: {
       apiKey: process.env.NUXT_ONBOARDING_API_KEY,
@@ -12,8 +13,8 @@ export default defineNuxtConfig({
   },
   supabase: {
     redirectOptions: {
-      login: '/login',
-      callback: '/login',
+      login: '',
+      callback: '/callback',
       exclude: ['/', '/callback']
     }
   },

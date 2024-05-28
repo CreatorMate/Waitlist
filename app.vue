@@ -15,3 +15,4 @@
         </NuxtLayout>
     </main>
 </template>
+

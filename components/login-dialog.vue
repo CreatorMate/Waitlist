@@ -6,8 +6,6 @@
     const user = useSupabaseUser();
     const accountStore = useAccountStore();
     const email = ref("");
-    const password = ref("");
-    const createAccount = ref(true);
     const verifiying = ref(false);
     const loading = ref(false);
 
