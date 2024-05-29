@@ -1,6 +1,5 @@
 <script setup lang='ts'>
     import {definePageMeta} from "#imports";
-    import OnboardingTop from "~/components/onboarding/OnboardingTop.vue";
     import type {Ref} from "vue";
     import {Sender} from "~/src/chat/Sender";
     import {OnboardingHandler} from "~/src/onboarding/OnboardingHandler";
@@ -108,10 +107,10 @@
         loading.value = false;
     }
 
-    async function uploaded() {
+    async function savedSocials() {
         chats.value.push({
             sender: Sender.USER,
-            message: "I uploaded my profile picture",
+            message: "I inserted my socials",
             type: OnboardingMessageType.USER,
             id: nextID()
         });
@@ -127,28 +126,48 @@
         });
     }
 
+    async function uploaded() {
+        chats.value.push({
+            sender: Sender.USER,
+            message: "I uploaded my profile picture",
+            type: OnboardingMessageType.USER,
+            id: nextID()
+        });
+        loading.value = true;
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        loading.value = false;
+        chats.value.push({
+            sender: Sender.CREATORMATE,
+            message: "What social media platforms are you using? fill in the one's you are using",
+            type: OnboardingMessageType.SOCIALS,
+            id: nextID()
+        });
+    }
+
     async function save() {
         await onboardingHandler.save();
     }
 </script>
 
 <template>
-    <div class="flex flex-col h-full items-center relative pb-32 text-sm">
-        <div ref="chatContainer" @scroll="onScroll" class="overflow-y-auto overflow-x-hidden w-full h-full flex justify-center">
-            <div class="w-[500px] flex flex-col pt-6">
-                <OnboardingTop :onboarding-handler="onboardingHandler"></OnboardingTop>
-                <div class="h-full flex flex-col gap-6 pt-10">
+    <div class="flex flex-col min-h-full items-center relative">
+        <div ref="chatContainer" @scroll="onScroll" class="overflow-y-auto overflow-x-hidden w-full min-h-full flex items-center flex-col">
+            <header class="p-10 w-full top-0 sticky flex justify-center bg-black bg-opacity-60 backdrop-blur-[8px]">
+                <img alt="creator mate logo"  src="/creatormate.svg">
+            </header>
+            <div class="w-[500px] flex flex-col pt-12 flex-grow">
+                <div class="h-full flex flex-col gap-6">
                     <div :key="chatMessage.id" v-for="chatMessage of chats" class="flex flex-col">
-                        <p class="text-gray-400">{{chatMessage.sender}}:</p>
-                        <OnboardingQuestion @save="save" @uploaded="uploaded" @resize="resize()" @done="disabled = false" :question="chatMessage"></OnboardingQuestion>
+                        <p class="text-white text-opacity-60 pb-2">{{chatMessage.sender}}</p>
+                        <OnboardingQuestion @saved_socials="savedSocials" @save="save" @uploaded="uploaded" @resize="resize()" @done="disabled = false" :question="chatMessage"></OnboardingQuestion>
                     </div>
                     <div v-if="loading" class="flex flex-col">
-                        <p class="text-gray-400">{{Sender.CREATORMATE}}:</p>
+                        <p class="text-gray-400">{{Sender.CREATORMATE}}</p>
                         <Icon class="text-gray-400" size="30px" name="eos-icons:three-dots-loading"></Icon>
                     </div>
                 </div>
             </div>
+            <ChatInput :disabled="disabled" @on-keydown="keydown" @send="handleMessage"></ChatInput>
         </div>
-        <ChatInput :disabled="disabled" @on-keydown="keydown" @send="handleMessage"></ChatInput>
     </div>
 </template>

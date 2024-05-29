@@ -1,7 +1,6 @@
 <script lang="ts" setup>
     import './assets/css/tailwind.css'
     import {useAccountStore} from "~/src/account/AccountStore";
-
     const supabase = useSupabaseClient();
     const user = useSupabaseUser();
     const accountStore = useAccountStore();
@@ -15,4 +14,3 @@
         </NuxtLayout>
     </main>
 </template>
-

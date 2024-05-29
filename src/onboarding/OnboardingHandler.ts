@@ -20,11 +20,10 @@ export class OnboardingHandler {
     private accountStore= useAccountStore();
     private router = useRouter();
     public step = ref(1);
-    public total = ref(4);
+    public total = ref(5);
     public name: string = "";
     public chatHistory: OnboardingHistoryItem[] = [];
     private client = useSupabaseClient();
-
 
     public questions: OnboardingQuestion[] = [];
 

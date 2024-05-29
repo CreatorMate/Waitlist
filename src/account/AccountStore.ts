@@ -10,6 +10,9 @@ export const useAccountStore = defineStore("account", () => {
     const avatar_url = ref("");
     const isAdmin = ref(false);
     const points = ref(0);
+    const instagram = ref<null|string>();
+    const youtube = ref<null|string>();
+    const twitter = ref<null|string>();
     const supabaseClient = useSupabaseClient();
     const router = useRouter();
     const toastStore = useToastStore();
@@ -25,7 +28,7 @@ export const useAccountStore = defineStore("account", () => {
     async function get( id: string) {
         const {data} = await supabaseClient
             .from('profiles')
-            .select(`username, avatar_url, points, id, completed_onboarding, is_admin`)
+            .select(`username, avatar_url, points, id, completed_onboarding, is_admin, instagram, twitter, youtube`)
             .eq('id', id)
             .single();
 
@@ -35,8 +38,11 @@ export const useAccountStore = defineStore("account", () => {
         avatar_url.value = data.avatar_url;
         points.value = data.points;
         completedOnboarding.value = data.completed_onboarding;
-        userId.value = data.id
-        isAdmin.value = data.is_admin
+        userId.value = data.id;
+        isAdmin.value = data.is_admin;
+        youtube.value = data.youtube;
+        twitter.value = data.twitter;
+        instagram.value = data.instagram;
     }
 
     async function update() {
@@ -47,13 +53,15 @@ export const useAccountStore = defineStore("account", () => {
                 points: points.value,
                 avatar_url: avatar_url.value,
                 updated_at: new Date(),
-                completed_onboarding: completedOnboarding.value
+                completed_onboarding: completedOnboarding.value,
+                youtube: youtube.value,
+                instagram: instagram.value,
+                twitter: twitter.value
             }
             //@ts-ignore
             const {error} = await supabaseClient.from('profiles').upsert(updates, {
                 returning: 'minimal',
             });
-            console.log(error)
             if(error) throw error;
         } catch(e) {
             toastStore.addToast("Not all data could be saved", ToastType.WARNING)
@@ -64,5 +72,5 @@ export const useAccountStore = defineStore("account", () => {
         return `https://jrirqcnnxpbhvmuugxnl.supabase.co/storage/v1/object/public/avatars/${avatar_url.value}`;
     }
 
-    return {username, points, avatar_url, get, update, logout, getProfileImageSrc, completedOnboarding, userId, isAdmin}
+    return {username, points, avatar_url, get, update, logout, getProfileImageSrc, completedOnboarding, userId, isAdmin, youtube, twitter, instagram}
 })

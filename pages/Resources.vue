@@ -1,7 +1,9 @@
 <script setup lang='ts'>
     import {onMounted, type Ref} from "vue";
     import type {Resource} from "~/src/SupabaseTypes";
+    import ResourceComponent from "~/components/Resource.vue";
     import {useRouter} from "#app";
+    import VideoPopup from "~/components/VideoPopup.vue";
     const supabase = useSupabaseClient();
     const resources: Ref<Resource[]> = ref([]);
     const categories: Ref<Set<string>> = ref(new Set);
@@ -44,31 +46,28 @@
 
         return date;
     }
+
+    const open = true;
 </script>
 
 <template>
-    <div class="w-full h-full overflow-x-auto px-28">
-        <h2 class="text-2xl font-normal my-8">resources</h2>
-        <div class="flex gap-4 mb-6">
+    <section class="w-full h-full mt-12">
+        <div class="flex w-full justify-center gap-4 mb-6">
             <p :class="{
-           'border-white text-white': selectedCat == '',
-             'bg-black border-gray-400 text-gray-400': selectedCat != '',
-        }" @click="selectedCat = ''" class="border rounded-full px-4 py-1 cursor-pointer transition hover:scale-110 lowercase">All</p>
+           'bg-opacity-20': selectedCat == '',
+        }" @click="selectedCat = ''" class="rounded-full px-3 py-1.5 cursor-pointer transition lowercase bg-white text-white bg-opacity-10">All</p>
             <p :class="{
-            'border-white text-white': selectedCat == category,
-            'bg-black border-gray-400 text-gray-400': selectedCat != category,
-        }" @click="selectedCat = category" class="border rounded-full px-4 py-1 hover:scale-110 cursor-pointer transition lowercase" v-for="category of categories">{{category}}</p>
+            'bg-opacity-20': selectedCat == category,
+        }" @click="selectedCat = category" class="rounded-full px-3 py-1.5 cursor-pointer transition lowercase bg-white text-white bg-opacity-10" v-for="category of categories">{{category}}</p>
         </div>
-        <div class="grid xxl:grid-cols-4 grid-cols-3 gap-6">
-            <div @click="router.push(`/watch/${getYoutubeId(resource.youtube_url)}`)" class="bg-zinc-900 rounded-xl transition hover:scale-110 cursor-pointer" v-show="selectedCat == '' || resource.category == selectedCat " v-for="resource of resources">
-                <img class="w-full rounded-xl" :alt="`creator mate resource ${resource.title}`" :src="`http://img.youtube.com/vi/${getYoutubeId(resource.youtube_url)}/mqdefault.jpg`">
-                <div class="p-6">
-                    <h2 class="text-lg">{{resource.title}}</h2>
-                    <p class="mt-6 text-sm text-zinc-300">posted by jens on
-                        {{getDate(resource.created_at).getDate()}}-{{getDate(resource.created_at).getMonth()+1}}-{{getDate(resource.created_at).getFullYear()}}
-                    </p>
-                </div>
+        <div class="grid xxl:grid-cols-4 grid-cols-3 gap-6 px-40 pb-40">
+            <ResourceComponent v-show="selectedCat == '' || resource.category == selectedCat " v-for="resource of resources" :resource></ResourceComponent>
+        </div>
+        <VideoPopup :model-active="open">
+            <h3 class="text-3xl font-medium text-center">why do you as a content creator matter</h3>
+            <div>
+
             </div>
-        </div>
-    </div>
+        </VideoPopup>
+    </section>
 </template>

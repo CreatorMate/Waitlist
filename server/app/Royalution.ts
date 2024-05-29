@@ -4,7 +4,7 @@ import {useToastStore} from "~/src/toast/ToastStore";
 export class Royalution {
     static async send(apiKey: string, body: any): Promise<RoyalReturn> {
         try {
-            const request = await fetch(`https://creator-mate-waitinglist.azurewebsites.net/api/generate-response?code=${apiKey}`, {
+            const request = await fetch(`https://creatormate-waitinglist-production.azurewebsites.net/api/generate-response?code=${apiKey}`, {
                 method: "POST",
                 body: JSON.stringify(body),
                 headers: {

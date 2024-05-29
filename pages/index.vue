@@ -20,7 +20,7 @@
 <template>
     <section style="" class="background-mask w-full h-full flex flex-col items-center justify-between z-40">
         <div class="p-10">
-            <img src="/creatormate.svg">
+            <img alt="creator mate logo"  src="/creatormate.svg">
         </div>
         <div class="flex flex-col justify-center items-center gap-10 w-[850px]">
             <h1 class="text-8xl flex-wrap font-medium text-center">ready to build your dream community?</h1>

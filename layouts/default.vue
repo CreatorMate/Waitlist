@@ -1,15 +1,13 @@
 <script setup lang='ts'>
 
-    import Sidebar from "~/components/Sidebar.vue";
+    import TopBar from "~/components/TopBar.vue";
 </script>
 
 <template>
-    <div class="flex flex-grow max-h-screen ">
-        <Sidebar></Sidebar>
-        <section class="w-full h-full p-6">
-            <slot>
+    <div class="flex flex-col flex-grow max-h-screen overflow-x-hidden ">
+        <TopBar/>
+        <slot>
 
-            </slot>
-        </section>
+        </slot>
     </div>
 </template>

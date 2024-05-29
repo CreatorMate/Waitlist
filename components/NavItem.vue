@@ -12,13 +12,17 @@
     watchEffect(() => {
         isActive.value = router.currentRoute.value.path.includes(to);
     });
-    console.log(isActive)
 </script>
 
 <template>
     <div>
-        <router-link :class="[
-            isActive ? 'text-gray-100' : 'text-gray-400'
-        ]" :to="to">{{name}}</router-link>
+        <router-link
+            :class="[
+                isActive ? 'bg-white bg-opacity-20' : 'bg-white bg-opacity-10 text-opacity-60'
+        ]" :to="to"
+            class="px-3 py-1.5 rounded-full text-white"
+        >
+            {{name}}
+        </router-link>
     </div>
 </template>
