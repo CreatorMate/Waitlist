@@ -20,7 +20,6 @@
     }>();
 
     onMounted(() => {
-        console.log(question)
         observer = new ResizeObserver(() => {
             emit('resize')
         })

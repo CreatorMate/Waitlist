@@ -28,6 +28,7 @@
        }" class="w-[500px] flex justify-between items-center">
                <textarea
                    v-model="value"
+                   id="onboarding_chat_input"
                    @keydown="keyDown"
                    :disabled="disabled"
                    rows="1"

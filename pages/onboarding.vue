@@ -105,6 +105,7 @@
             id: newId
         });
         loading.value = false;
+        await focus();
     }
 
     async function savedSocials() {
@@ -144,8 +145,18 @@
         });
     }
 
+    async function done() {
+        disabled.value = false
+        await focus();
+    }
+
     async function save() {
         await onboardingHandler.save();
+    }
+
+    async function focus() {
+        await new Promise(resolve => setTimeout(resolve, 100));
+        document.getElementById('onboarding_chat_input').focus();
     }
 </script>
 
@@ -159,7 +170,7 @@
                 <div class="h-full flex flex-col gap-6">
                     <div :key="chatMessage.id" v-for="chatMessage of chats" class="flex flex-col">
                         <p class="text-white text-opacity-60 pb-2">{{chatMessage.sender}}</p>
-                        <OnboardingQuestion @saved_socials="savedSocials" @save="save" @uploaded="uploaded" @resize="resize()" @done="disabled = false" :question="chatMessage"></OnboardingQuestion>
+                        <OnboardingQuestion @saved_socials="savedSocials" @save="save" @uploaded="uploaded" @resize="resize()" @done="done" :question="chatMessage"></OnboardingQuestion>
                     </div>
                     <div v-if="loading" class="flex flex-col">
                         <p class="text-gray-400">{{Sender.CREATORMATE}}</p>

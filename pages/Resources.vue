@@ -65,8 +65,9 @@
         </div>
         <VideoPopup :model-active="open">
             <h3 class="text-3xl font-medium text-center">why do you as a content creator matter</h3>
-            <div>
-
+            <div class="w-full">
+                <iframe style="width: 100% !important;" allowfullscreen
+                        src="https://youtube.com/embed/geJ17nbnbHg"></iframe>
             </div>
         </VideoPopup>
     </section>
