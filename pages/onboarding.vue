@@ -156,6 +156,7 @@
 
     async function focus() {
         await new Promise(resolve => setTimeout(resolve, 100));
+        //@ts-ignore
         document.getElementById('onboarding_chat_input').focus();
     }
 </script>

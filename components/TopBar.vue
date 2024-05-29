@@ -9,7 +9,7 @@
 </script>
 
 <template>
-    <nav class="w-full flex justify-between items-center p-10">
+    <nav class="w-full flex justify-between items-center p-10 sticky top-0 bg-black bg-opacity-60 backdrop-blur-[8px] z-40">
         <div class="flex gap-1 w-1/3">
             <NavItem to="/home" name="discover"></NavItem>
             <NavItem to="/resources" name="resources"></NavItem>

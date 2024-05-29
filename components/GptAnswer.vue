@@ -1,4 +1,6 @@
 <script setup lang='ts'>
+    import type {ChatMessage} from "~/src/chat/ChatMessage";
+
     const loading = ref(true)
     const error = ref(false)
     let text = "";
@@ -9,10 +11,15 @@
     const emit = defineEmits(['done', 'resize']);
 
     const {question} = defineProps<{
-        question: string
+        question: ChatMessage
     }>();
 
     onMounted(async () => {
+        if(question.type == 'start') {
+            text = question.message
+            loading.value = false;
+            return;
+        };
         const response = await fetch("/api/ask-gpt", {
             method: "POST",
             headers: {
@@ -20,7 +27,7 @@
                 "Accept": "application/json",
             },
             body: JSON.stringify({
-                message: question
+                message: question.message
             })
         })
         //@todo handle error.
@@ -32,7 +39,6 @@
                 return;
             }
             text = cleanUp(data.data.choices[0].message.content);
-            loading.value = false;
             loading.value = false;
         } catch (err) {
             error.value = true;

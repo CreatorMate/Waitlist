@@ -1,3 +1,3 @@
 export enum Sender {
-    USER = "you", CREATORMATE = "jens"
+    USER = "you", CREATORMATE = "jens",
 }

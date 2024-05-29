@@ -20,6 +20,9 @@
             </Transition>
         </div>
     </Transition>
+    <div @click="emit('close')" v-if="modelActive" class="absolute top-6 right-6 z-50 rounded-full p-3 bg-white bg-opacity-10 text-white text-opacity-60 hover:text-opacity-100 cursor-pointer hover:bg-opacity-20 transition duration-75">
+        <Icon size="20px" name="material-symbols:close"></Icon>
+    </div>
 </template>
 
 <style scoped>
