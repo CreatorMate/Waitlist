@@ -14,15 +14,19 @@
             return;
         }
         await accountStore.get(user.value.id);
-        if(accountStore.completedOnboarding) {
-            await router.push('/home');
-            return;
-        } else {
-            await router.push('/onboarding');
-        }
+        // if(accountStore.completedOnboarding) {
+        //     await router.push('/home');
+        //     return;
+        // } else {
+        //     await router.push('/onboarding');
+        // }
     })
 </script>
 
 <template>
-
+    <section style="" class="background-mask w-full h-full flex justify-center z-40">
+        <div class="p-10">
+            <img alt="creator mate logo"  src="/creatormate.svg">
+        </div>
+    </section>
 </template>

@@ -168,7 +168,7 @@
                 <img alt="creator mate logo"  src="/creatormate.svg">
             </header>
             <div class="px-6 md:px-0 w-full md:w-[500px] flex flex-col pt-6 md:pt-12 flex-grow">
-                <div class="h-full flex flex-col gap-6">
+                <div class="h-full flex flex-col gap-6 mb-6 xs:mb-0">
                     <div :key="chatMessage.id" v-for="chatMessage of chats" class="flex flex-col">
                         <p class="text-white text-opacity-60 pb-2">{{chatMessage.sender}}</p>
                         <OnboardingQuestion @saved_socials="savedSocials" @save="save" @uploaded="uploaded" @resize="resize()" @done="done" :question="chatMessage"></OnboardingQuestion>
