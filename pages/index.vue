@@ -6,6 +6,9 @@
     definePageMeta({
         layout: 'platform'
     });
+    useHead({
+        title: 'join the waitlist now! - creatormate'
+    })
 
     const modelActive = ref(false)
     const verifying = ref(false);

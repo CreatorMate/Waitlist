@@ -10,6 +10,10 @@
     const accountStore = useAccountStore();
     const router = useRouter();
 
+    useHead({
+        title: 'waitlist signups - creatormate'
+    })
+
     if (!accountStore.isAdmin) {
         await router.replace('/home')
     }

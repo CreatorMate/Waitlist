@@ -12,6 +12,10 @@
     const router = useRouter();
     const loading = ref(true);
 
+    useHead({
+        title: 'resources - creatormate'
+    })
+
     onMounted(async () => {
         await getResources();
     })

@@ -33,7 +33,9 @@
             <input v-model="youtube" placeholder="YouTube username" class="pr-3 py-1 bg-white bg-opacity-10 rounded-r-lg border-0 outline-0 placeholder-opacity-20 placeholder-white" type="text">
         </div>
     </div>
-    <button :class="[
+    <div>
+        <button :class="[
         !youtube && !instagram && !twitter ? 'text-opacity-25' : ''
     ]" @click="save" class="bg-white bg-opacity-20 rounded-full py-1 px-3 mt-4 font-medium text-white">confirm</button>
+    </div>
 </template>

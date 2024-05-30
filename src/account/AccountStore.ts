@@ -8,6 +8,7 @@ export const useAccountStore = defineStore("account", () => {
     const completedOnboarding = ref(false);
     const userId = ref("");
     const avatar_url = ref("");
+    const location = ref("");
     const isAdmin = ref(false);
     const points = ref(0);
     const instagram = ref<null|string>();
@@ -72,5 +73,5 @@ export const useAccountStore = defineStore("account", () => {
         return `https://jrirqcnnxpbhvmuugxnl.supabase.co/storage/v1/object/public/avatars/${avatar_url.value}`;
     }
 
-    return {username, points, avatar_url, get, update, logout, getProfileImageSrc, completedOnboarding, userId, isAdmin, youtube, twitter, instagram}
+    return {username, points, avatar_url, get, update, logout, getProfileImageSrc, completedOnboarding, userId, isAdmin, youtube, twitter, instagram, location}
 })

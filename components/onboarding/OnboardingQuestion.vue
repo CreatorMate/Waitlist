@@ -6,7 +6,7 @@
 
     const error = ref(false)
     let text = "";
-    const speed = 5;
+    const speed = 10;
     let observer: ResizeObserver;
     const elementRef = ref<HTMLElement | null>(null);
     let showImageUpload = ref(false);

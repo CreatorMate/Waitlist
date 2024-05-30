@@ -4,7 +4,7 @@
     const loading = ref(true)
     const error = ref(false)
     let text = "";
-    const speed = 10;
+    const speed = 5;
     let observer: ResizeObserver;
     const elementRef = ref<HTMLElement | null>(null);
 

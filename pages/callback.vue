@@ -8,6 +8,10 @@
     const accountStore = useAccountStore();
     const router = useRouter();
 
+    useHead({
+        title: 'logging you in... - creatormate'
+    })
+
     onMounted(async () => {
         if(!user.value) {
             await router.push('/')

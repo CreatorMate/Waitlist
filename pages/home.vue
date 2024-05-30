@@ -15,6 +15,10 @@
 
     const disabled = ref(false)
 
+    useHead({
+        title: 'discover - creatormate'
+    })
+
     onMounted(async () => {
         chats.value.push({
             message: "welcome, what would you like to know about creator mate?",

@@ -37,6 +37,10 @@
         });
     });
 
+    useHead({
+        title: 'getting to know you - creatormate'
+    })
+
     function onScroll () {
         if (chatContainer.value) {
             const threshold = 100; // px from the bottom to consider "at bottom"

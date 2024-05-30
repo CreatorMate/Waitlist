@@ -6,6 +6,10 @@
     const questionnaires = await questionnaireStore.getQuestionnaires();
     const selectedIndex = 0;
 
+    useHead({
+        title: 'questionnaire - creatormate'
+    })
+
 </script>
 
 <template>
