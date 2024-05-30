@@ -58,10 +58,12 @@
                     char == '0' ? 'text-opacity-20 text-white' : ''
                 ]" v-for="(char, index) in activeProfilesCounter" class="flex flex-col gap-2">
                     <div class="background-number pt-10">
-                        <div class="half-number px-6">{{ char }}</div>
+                        <div class="half-number px-6 z-20">{{ char }}</div>
                     </div>
                     <div class="digit-container background-number px-6 pb-10">
-                        <div class="digit">{{ char }}</div>
+                        <div class="digit">
+                            <p class="absolute -top-1">{{ char }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -84,10 +86,10 @@
 }
 
 .half-number {
-    height: 60px; /* Adjust based on your needs */
+    height: 60px;
     overflow: hidden;
-    line-height: 128px; /* Double the height to ensure the text is centered */
-    font-size: 165px; /* Adjust based on your needs */
+    line-height: 132px;
+    font-size: 165px;
 }
 
 .background-number {

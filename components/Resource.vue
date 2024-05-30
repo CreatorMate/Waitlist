@@ -24,7 +24,7 @@
 </script>
 
 <template>
-    <div @click="open = true" class="transition hover:scale-110 cursor-pointer bg-white bg-opacity-10 rounded-2xl p-1">
+    <div @click="open = true" class="transition hover:scale-110 cursor-pointer bg-white bg-opacity-10 rounded-2xl p-1 min-w-full sm:w-auto">
         <img class="w-full rounded-xl" :alt="`creator mate resource ${resource.title}`" :src="`http://img.youtube.com/vi/${getYoutubeId()}/mqdefault.jpg`">
         <div class="m-4 h-20 font-medium flex flex-col flex-grow justify-between">
             <h2 class="text-center">{{resource.title}}</h2>
@@ -34,9 +34,9 @@
         </div>
     </div>
     <VideoPopup @close="open = false" :model-active="open">
-        <h3 class="text-2xl font-medium text-center mb-6">why do you as a content creator matter</h3>
+        <h3 class="md:text-2xl font-medium text-center mb-3 md:mb-6">{{resource.title}}</h3>
         <div class="w-full h-auto rounded-full">
-            <iframe style="aspect-ratio: 16 / 9;" class="h-auto w-full rounded-2xl" allowfullscreen
+            <iframe style="aspect-ratio: 16 / 9;" class="h-auto w-full rounded-2xl bg-black" allowfullscreen
                     :src="`https://youtube.com/embed/${getYoutubeId()}`"></iframe>
         </div>
     </VideoPopup>

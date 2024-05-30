@@ -54,20 +54,19 @@
     <section class="flex flex-col flex-grow overflow-x-hidden">
         <TopBar></TopBar>
         <div class=" w-full h-full">
-            <div v-if="!loading" class="w-full h-full mt-12">
-                <div class="flex w-full justify-center gap-4 mb-6">
-                    <p :class="{
-           'bg-opacity-20': selectedCat == '',
-        }" @click="changeCategory('')"
-                       class="rounded-full px-3 py-1.5 cursor-pointer transition lowercase bg-white text-white bg-opacity-10">
+            <div v-if="!loading" class="w-full mt-6 md:mt-12 flex flex-col items-center px-7 md:px-20 xl:px-40">
+                <div class="flex w-full sm:justify-center gap-1 flex-wrap">
+                    <p :class="[selectedCat == '' ? 'bg-opacity-20': 'text-opacity-60']"
+                       @click="changeCategory('')"
+                       class="rounded-full px-3 py-1.5 cursor-pointer transition lowercase duration-100 bg-white text-white bg-opacity-10">
                         All</p>
-                    <p :class="{
-            'bg-opacity-20': selectedCat == category,
-        }" @click="changeCategory(category)"
-                       class="rounded-full px-3 py-1.5 cursor-pointer transition lowercase bg-white text-white bg-opacity-10"
+                    <p :class="[selectedCat == category ? 'bg-opacity-20': 'text-opacity-60']"
+                       @click="changeCategory(category)"
+                       class="rounded-full px-3 py-1.5 cursor-pointer transition duration-100 lowercase bg-white text-white bg-opacity-10"
                        v-for="category of categories">{{ category }}</p>
                 </div>
-                <div class="grid xxl:grid-cols-4 grid-cols-3 gap-6 px-40 pb-40">
+                <div
+                    class="grid xxl:grid-cols-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 mt-6 gap-6 mb-10 max-w-[1600px]">
                     <div v-for="current of currentResources" :key="current.created_at">
                         <ResourceComponent :resource="current"></ResourceComponent>
                     </div>

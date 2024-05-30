@@ -94,17 +94,20 @@
         <div ref="chatContainer" @scroll="onScroll"
              class="overflow-y-auto overflow-x-hidden w-full min-h-full flex items-center flex-col">
             <TopBar/>
-            <div class="w-[500px] flex flex-col pt-12 flex-grow">
+            <div class="px-6 md:px-0 w-full md:w-[500px] flex flex-col pt-12 flex-grow">
                 <div v-if="chats.length != 0" class="h-full flex flex-col gap-6">
                     <div :key="chatMessage.message" v-for="chatMessage of chats" class="flex flex-col">
                         <p class="text-gray-400 text-lg">{{ chatMessage.sender }}</p>
                         <GptAnswer @resize="resize()" @done="disabled = false" :question="chatMessage"
                                    v-if="chatMessage.sender == Sender.CREATORMATE"></GptAnswer>
                         <p v-else>{{ chatMessage.message }}</p>
+                        <div v-if="chats.length < 2" class="w-full xl:w-2/3 flex md:hidden">
+                            <ExampleQuestions @ask="ask"></ExampleQuestions>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div v-if="chats.length < 2" class="w-2/3">
+            <div v-if="chats.length < 2" class="w-full xl:w-2/3 hidden md:flex">
                 <ExampleQuestions @ask="ask"></ExampleQuestions>
             </div>
             <ChatInput :disabled="disabled" @on-keydown="keydown" @send="handleMessage"></ChatInput>

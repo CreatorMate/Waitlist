@@ -22,10 +22,10 @@
 </script>
 
 <template>
-    <div class="w-full flex justify-center sticky bottom-0 py-8 bg-black bg-opacity-60 backdrop-blur-[8px]">
+    <div class="w-full px-4 md:px-0 flex justify-center sticky bottom-0 py-8 bg-black bg-opacity-60 backdrop-blur-[8px]">
         <div :class="{
            'border-zinc-600': disabled
-       }" class="w-[500px] flex justify-between items-center">
+       }" class="w-full md:w-[532px] flex justify-between items-center">
                <textarea
                    v-model="value"
                    id="onboarding_chat_input"
