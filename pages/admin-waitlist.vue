@@ -94,7 +94,7 @@
 
 .background-number {
     border-radius: 16px;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.10) 0%, rgba(255, 255, 255, 0.10) 100%), rgba(0, 0, 0, 0.80);
+    background: radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,0.10) 0%, rgb(0, 0, 0, 0.60) 100%);
     backdrop-filter: blur(8px);
 }
 

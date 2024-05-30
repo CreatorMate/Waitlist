@@ -7,7 +7,7 @@
 </script>
 
 <template>
-    <main class="w-screen h-screen bg-black text-white flex flex-col">
+    <main class="w-screen h-screen bg-black text-white flex flex-col lowercase">
         <ToastModel></ToastModel>
         <NuxtLayout>
             <NuxtPage></NuxtPage>

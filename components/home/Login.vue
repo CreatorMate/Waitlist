@@ -12,6 +12,7 @@
     const loading = ref(false);
     const emailRegex: RegExp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     const validationError = ref(false);
+    const register = ref(true);
 
     onMounted(async () => {
         if(user.value) {
@@ -47,7 +48,7 @@
 </script>
 
 <template>
-    <h2 class="text-2xl mb-6 font-medium">create account</h2>
+    <h2 class="text-2xl mb-6 font-medium">{{register ? 'create account' : 'login'}}</h2>
     <button @click="withGoogle" class="bg-white w-full rounded-full py-3 text-black font-medium leading-6 hover:bg-gray-200 transition duration-300">
         <Icon class="mr-1 pb-1 leading-6" size="24px" name="ri:google-fill"></Icon>
         continue with google
@@ -63,5 +64,5 @@
         <Icon size="23" name="line-md:loading-loop"></Icon>
     </button>
     <p v-if="validationError" class="mb-6 text-red-500">Please enter a valid email</p>
-    <p class="text-white text-opacity-40">already have an account? <span class="text-white font-normal hover:underline cursor-pointer">login here</span></p>
+    <p class="text-white text-opacity-40">already have an account? <span class="text-white font-normal hover:underline cursor-pointer" @click="register = !register">Login here</span></p>
 </template>

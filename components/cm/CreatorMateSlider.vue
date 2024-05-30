@@ -21,11 +21,11 @@
 
 <style scoped>
 .home-carousel-left {
-    animation: 60s slide-left infinite linear;
+    animation: 90s slide-left infinite linear;
 }
 
 .home-carousel-right {
-    animation: 60s slide-right infinite linear;
+    animation: 90s slide-right infinite linear;
 }
 
 @keyframes slide-left {

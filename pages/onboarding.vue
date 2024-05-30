@@ -164,10 +164,10 @@
 <template>
     <div class="flex flex-col min-h-full items-center relative">
         <div ref="chatContainer" @scroll="onScroll" class="overflow-y-auto overflow-x-hidden w-full min-h-full flex items-center flex-col">
-            <header class="p-10 w-full top-0 sticky flex justify-center bg-black bg-opacity-60 backdrop-blur-[8px]">
+            <header class="p-6 md:p-10 w-full top-0 sticky flex justify-center bg-black bg-opacity-60 backdrop-blur-[8px]">
                 <img alt="creator mate logo"  src="/creatormate.svg">
             </header>
-            <div class="w-[500px] flex flex-col pt-12 flex-grow">
+            <div class="px-6 md:px-0 w-full md:w-[500px] flex flex-col pt-6 md:pt-12 flex-grow">
                 <div class="h-full flex flex-col gap-6">
                     <div :key="chatMessage.id" v-for="chatMessage of chats" class="flex flex-col">
                         <p class="text-white text-opacity-60 pb-2">{{chatMessage.sender}}</p>

@@ -4,7 +4,6 @@
     import {Sender} from "~/src/chat/Sender";
     import {SupabaseTables} from "~/src/SupabaseTypes";
     import {useAccountStore} from "~/src/account/AccountStore";
-    import {OnboardingMessageType} from "~/src/onboarding/OnboardingMessageType";
     import ExampleQuestions from "~/components/chat/ExampleQuestions.vue";
 
     const chatContainer = ref<HTMLElement | null>(null);
