@@ -22,9 +22,9 @@
     const acceptableTypes = ["image/jpg", "image/png", "image/jpeg", "image/gif", "image/svg"];
 
     async function selectImage(evt: any) {
-        const maxSizeInBytes = 2 * 1024 * 1024;
+        const maxSizeInBytes = 5 * 1024 * 1024;
         if(evt.target.files[0].size > maxSizeInBytes) {
-            toastStore.addToast("Image can only be 2mb", ToastType.ERROR);
+            toastStore.addToast("Image can only be 6mb", ToastType.ERROR);
             return;
         }
         if(!acceptableTypes.includes(evt.target.files[0].type)) {
