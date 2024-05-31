@@ -130,7 +130,7 @@
                     </div>
                 </div>
             </div>
-            <div v-if="chats.length < 2" class="w-full xl:w-2/3 hidden md:flex">
+            <div v-if="chats.length < 2" class="w-full xl:w-2/3 hidden md:flex justify-center">
                 <ExampleQuestions @ask="ask"></ExampleQuestions>
             </div>
             <ChatInput :disabled="disabled" @on-keydown="keydown" @send="handleMessage"></ChatInput>

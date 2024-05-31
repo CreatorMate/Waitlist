@@ -14,7 +14,7 @@
         <div @click="emit('close')" v-show="modelActive"
              class="absolute screen-size top-0 left-0 flex justify-center items-center z-40 bg-black bg-opacity-60 backdrop-blur-[8px]">
             <Transition name="modal-inner">
-                <div @click.stop v-if="modelActive" class="p-10 bg-black w-[425px] flex flex-col items-center">
+                <div @click.stop v-if="modelActive" class="p-10 bg-black w-[425px] flex flex-col items-center rounded-2xl">
                     <slot></slot>
                 </div>
             </Transition>
