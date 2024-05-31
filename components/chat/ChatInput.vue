@@ -14,7 +14,7 @@
 
     function send() {
         if (value.value.length == 0) return;
-        emits('send', value);
+        emits('send', value.value);
         value.value = "";
     }
 
