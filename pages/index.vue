@@ -45,6 +45,6 @@
 
 <style scoped>
 .background-mask {
-    background: radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,0.10) 0%, rgb(0, 0, 0, 0.60) 100%);
+    background: radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,0.10) 0%, rgb(0, 0, 0, 0.90) 90%);
 }
 </style>

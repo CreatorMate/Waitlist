@@ -7,10 +7,23 @@
 </script>
 
 <template>
-    <main class="w-screen h-screen bg-black text-white flex flex-col lowercase">
+    <main class="screen-size bg-black text-white flex flex-col lowercase">
         <ToastModel></ToastModel>
         <NuxtLayout>
             <NuxtPage></NuxtPage>
         </NuxtLayout>
     </main>
 </template>
+
+<style>
+.screen-size {
+    width: 100vw;
+    height: 100vh;
+}
+@supports (width: 100dvh) {
+    .screen-size {
+        width: 100dvw;
+        height: 100dvh;
+    }
+}
+</style>

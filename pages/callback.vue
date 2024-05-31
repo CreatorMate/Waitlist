@@ -18,13 +18,13 @@
             return;
         }
         await accountStore.get(user.value.id);
-        // if(accountStore.completedOnboarding) {
-        //     await router.push('/home');
-        //     return;
-        // } else {
-        //     await router.push('/onboarding');
-        // }
-    })
+        if(accountStore.completedOnboarding) {
+            await router.push('/home');
+            return;
+        } else {
+            await router.push('/onboarding');
+        }
+    });
 </script>
 
 <template>

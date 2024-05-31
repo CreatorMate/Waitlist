@@ -17,8 +17,8 @@
         <div ref="chatContainer"
              class="overflow-y-auto overflow-x-hidden w-full min-h-full flex items-center flex-col">
             <TopBar/>
-            <div class="flex justify-center pt-12 w-full items-start">
-                <div class="absolute top-40 flex w-[800px] 2xl:w-[992px] z-20">
+            <div class="flex justify-start pt-12 w-full items-center flex-col">
+                <div class="lg:absolute lg:top-40 flex w-[800px] 2xl:w-[992px] z-20">
                     <div class="flex flex-col gap-6 sticky items-end">
                         <div class="flex flex-col gap-6">
                             <img alt="Profile picture" class="w-20 top-0 h-20 rounded-2xl"
