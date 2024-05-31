@@ -27,7 +27,7 @@ export class OnboardingHandler {
     public step = ref(1);
     public total = ref(5);
     public questions: OnboardingQuestion[] = [];
-    private attemptsPerCat  = 7;
+    private attemptsPerCat  = 5;
     private attemptsLeft = this.attemptsPerCat;
 
     constructor() {
