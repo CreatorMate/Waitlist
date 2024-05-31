@@ -32,24 +32,42 @@
     from {
         transform: translateX(0);
         -webkit-transform: translateX(0);
-        -ms-transform: translateY(0);
-        -moz-transform: translateY(0);
-        -o-transform: translateY(0);
     }
     to {
         transform: translateX(-100%);
         -webkit-transform: translateX(-100%);
-        -ms-transform: translateX(-100%);
-        -moz-transform: translateX(-100%);
-        -o-transform: translateX(-100%);
     }
 }
 
 @keyframes slide-right {
     from {
         transform: translateX(-100%);
+        -webkit-transform: translateX(-100%);
     }
     to {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes slide-left {
+    from {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
+@-webkit-keyframes slide-right {
+    from {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+    to {
+        -webkit-transform: translateX(0);
         transform: translateX(0);
     }
 }
