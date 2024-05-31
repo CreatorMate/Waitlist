@@ -12,6 +12,12 @@ module.exports = {
             '4xl': '1950px',
             '5xl': '2500px',
             '6xl': '3300px',
+        },
+        extend: {
+            boxShadow: {
+                'input': '0px 0px 0px 2px rgba(255, 255, 255, 0.40)',
+                'none': '0px 0px 0px 2px rgba(255, 255, 255, 0)',
+            },
         }
     }
 }

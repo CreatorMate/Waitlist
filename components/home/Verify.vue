@@ -13,6 +13,7 @@
     const form = ref();
     const router = useRouter();
     const verificationError = ref(false)
+    const inputValues = ref(Array(6).fill(''))
 
     const {email} = defineProps<{
         email: string
@@ -105,23 +106,27 @@
                 inputs[index - 1].focus();
             }
         }
-    };
-
+    }
 </script>
 
 <template>
     <h2 class="text-2xl mb-6 font-medium">verify email</h2>
     <p class="text-white text-opacity-40">enter the code sent to your email address</p>
-    <form ref="form" @submit.prevent="verify" class="h-full my-6">
+    <form ref="form" @submit.prevent="verify" class="h-full my-4">
         <div class="grid grid-cols-6 gap-2">
             <input v-for="index in inputs" :key="index"
                    @change="updateText"
+                   v-model="inputValues[index]"
                    :disabled="loading"
                    @input="handleInput"
                    @paste="handlePaste"
                    @keydown="handleKeyDown"
+                   placeholder=""
                    type="text"
-                   class="p-4 h-[56px] text-center text-white bg-white bg-opacity-10 rounded border border-white border-opacity-20 active:border-opacity-0"
+                   :class="[
+                       inputValues[index] != '' ? 'border border-white border-opacity-20' : ''
+                   ]"
+                   class="p-4 h-[56px] verifyBox text-center text-white bg-white bg-opacity-10 rounded-lg active:border-opacity-0"
                    pattern="\d*" maxlength="1"/>
         </div>
     </form>

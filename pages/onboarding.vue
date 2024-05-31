@@ -124,8 +124,7 @@
         loading.value = false;
         chats.value.push({
             sender: Sender.CREATORMATE,
-            message: "okay i think i've got everything i need to get you applied for the waiting list. \n\n" +
-                "Looks great. if you need to change anything later you can do so in the profile page. Hit the join now button to get join your creative journey!",
+            message: "sweet. hit the button below to wrap things up. you can tweak your info anytime if you need to.",
             type: OnboardingMessageType.LAST,
             id: nextID()
         });
@@ -143,7 +142,9 @@
         loading.value = false;
         chats.value.push({
             sender: Sender.CREATORMATE,
-            message: "What social media platforms are you using? fill in the one's you are using",
+            message: `avatar looks awesome, ${onboardingHandler.name}! you're gonna stand out for sure.
+
+            last bit - where are you sharing your stuff right now?`,
             type: OnboardingMessageType.SOCIALS,
             id: nextID()
         });
@@ -172,7 +173,7 @@
                 <img alt="creator mate logo"  src="/creatormate.svg">
             </header>
             <div class="px-6 md:px-0 w-full md:w-[500px] flex flex-col pt-6 md:pt-12 flex-grow">
-                <div class="h-full flex flex-col gap-6 mb-6 xs:mb-0">
+                <div class="h-full flex flex-col gap-6 mb-12 xs:mb-0">
                     <div :key="chatMessage.id" v-for="chatMessage of chats" class="flex flex-col">
                         <p class="text-white text-opacity-60 pb-2">{{chatMessage.sender}}</p>
                         <OnboardingQuestion @saved_socials="savedSocials" @save="save" @uploaded="uploaded" @resize="resize()" @done="done" :question="chatMessage"></OnboardingQuestion>
@@ -183,7 +184,7 @@
                     </div>
                 </div>
             </div>
-            <ChatInput :disabled="disabled" @on-keydown="keydown" @send="handleMessage"></ChatInput>
+            <ChatInput :disabled="disabled || onboardingHandler.blocked.value" @on-keydown="keydown" @send="handleMessage"></ChatInput>
         </div>
     </div>
 </template>

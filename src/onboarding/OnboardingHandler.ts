@@ -2,7 +2,6 @@ import type {RoyalReturn} from "~/server/app/Royalution";
 import {useToastStore} from "~/src/toast/ToastStore";
 import {ToastType} from "~/src/toast/ToastType";
 import {useAccountStore} from "~/src/account/AccountStore";
-import {SupabaseTables} from "~/src/SupabaseTypes";
 
 interface OnboardingQuestion {
     step: number,
@@ -17,15 +16,19 @@ interface OnboardingHistoryItem {
 
 export class OnboardingHandler {
     private toastStore = useToastStore();
-    private accountStore= useAccountStore();
+    private accountStore = useAccountStore();
     private router = useRouter();
-    public step = ref(1);
-    public total = ref(5);
     public name: string = "";
+    public location: string = "";
+    public blocked = ref(false);
     public chatHistory: OnboardingHistoryItem[] = [];
     private client = useSupabaseClient();
 
+    public step = ref(1);
+    public total = ref(5);
     public questions: OnboardingQuestion[] = [];
+    private attemptsPerCat  = 7;
+    private attemptsLeft = this.attemptsPerCat;
 
     constructor() {
         this.questions.push({
@@ -55,8 +58,9 @@ export class OnboardingHandler {
         });
     }
 
-    async answer(answer: string): Promise<{question: string, category: string}> {
-        this.chatHistory[this.chatHistory.length-1].answer = answer;
+    async answer(answer: string): Promise<{ question: string, category: string }> {
+        if(this.blocked.value)  return {question: "", category: "error"}
+        this.chatHistory[this.chatHistory.length - 1].answer = answer;
         //ask royalution
         const request = await fetch("/api/onboarding/ask-royalution", {
             method: "POST",
@@ -65,44 +69,52 @@ export class OnboardingHandler {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                category: this.questions[this.step.value-1].category,
+                category: this.questions[this.step.value - 1].category,
                 answer: answer,
                 history: this.chatHistory
             })
         })
         const response: RoyalReturn = await request.json();
 
-        if(response.code == 429 || response.code == 504) {
+        if (response.code == 429 || response.code == 504) {
             this.toastStore.addToast("Timed out, try again later", ToastType.ERROR);
         }
 
-        if(!response.success) {
+        if (!response.success) {
             return {
                 question: "",
                 category: "error"
             }
         }
 
-        if(response.valid) {
-            if(response.name.length > 0) {
+        if (response.valid) {
+            if (response.name.length > 0) {
                 this.name = response.name;
                 this.accountStore.username = response.name;
             }
-            this.questions[this.step.value-1].answer = answer;
+            if (response.location.length > 0) {
+                this.accountStore.location = response.location;
+            }
+            this.attemptsLeft =  this.attemptsPerCat;
+            this.questions[this.step.value - 1].answer = answer;
             this.step.value++;
             let newQuestion = `${response.response}\n\n${this.getQuestionByStep()}`
             this.addQuestionHistory(newQuestion);
             return {
                 question: newQuestion,
-                category: this.questions[this.step.value-1].category,
+                category: this.questions[this.step.value - 1].category,
             };
         }
 
+        this.attemptsLeft--;
+        if(this.attemptsLeft < 1) {
+            this.toastStore.addToast("You have reached the rate limit please reload and try again.", ToastType.ERROR)
+            this.blocked.value = true;
+        }
         this.addQuestionHistory(response.response);
-
         return {
             question: response.response,
-            category: this.questions[this.step.value-1].category,
+            category: this.questions[this.step.value - 1].category,
         };
     }
 
@@ -116,28 +128,29 @@ export class OnboardingHandler {
     getQuestionByStep(): string {
         switch (this.step.value) {
             case 1: {
-                return "hello friend glad you've decided to join the waitlist for creator mate." +
-                "\n\n" +
-                "let's start your journey. this will take 60-seconds max. promise." +
-                "\n\n" +
-                "If you have any issues - feel free to email us at support@creatormate.com." +
-                "\n\n" +
-                "Okay, first:" +
-                "\n\n" +
-                "what's your name & where are you based (ex, hi im jens, im from amsterdam)"
+                return "hi, stoked to see you on the creator mate waitlist. let's get this show on the road.\n" +
+                    "\n" +
+                    "we’ll fly through this in under a minute. if something’s wrong – hit us up at support@creatormate.com." +
+                    "\n\n" +
+                    "first up:\n" +
+                    "\n" +
+                    "what's your name & where do you call home? (ex: hey i'm jesse, i'm from amsterdam)\n"
             }
             case 2: {
-                return `ok ${this.name}, let's talk about you. what creator do you want to be in 5 years? 
+                return `alright ${this.name}, let's dive into your dreams. what kind of content do you wanna make? 
 
-it can be anything, dream big! example; a barber creator, cutting other creators while interviewing them on topics that interest me such as personal growth, mental health, and manifesting. 
+shoot for the stars here. ex: i want to create videos of cutting celebrities' hair while chatting about personal growth, mental health, and manifesting. 
 
-don't worry if you aren't 100% sure yet. just share what's on your mind in 1-2 sentences.`;
+don’t sweat it if you’re still figuring it out. just spill what’s on your mind in a sentence or two.
+`;
             }
             case 3: {
                 return "";
             }
             case 4: {
-                return "please upload a photo of yourself that captures your vibe. a real pic of you is ideal but an anime avatar works too if you prefer. you can upload it below.";
+                return "next up - let’s get your profile pic sorted.\n" +
+                    "\n" +
+                    "upload a pic that captures your vibe. a real photo of you is great, but if you’re feeling an avatar, that works too. just upload it below.\n";
             }
             default: {
                 return "";
@@ -145,23 +158,9 @@ don't worry if you aren't 100% sure yet. just share what's on your mind in 1-2 s
         }
     }
 
-    getOnboardingObject() {
-        return {
-            user_id: this.accountStore.userId,
-            introduction: this.questions[0].answer,
-            content:  this.questions[1].answer,
-            creator:  this.questions[2].answer
-        }
-    }
-
     async save() {
-        const {error: deleteError, data: deleteData} = await this.client.from(SupabaseTables.Onboarding).delete().eq('user_id', this.accountStore.userId)
-        //@ts-ignore
-        const{error, data} = await this.client.from(SupabaseTables.Onboarding).insert(this.getOnboardingObject())
-        if(deleteError || error) {
-            this.toastStore.addToast("Something went wrong trying to save your progress. Please try again.", ToastType.ERROR);
-            return;
-        }
+        this.accountStore.contentType = this.questions[1].answer;
+        this.accountStore.creatorType = this.questions[2].answer;
         this.accountStore.completedOnboarding = true;
         await this.accountStore.update();
         await this.router.push('/home');

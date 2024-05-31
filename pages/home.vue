@@ -5,11 +5,18 @@
     import {SupabaseTables} from "~/src/SupabaseTypes";
     import {useAccountStore} from "~/src/account/AccountStore";
     import ExampleQuestions from "~/components/chat/ExampleQuestions.vue";
+    import {useToastStore} from "~/src/toast/ToastStore";
+    import {ToastType} from "~/src/toast/ToastType";
 
     const chatContainer = ref<HTMLElement | null>(null);
     const isAtBottom = ref(true);
     const supabase = useSupabaseClient();
     const account = useAccountStore();
+    const toastStore = useToastStore();
+
+    let interval = 60 * 1000;
+    let messagesPerMin = 10;
+    let remaining = ref(messagesPerMin);
 
     let chats: Ref<ChatMessage[]> = ref([]);
 
@@ -25,7 +32,10 @@
             sender: Sender.CREATORMATE,
             type: 'start'
         });
-    })
+        setInterval(() => {
+            remaining.value = messagesPerMin;
+        }, interval)
+    });
 
     async function keydown(event: KeyboardEvent, message: string) {
         if (event.key === 'Enter' && !event.shiftKey) {
@@ -40,6 +50,11 @@
 
     async function handleMessage(message: string) {
         if (message.length == 0) return;
+        if(remaining.value < 1) {
+            toastStore.addToast("Looks like you are sending alot of questions, please wait a bit", ToastType.ERROR);
+            return;
+        }
+        remaining.value--;
         chats.value.push({
             sender: Sender.USER,
             message: message,
@@ -97,6 +112,7 @@
         <div ref="chatContainer" @scroll="onScroll"
              class="overflow-y-auto overflow-x-hidden w-full min-h-full flex items-center flex-col">
             <TopBar/>
+            <p>{{remaining}}</p>
             <div class="px-6 md:px-0 w-full md:w-[500px] flex flex-col pt-12 flex-grow">
                 <div v-if="chats.length != 0" class="h-full flex flex-col gap-6">
                     <div :key="chatMessage.message" v-for="chatMessage of chats" class="flex flex-col">

@@ -4,17 +4,20 @@
     import {ToastType} from "~/src/toast/ToastType";
 
     const emit = defineEmits(['uploaded']);
+    const accountStore = useAccountStore();
+    const toastStore = useToastStore();
 
     const uploaded = ref(false);
     const imageLink = ref("");
+    if(accountStore.avatar_url) {
+        imageLink.value = accountStore.getProfileImageSrc();
+    }
     const image = ref("");
     const loading = ref(false);
     const fileInput = ref(null);
 
     const user = useSupabaseUser();
     const supabase = useSupabaseClient();
-    const accountStore = useAccountStore();
-    const toastStore = useToastStore();
     const files = ref();
     const acceptableTypes = ["image/jpg", "image/png", "image/jpeg", "image/gif", "image/svg"];
 
@@ -34,6 +37,10 @@
     }
 
     async function save() {
+        if(imageLink.value && !image.value) {
+            emit('uploaded');
+            return;
+        }
         if (!image.value) return;
         loading.value = true;
         const file = image.value;
@@ -49,6 +56,7 @@
             await supabase.storage.from('avatars').remove([accountStore.avatar_url]);
         }
 
+        loading.value = false;
         accountStore.avatar_url = data.path;
         emit('uploaded');
     }
@@ -58,7 +66,7 @@
     <div class="flex flex-col mt-2 gap-4">
         <div @click="fileInput.click()"
              class="cursor-pointer relative w-[135px] h-[135px] bg-white bg-opacity-10 flex justify-center items-center rounded-2xl">
-            <div v-if="!image" class="flex flex-col justify-center items-center gap-2 text-white text-opacity-40">
+            <div v-if="!image && !imageLink" class="flex flex-col justify-center items-center gap-2 text-white text-opacity-40">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <g clip-path="url(#clip0_210_506)">
@@ -73,15 +81,15 @@
                 </div>
                 <p class="text-white text-opacity-40">upload avatar</p>
             </div>
-            <img v-if="image" :src="imageLink" alt="profile picture" class="w-full h-full object-cover rounded-2xl">
-            <div v-if="image"
+            <img v-if="imageLink" :src="imageLink" alt="profile picture" class="w-full h-full object-cover rounded-2xl">
+            <div v-if="imageLink"
                  class="h-full w-full absolute top-0 left-0 hover:bg-zinc-800 hover:bg-opacity-55 bg-zinc-900 bg-opacity-55 flex justify-center items-center">
                 <p v-if="!loading">change avatar</p>
                 <Icon size="32px" name="line-md:loading-twotone-loop" v-else></Icon>
             </div>
         </div>
-        <div v-if="image">
-            <button @click="save" class="bg-white bg-opacity-20 rounded-full py-1 px-3 mt-4 font-medium text-white text-white">Looks good</button>
+        <div v-if="imageLink">
+            <button @click="save" class="bg-white rounded-full py-1 px-3 mt-4 font-medium text-black">I like it</button>
         </div>
         <input ref="fileInput" type="file" accept="image/*" @change="selectImage" style="display: none"/>
     </div>

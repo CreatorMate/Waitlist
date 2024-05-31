@@ -74,8 +74,8 @@
         <p v-else-if="question.type == OnboardingMessageType.ERROR" class="text-red-500">Something went wrong, please come back later.</p>
         <SelectProfilePicture @uploaded="savedImage" v-if="question.type == OnboardingMessageType.PICTURE && showImageUpload">
         </SelectProfilePicture>
-        <SelectSocials @save="savedSocials" v-if="question.type == OnboardingMessageType.SOCIALS && showSocialsInput"></SelectSocials>
-        <button @click="save" class="bg-white text-black font-semibold mt-6 px-4 py-2" v-if="showSaveButton && question.type == OnboardingMessageType.LAST">
+        <SelectSocials @save="savedSocials" v-if="question.type == OnboardingMessageType.SOCIALS && showSocialsInput" :on-onboarding="true"></SelectSocials>
+        <button @click="save" class="bg-white text-black font-semibold mt-6 px-4 py-2 rounded-full" v-if="showSaveButton && question.type == OnboardingMessageType.LAST">
             Sign up to the waitlist
         </button>
     </div>

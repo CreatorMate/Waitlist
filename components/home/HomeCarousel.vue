@@ -3,8 +3,9 @@
     import CreatorComponent from "~/components/home/Creator.vue";
     import {creators} from "~/src/creators/creators";
     import type {Creator} from "~/src/creators/creators";
+    import {onMounted} from "vue";
 
-    function shuffle<T>(array: T[]): T[] {
+    async function shuffle<T>(array: T[]): Promise<T[]> {
         let currentIndex = array.length, temporaryValue, randomIndex;
 
         let newArray = [...array];
@@ -26,8 +27,13 @@
         console.log("After shuffle:", shuffledArray);
     }
 
-    const slideListOne = shuffle(creators);
-    const slideListTwo = shuffle(creators);
+    const slideListOne = ref<Creator[]>([]);
+    const slideListTwo = ref<Creator[]>([]);
+
+    onMounted(async () => {
+        slideListOne.value = await shuffle(creators)
+        slideListTwo.value = await shuffle(creators)
+    });
 </script>
 
 <template>

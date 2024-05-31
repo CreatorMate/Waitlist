@@ -21,7 +21,8 @@ export class Royalution {
                 response: "",
                 valid: false,
                 category: "",
-                name: ""
+                name: "",
+                location: ""
             }
         }
 
@@ -36,7 +37,8 @@ export class Royalution {
                 response: data.response,
                 valid: data.valid,
                 category: data.category,
-                name: data.name ?? ""
+                name: data.name ?? "",
+                location: data.location ?? ""
             };
         }
 
@@ -48,7 +50,8 @@ export class Royalution {
             response: "",
             valid: false,
             category: "",
-            name: ""
+            name: "",
+            location: ""
         }
     }
 }
@@ -59,5 +62,6 @@ export interface RoyalReturn {
     response: string,
     valid: boolean,
     category: string,
-    name: string
+    name: string,
+    location: string
 }

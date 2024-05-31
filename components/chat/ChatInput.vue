@@ -34,6 +34,7 @@
                    rows="1"
                    placeholder="type here..."
                    type="text"
+                   maxlength="250"
                    :class="{
                        'placeholder-zinc-600': disabled
                    }"

@@ -27,7 +27,7 @@
         </div>
         <div class="flex flex-col justify-center items-center gap-6 md:gap-10 w-full md:w-[850px]">
             <h1 class="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl flex-wrap font-medium text-center px-5 md:px-0">ready to build your dream community?</h1>
-            <button @click="modelActive = true" class="px-6 py-2 md:py-3 bg-white text-black font-semibold hover:bg-gray-200 rounded-full transition duration-300">
+            <button @click="modelActive = true" class="px-6 py-2 md:py-3 bg-white text-black font-medium hover:bg-gray-200 rounded-full transition duration-300">
                 {{user ? 'go to waitlist' : 'join waitlist'}}
             </button>
         </div>

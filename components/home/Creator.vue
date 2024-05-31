@@ -4,6 +4,8 @@
     const {creator} = defineProps<{
         creator: Creator,
     }>();
+
+    console.log("created");
 </script>
 
 <template>

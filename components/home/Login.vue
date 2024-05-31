@@ -58,8 +58,8 @@
         <p class="py-4 text-white text-opacity-40">or</p>
         <div class="h-[1px] w-full mx-4 bg-white bg-opacity-20"></div>
     </div>
-    <input @keydown.enter="signIn" v-model="email" placeholder="your@email.com" style="background-color: rgba(255, 255, 255, 0.10)" class="w-full py-3 px-4 text-center rounded-full placeholder-opacity-40 placeholder-white text-white text-opacity-40 mb-2" type="email">
-    <button @click="signIn" v-if="!loading" class="px-3 py-3 rounded-full bg-white bg-opacity-20 w-full mb-6 hover:bg-opacity-15 transition duration-300">continue with email</button>
+    <input @keydown.enter="signIn" v-model="email" placeholder="your@email.com" style="background-color: rgba(255, 255, 255, 0.10)" class="w-full py-3 px-4 text-center rounded-full placeholder-opacity-40 placeholder-white text-white mb-2 outline-0 border border-black focus:shadow-input focus:border focus:border-white" type="email">
+    <button @click="signIn" v-if="!loading" class="px-3 py-3 rounded-full bg-white bg-opacity-20 w-full mb-6 hover:bg-opacity-15 transition duration-300 font-medium">continue with email</button>
     <button v-else class="px-3 py-3 rounded-full bg-white bg-opacity-20 w-full mb-6">
         <Icon size="23" name="line-md:loading-loop"></Icon>
     </button>

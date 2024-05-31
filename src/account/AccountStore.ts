@@ -14,6 +14,8 @@ export const useAccountStore = defineStore("account", () => {
     const instagram = ref<null|string>();
     const youtube = ref<null|string>();
     const twitter = ref<null|string>();
+    const creatorType = ref<null|string>();
+    const contentType = ref<null|string>();
     const supabaseClient = useSupabaseClient();
     const router = useRouter();
     const toastStore = useToastStore();
@@ -29,7 +31,7 @@ export const useAccountStore = defineStore("account", () => {
     async function get( id: string) {
         const {data} = await supabaseClient
             .from('profiles')
-            .select(`username, avatar_url, points, id, completed_onboarding, is_admin, instagram, twitter, youtube`)
+            .select(`username, avatar_url, points, id, completed_onboarding, is_admin, instagram, twitter, youtube, creator_type, content_type, location`)
             .eq('id', id)
             .single();
 
@@ -44,6 +46,9 @@ export const useAccountStore = defineStore("account", () => {
         youtube.value = data.youtube;
         twitter.value = data.twitter;
         instagram.value = data.instagram;
+        contentType.value = data.content_type;
+        creatorType.value = data.creator_type;
+        location.value = data.location;
     }
 
     async function update() {
@@ -57,7 +62,10 @@ export const useAccountStore = defineStore("account", () => {
                 completed_onboarding: completedOnboarding.value,
                 youtube: youtube.value,
                 instagram: instagram.value,
-                twitter: twitter.value
+                twitter: twitter.value,
+                creator_type: creatorType.value,
+                location: location.value,
+                content_type: contentType.value
             }
             //@ts-ignore
             const {error} = await supabaseClient.from('profiles').upsert(updates, {
@@ -73,5 +81,5 @@ export const useAccountStore = defineStore("account", () => {
         return `https://jrirqcnnxpbhvmuugxnl.supabase.co/storage/v1/object/public/avatars/${avatar_url.value}`;
     }
 
-    return {username, points, avatar_url, get, update, logout, getProfileImageSrc, completedOnboarding, userId, isAdmin, youtube, twitter, instagram, location}
+    return {username, points, avatar_url, get, update, logout, getProfileImageSrc, completedOnboarding, userId, isAdmin, youtube, twitter, instagram, location, contentType, creatorType}
 })
