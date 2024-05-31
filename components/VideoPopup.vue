@@ -12,7 +12,7 @@
 <template>
     <Transition name="modal-outer">
         <div @click="emit('close')" v-show="modelActive"
-             class="absolute w-screen h-screen top-0 left-0 flex justify-center items-center z-40 bg-black bg-opacity-60 backdrop-blur-[8px]">
+             class="absolute screen-size top-0 left-0 flex justify-center items-center z-40 bg-black bg-opacity-60 backdrop-blur-[8px]">
             <Transition name="modal-inner">
                 <div @click.stop v-if="modelActive" class="p-6 md:p-10 w-[925px] flex flex-col items-center">
                     <slot></slot>

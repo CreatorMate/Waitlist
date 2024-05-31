@@ -14,16 +14,3 @@
         </NuxtLayout>
     </main>
 </template>
-
-<style>
-.screen-size {
-    width: 100vw;
-    height: 100vh;
-}
-@supports (width: 100dvh) {
-    .screen-size {
-        width: 100dvw;
-        height: 100dvh;
-    }
-}
-</style>

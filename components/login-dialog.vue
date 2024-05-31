@@ -117,7 +117,7 @@
 </script>
 
 <template>
-    <div class="w-screen h-screen absolute top-0 left-0 flex items-center justify-center backdrop-blur">
+    <div class="screen-size absolute top-0 left-0 flex items-center justify-center backdrop-blur">
         <div v-show="!verifiying" class="p-4 border border-zinc-800 bg-black flex flex-col gap-4 text-sm w-[300px]">
             <p class="mb-1">creatormate login</p>
             <button @click="withGoogle" class="bg-white text-black py-1">continue with google</button>
