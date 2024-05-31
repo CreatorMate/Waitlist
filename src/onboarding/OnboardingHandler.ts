@@ -134,7 +134,7 @@ export class OnboardingHandler {
                     "\n\n" +
                     "first up:\n" +
                     "\n" +
-                    "what's your name & where do you call home? (ex: hey i'm jesse, i'm from amsterdam)\n"
+                    "what's your name & where do you call home? (ex: hey i'm jens, i'm from amsterdam)\n"
             }
             case 2: {
                 return `alright ${this.name}, let's dive into your dreams. what kind of content do you wanna make? 
