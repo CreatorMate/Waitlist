@@ -48,6 +48,6 @@
 }
 
 .resource:hover {
-    transform: translateY(-20px);
+    transform: translateY(-7px);
 }
 </style>
