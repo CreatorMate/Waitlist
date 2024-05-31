@@ -6,6 +6,7 @@
     import type {OnboardingMessage} from "~/src/onboarding/OnboardingMessage";
     import {OnboardingMessageType} from "~/src/onboarding/OnboardingMessageType";
     import {useAccountStore} from "~/src/account/AccountStore";
+    import {useRouter} from "#app";
 
     definePageMeta({
         layout: 'empty'
@@ -20,10 +21,14 @@
     const accountStore = useAccountStore();
     const user = useSupabaseUser();
     const disabled = ref(true);
+    const router = useRouter();
 
     onMounted(async () => {
         if(!user.value) return;
         await accountStore.get(user.value.id);
+        if(accountStore.completedOnboarding || (accountStore.contentType && accountStore.creatorType && accountStore.avatar_url)) {
+            await router.replace('/home');
+        }
         let firstQuestion = onboardingHandler.getQuestionByStep();
         chats.value.push({
             message: firstQuestion,

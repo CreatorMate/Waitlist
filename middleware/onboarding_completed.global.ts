@@ -13,7 +13,7 @@ export default defineNuxtRouteMiddleware(async (to: RouteLocationNormalized, fro
         }
         if(allowedPaths.includes(to.path)) return;
 
-        if (!accountStore.completedOnboarding) {
+        if (!accountStore.completedOnboarding && (!accountStore.contentType || !accountStore.creatorType || !accountStore.avatar_url)) {
             return navigateTo('/onboarding')
         }
     }

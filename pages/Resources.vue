@@ -56,7 +56,10 @@
     <section class="flex flex-col flex-grow overflow-x-hidden">
         <TopBar></TopBar>
         <div class=" w-full h-full">
-            <div v-if="!loading" class="w-full mt-6 md:mt-12 flex flex-col items-center px-7 md:px-20 xl:px-40">
+            <div v-if="!loading && currentResources.length == 0" class="flex justify-center w-full mt-6 md:mt-12">
+                <p>No resources yet!, please check back soon</p>
+            </div>
+            <div v-else-if="!loading" class="w-full mt-6 md:mt-12 flex flex-col items-center px-7 md:px-20 xl:px-40">
                 <div class="flex w-full sm:justify-center gap-1 flex-wrap">
                     <p :class="[selectedCat == '' ? 'bg-opacity-20': 'text-opacity-60']"
                        @click="changeCategory('')"

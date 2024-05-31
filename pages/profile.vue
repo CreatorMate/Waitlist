@@ -15,10 +15,18 @@
     const contentType = ref(account.contentType);
 
     async function save() {
-        account.username = name.value;
-        account.location = location.value;
-        account.creatorType = creatorType.value;
-        account.contentType = contentType.value;
+        if(name.value.length > 0) {
+            account.username = name.value;
+        }
+        if(location.value.length > 0) {
+            account.location = location.value;
+        }
+        if(creatorType.value && creatorType.value.length > 0) {
+            account.creatorType = creatorType.value;
+        }
+        if(contentType.value && contentType.value.length > 0) {
+            account.contentType = contentType.value;
+        }
         await account.update();
     }
 </script>
