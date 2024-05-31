@@ -42,8 +42,6 @@ export class Royalution {
             };
         }
 
-        console.error(request.status);
-
         return {
             success: false,
             code: request.status,

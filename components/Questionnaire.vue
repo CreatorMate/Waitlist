@@ -40,11 +40,9 @@
             return;
         }
         answers.value.set(questionId, answer);
-        console.log(answers.value)
     }
 
     async function save() {
-        console.log(answers.value.entries())
         errors.value = [];
         for(let question of questions.value) {
             if(!answers.value.has(question.question.id)) {

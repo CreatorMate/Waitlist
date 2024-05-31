@@ -16,6 +16,7 @@
 
     let interval = 60 * 1000;
     let messagesPerMin = 10;
+    let intervalId: any = null;
     let remaining = ref(messagesPerMin);
 
     let chats: Ref<ChatMessage[]> = ref([]);
@@ -32,10 +33,14 @@
             sender: Sender.CREATORMATE,
             type: 'start'
         });
-        setInterval(() => {
+        intervalId = setInterval(() => {
             remaining.value = messagesPerMin;
         }, interval)
     });
+
+    onUnmounted(() => {
+        clearInterval(intervalId)
+    })
 
     async function keydown(event: KeyboardEvent, message: string) {
         if (event.key === 'Enter' && !event.shiftKey) {
@@ -112,7 +117,6 @@
         <div ref="chatContainer" @scroll="onScroll"
              class="overflow-y-auto overflow-x-hidden w-full min-h-full flex items-center flex-col">
             <TopBar/>
-            <p>{{remaining}}</p>
             <div class="px-6 md:px-0 w-full md:w-[500px] flex flex-col pt-12 flex-grow">
                 <div v-if="chats.length != 0" class="h-full flex flex-col gap-6">
                     <div :key="chatMessage.message" v-for="chatMessage of chats" class="flex flex-col">

@@ -23,7 +23,6 @@
     async function getResources() {
         const {data, error} = await supabase.from('resources').select('*');
         if (error) {
-            console.log(error)
             //@todo toast popup
             return;
         }
@@ -34,7 +33,6 @@
             categories.value.add(resource.category)
         })
 
-        console.log(resources.value)
     }
 
     function canDisplay(resource: Resource): boolean {

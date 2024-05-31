@@ -29,7 +29,6 @@
         }, async () => {
             await refreshList();
         }).subscribe();
-        console.log("hello world")
     });
 
     onUnmounted(() => {

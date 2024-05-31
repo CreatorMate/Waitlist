@@ -14,7 +14,6 @@
     const selectedCountries = ref<number[]>([]);
 
     watch(selectedCountries, () => {
-        console.log("change")
         update();
     })
 
