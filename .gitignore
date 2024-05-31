@@ -131,3 +131,5 @@ dist
 
 .nuxt
 .output
+
+.idea/inspectionProfiles/Project_Default.xml
