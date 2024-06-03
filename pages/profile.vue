@@ -29,6 +29,21 @@
         }
         await account.update();
     }
+
+    function shareWithTwitter() {
+        const photoUrl = 'https://creatormate.com/creatormate.svg';
+        const tweetText = `this is a cool text on twitter ${photoUrl}`;
+        const encodedTweetText = encodeURIComponent(tweetText);
+        const url = `https://twitter.com/intent/tweet?text=${encodedTweetText}&url=${encodeURIComponent('https://creatormate.com')}`;
+        window.open(url, '_blank');
+    }
+
+    function shareWithLinkedIn() {
+        const shareMessage = `I just joined the creator mate waitlist`;
+        const encodedShareMessage = encodeURIComponent(shareMessage);
+        const url = `https://www.linkedin.com/shareArticle?mini=true&url=https://creatormate.com&text=${encodedShareMessage}`;
+        window.open(url, '_blank');
+    }
 </script>
 
 <template>
@@ -38,7 +53,7 @@
              class="overflow-y-auto overflow-x-hidden w-full min-h-full flex items-center flex-col">
             <TopBar/>
             <div class="flex justify-start pt-6 lg:pt-12 w-full items-center flex-col">
-                <div class="lg:absolute lg:top-40 flex w-full justify-center lg:justify-start lg:w-[800px] 2xl:w-[992px] z-20 pb-6">
+                <div class="lg:absolute lg:top-40 flex w-full justify-center lg:justify-start lg    :w-[800px] 2xl:w-[992px] z-20 pb-6">
                     <div class="flex flex-col gap-6 sticky items-end">
                         <div class="flex flex-col gap-6">
                             <img alt="Profile picture" class="w-20 top-0 h-20 rounded-2xl"
@@ -47,12 +62,12 @@
                             <div class="flex flex-col gap-2">
                                 <p class="text-white text-opacity-60 text-sm">share profile</p>
                                 <div class="flex gap-2">
-                                    <div
-                                        class="w-10 h-10 rounded-full flex justify-center items-center bg-white bg-opacity-20">
+                                    <div @click="shareWithTwitter"
+                                        class="w-10 h-10 rounded-full flex justify-center items-center bg-white bg-opacity-20 cursor-pointer">
                                         <Icon size="16" name="bi:twitter-x"></Icon>
                                     </div>
-                                    <div
-                                        class="w-10 h-10 rounded-full flex justify-center items-center bg-white bg-opacity-20">
+                                    <div @click="shareWithLinkedIn"
+                                        class="w-10 h-10 rounded-full flex justify-center items-center bg-white bg-opacity-20 cursor-pointer">
                                         <Icon size="16" name="mdi:linkedin"></Icon>
                                     </div>
                                 </div>
@@ -108,7 +123,7 @@
                         </div>
                         <div class="flex flex-col">
                             <p class="text-gray-400 text-lg mb-2">you</p>
-                            <SelectProfilePicture @change="save"></SelectProfilePicture>
+                            <SelectProfilePicture @uploaded="save"></SelectProfilePicture>
                         </div>
                     </div>
                 </div>
@@ -116,31 +131,3 @@
         </div>
     </section>
 </template>
-
-<style>
-.container {
-    display: flex;
-    height: 200vh; /* Adjust based on your needs */
-    overflow-y: auto; /* Enable vertical scrolling */
-}
-
-/* Tall content styling */
-.tall-content {
-    flex-grow: 1;
-    border: 1px solid black; /* Just for visibility */
-}
-
-/* Sticky content styling */
-.sticky-content {
-    position: sticky;
-    top: 0;
-    left: 0;
-    border: 1px solid red; /* Just for visibility */
-    width: max-content; /* Ensure it takes only as much space as needed */
-    margin-left: auto; /* Push it to the right */
-}
-
-.test {
-    @apply bg-blue-600
-}
-</style>
