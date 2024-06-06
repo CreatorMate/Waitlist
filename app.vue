@@ -1,11 +1,17 @@
 <script lang="ts" setup>
     import './assets/css/tailwind.css'
     import {useAccountStore} from "~/src/account/AccountStore";
+    import {onMounted} from "vue";
     const supabase = useSupabaseClient();
     const user = useSupabaseUser();
     const accountStore = useAccountStore();
 
     const session = await supabase.auth.getSession();
+    const maxAge = 14 * 24 * 60 * 60;
+
+    onMounted(async () => {
+        document.cookie = `cmat=${session.data.session?.access_token}; Domain=.creatormate.com; Path=/; Max-Age=${maxAge}; Secure; SameSite=Strict;`;
+    })
 
     supabase.auth.onAuthStateChange(async (event, session: any) => {
         // if(event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {

@@ -12,6 +12,10 @@ export default defineNuxtConfig({
     },
   },
   supabase: {
+    cookieOptions: {
+      domain: ".creatormate.com",
+      sameSite: "strict"
+    },
     redirectOptions: {
       login: '',
       callback: '/callback',
