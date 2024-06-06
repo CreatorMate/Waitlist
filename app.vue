@@ -8,18 +8,18 @@
     const session = await supabase.auth.getSession();
 
     supabase.auth.onAuthStateChange(async (event, session: any) => {
-        if(event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
-            const maxAge = 14 * 24 * 60 * 60;
-            // document.cookie = `cmat=${session.access_token}; Domain=.localhost; Path=/; Max-Age=${maxAge}; SameSite=Strict;`;
-            // document.cookie = `cmrt=${session.refresh_token}; Domain=localhost; Path=/; Max-Age=${maxAge} SameSite=Strict;`;
-            document.cookie = `cmat=${session.access_token}; Domain=.creatormate.com; Path=/; Max-Age=${maxAge}; Secure; SameSite=Strict;`;
-            document.cookie = `cmrt=${session.refresh_token}; Domain=.creatormate.com; Path=/; Max-Age=${maxAge}; Secure SameSite=Strict;`;
-        } else if (event === 'SIGNED_OUT') {
-            // document.cookie = `cmat=; Domain=.localhost; Path=/; Expires=${new Date(0).toUTCString()}; Secure; SameSite=Strict;`;
-            // document.cookie = `cmrt=; Domain=.localhost; Path=/; Expires=${new Date(0).toUTCString()}; Secure; SameSite=Strict;`;
-            document.cookie = `cmat=; Domain=.creatormate.com; Path=/; Expires=${new Date(0).toUTCString()}; Secure; SameSite=Strict;`;
-            document.cookie = `cmrt=; Domain=.creatormate.com; Path=/; Expires=${new Date(0).toUTCString()}; Secure; SameSite=Strict;`;
-        }
+        // if(event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
+        //     const maxAge = 14 * 24 * 60 * 60;
+        //     // document.cookie = `cmat=${session.access_token}; Domain=.localhost; Path=/; Max-Age=${maxAge}; SameSite=Strict;`;
+        //     // document.cookie = `cmrt=${session.refresh_token}; Domain=localhost; Path=/; Max-Age=${maxAge} SameSite=Strict;`;
+        //     document.cookie = `cmat=${session.access_token}; Domain=.creatormate.com; Path=/; Max-Age=${maxAge}; Secure; SameSite=Strict;`;
+        //     document.cookie = `cmrt=${session.refresh_token}; Domain=.creatormate.com; Path=/; Max-Age=${maxAge}; Secure SameSite=Strict;`;
+        // } else if (event === 'SIGNED_OUT') {
+        //     // document.cookie = `cmat=; Domain=.localhost; Path=/; Expires=${new Date(0).toUTCString()}; Secure; SameSite=Strict;`;
+        //     // document.cookie = `cmrt=; Domain=.localhost; Path=/; Expires=${new Date(0).toUTCString()}; Secure; SameSite=Strict;`;
+        //     document.cookie = `cmat=; Domain=.creatormate.com; Path=/; Expires=${new Date(0).toUTCString()}; Secure; SameSite=Strict;`;
+        //     document.cookie = `cmrt=; Domain=.creatormate.com; Path=/; Expires=${new Date(0).toUTCString()}; Secure; SameSite=Strict;`;
+        // }
     })
 </script>
 
