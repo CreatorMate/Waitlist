@@ -28,11 +28,7 @@
     })
 
     onMounted(async () => {
-        chats.value.push({
-            message: "welcome, what would you like to know about creator mate?",
-            sender: Sender.CREATORMATE,
-            type: 'start'
-        });
+        reset();
         intervalId = setInterval(() => {
             remaining.value = messagesPerMin;
         }, interval)
@@ -41,6 +37,15 @@
     onUnmounted(() => {
         clearInterval(intervalId)
     })
+
+    function reset() {
+        chats.value = [];
+        chats.value.push({
+            message: "welcome, what would you like to know about creator mate?",
+            sender: Sender.CREATORMATE,
+            type: 'start'
+        });
+    }
 
     async function keydown(event: KeyboardEvent, message: string) {
         if (event.key === 'Enter' && !event.shiftKey) {
@@ -133,7 +138,7 @@
             <div v-if="chats.length < 2" class="w-full xl:w-2/3 hidden md:flex justify-center">
                 <ExampleQuestions @ask="ask"></ExampleQuestions>
             </div>
-            <ChatInput :disabled="disabled" @on-keydown="keydown" @send="handleMessage"></ChatInput>
+            <ChatInput @reset="reset" :show-back="chats.length > 1" :disabled="disabled" @on-keydown="keydown" @send="handleMessage"></ChatInput>
         </div>
     </section>
 </template>

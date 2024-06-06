@@ -13,7 +13,7 @@
     const form = ref();
     const router = useRouter();
     const verificationError = ref(false)
-    const inputValues = ref(Array(6).fill(''))
+    const inputValues = ref(Array(7).fill(''))
 
     const {email} = defineProps<{
         email: string
@@ -126,7 +126,7 @@
                    :class="[
                        inputValues[index] != '' ? 'border border-white border-opacity-20' : ''
                    ]"
-                   class="p-4 h-[56px] verifyBox text-center text-white bg-white bg-opacity-10 rounded-lg active:border-opacity-0"
+                   class="p-4 h-[56px] verifyBox text-center text-white bg-white bg-opacity-10 rounded-lg outline-0 focus:border-white focus:border focus:shadow-input"
                    pattern="\d*" maxlength="1"/>
         </div>
     </form>

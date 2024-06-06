@@ -2,6 +2,8 @@
     import {onMounted} from "vue";
     import {useRouter} from "#app";
     import {useToastStore} from "~/src/toast/ToastStore";
+    import {ToastType} from "~/src/toast/ToastType";
+    import SecondaryButton from "~/components/common/SecondaryButton.vue";
 
     const supabase = useSupabaseClient();
     const user = useSupabaseUser();
@@ -49,7 +51,7 @@
 
 <template>
     <h2 class="text-2xl mb-6 font-medium">{{register ? 'create account' : 'login'}}</h2>
-    <button @click="withGoogle" class="bg-white w-full rounded-full py-3 text-black font-medium leading-6 hover:bg-gray-200 transition duration-300">
+    <button @click="withGoogle" class="bg-white w-full rounded-full py-3 text-black font-medium leading-6 hover:bg-opacity-80 transition duration-300">
         <Icon class="mr-1 pb-1 leading-6" size="24px" name="ri:google-fill"></Icon>
         continue with google
     </button>
@@ -59,7 +61,7 @@
         <div class="h-[1px] w-full mx-4 bg-white bg-opacity-20"></div>
     </div>
     <input @keydown.enter="signIn" v-model="email" placeholder="your@email.com" style="background-color: rgba(255, 255, 255, 0.10)" class="w-full py-3 px-4 text-center rounded-full placeholder-opacity-40 placeholder-white text-white mb-2 outline-0 border border-black focus:shadow-input focus:border focus:border-white" type="email">
-    <button @click="signIn" v-if="!loading" class="px-3 py-3 rounded-full bg-white bg-opacity-20 w-full mb-6 hover:bg-opacity-15 transition duration-300 font-medium">continue with email</button>
+    <SecondaryButton @click="signIn" v-if="!loading">continue with email</SecondaryButton>
     <button v-else class="px-3 py-3 rounded-full bg-white bg-opacity-20 w-full mb-6">
         <Icon size="23" name="line-md:loading-loop"></Icon>
     </button>

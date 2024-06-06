@@ -189,7 +189,7 @@
                     </div>
                 </div>
             </div>
-            <ChatInput :disabled="disabled || onboardingHandler.blocked.value" @on-keydown="keydown" @send="handleMessage"></ChatInput>
+            <ChatInput :show-back="false" :disabled="disabled || onboardingHandler.blocked.value" @on-keydown="keydown" @send="handleMessage"></ChatInput>
         </div>
     </div>
 </template>

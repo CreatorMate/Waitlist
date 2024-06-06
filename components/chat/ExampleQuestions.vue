@@ -6,7 +6,7 @@
         "who did the logo design?",
         "how will creator mate help me?",
         "Who is building creator mate?",
-        "how did they raise $200k?",
+        "how can i come in contact with the creator mate team?",
         "who founded creator mate",
     ]
 </script>
