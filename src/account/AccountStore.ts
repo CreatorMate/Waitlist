@@ -10,6 +10,7 @@ export const useAccountStore = defineStore("account", () => {
     const avatar_url = ref("");
     const location = ref("");
     const isAdmin = ref(false);
+    const isBetaTester = ref(false);
     const points = ref(0);
     const instagram = ref<null|string>();
     const youtube = ref<null|string>();
@@ -31,7 +32,7 @@ export const useAccountStore = defineStore("account", () => {
     async function get( id: string) {
         const {data} = await supabaseClient
             .from('profiles')
-            .select(`username, avatar_url, points, id, completed_onboarding, is_admin, instagram, twitter, youtube, creator_type, content_type, location`)
+            .select(`username, avatar_url, points, id, completed_onboarding, is_admin, instagram, twitter, youtube, creator_type, content_type, location, beta_tester`)
             .eq('id', id)
             .single();
 
@@ -49,6 +50,7 @@ export const useAccountStore = defineStore("account", () => {
         contentType.value = data.content_type;
         creatorType.value = data.creator_type;
         location.value = data.location;
+        isBetaTester.value = data.beta_tester;
     }
 
     async function update() {
@@ -81,5 +83,5 @@ export const useAccountStore = defineStore("account", () => {
         return `https://jrirqcnnxpbhvmuugxnl.supabase.co/storage/v1/object/public/avatars/${avatar_url.value}`;
     }
 
-    return {username, points, avatar_url, get, update, logout, getProfileImageSrc, completedOnboarding, userId, isAdmin, youtube, twitter, instagram, location, contentType, creatorType}
+    return {username, points, avatar_url, get, update, logout, getProfileImageSrc, completedOnboarding, userId, isAdmin, youtube, twitter, instagram, location, contentType, creatorType, isBetaTester}
 })

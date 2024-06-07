@@ -1,9 +1,11 @@
 <script lang="ts" setup>
     import Login from "~/components/home/Login.vue";
     import PrimaryButton from "~/components/common/PrimaryButton.vue";
+    import {useAccountStore} from "~/src/account/AccountStore";
 
     const router = useRouter();
     const user = useSupabaseUser();
+    const account = useAccountStore();
     definePageMeta({
         layout: 'platform'
     });
@@ -19,6 +21,10 @@
         email.value = value;
         verifying.value = true;
     }
+
+    function toBeta() {
+        window.location.href = "https://app.creatormate.com";
+    }
 </script>
 
 <template>
@@ -26,11 +32,19 @@
         <div class="p-10">
             <img alt="creator mate logo"  src="/creatormate.svg">
         </div>
-        <div class="flex flex-col justify-center items-center gap-6 md:gap-10 w-full md:w-[850px]">
-            <h1 class="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl flex-wrap font-medium text-center px-5 md:px-0">ready to build your dream community?</h1>
-            <PrimaryButton @click="modelActive = true">
-                {{user ? 'go to waitlist' : 'join waitlist'}}
-            </PrimaryButton>
+        <div class="flex flex-col justify-center items-center gap-6 md:gap-10 w-full md:w-[1200px]">
+            <div class="flex flex-col gap-6 items-center">
+                <h1 class="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl flex-wrap font-medium text-center px-4 md:px-0">a creator's best friend</h1>
+                <p class="text-sm xxs:text-base md:text-xl font-normal px-4 text-center">helping creators build, grow & monetize their community</p>
+            </div>
+            <div class="gap-2 md:gap-6 flex">
+                <PrimaryButton @click="modelActive = true">
+                    {{user ? 'go to waitlist' : 'join waitlist'}}
+                </PrimaryButton>
+                <PrimaryButton v-if="account.isBetaTester" @click="toBeta()">
+                    Go to beta
+                </PrimaryButton>
+            </div>
         </div>
         <div class="p-8 flex gap-6">
             <a class="hover:text-opacity-60" href="mailto:hello@creatormate.com">email</a>
