@@ -20,7 +20,6 @@
 
     let realtimeChannel: RealtimeChannel
     onMounted(async () => {
-
         await refreshList();
         realtimeChannel = client.channel('profile counter').on('postgres_changes', {
             event: '*',
@@ -46,6 +45,13 @@
         activeProfilesCounter.value = count.toString().padStart(5, '0');
     }
 
+    function isGray(index: number): boolean {
+        const formatted = activeProfilesCounter.value.split('');
+        if(formatted[index] !== '0') return false;
+        const char = formatted[index];
+        return !formatted.slice(0, index).some(c => c !== '0');
+    }
+
     const number = 1
 </script>
 
@@ -58,7 +64,7 @@
             <h1 class="font-semibold text-3xl absolute -top-10">waitlist signups</h1>
             <div class="flex gap-2 mt-10">
                 <div :class="[
-                    char == '0' ? 'text-opacity-20 text-white' : ''
+                    isGray(index) ? 'text-opacity-20 text-white' : ''
                 ]" v-for="(char, index) in activeProfilesCounter" class="flex flex-col gap-2">
                     <div class="background-number pt-10">
                         <div class="half-number px-6 z-20">{{ char }}</div>
