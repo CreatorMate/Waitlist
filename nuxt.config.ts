@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   },
   supabase: {
     cookieOptions: {
-      domain: ".creatormate.com",
+      domain: process.env.NUXT_MODE == 'Development' ? '.localhost' : ".creatormate.com",
       sameSite: "strict"
     },
     redirectOptions: {
@@ -42,11 +42,11 @@ export default defineNuxtConfig({
         {name: 'twitter:card', content: "summary_large_image"},
         {name: 'twitter:site', content: "https://creatormate.com"},
         {name: 'twitter:title', content: "the all-in-one workspace for creators"},
-        {name: 'twitter:description', content: "a discription here would be nice"},
-        {name: 'twitter:image', content: "https://creatormate.com/favicon.svg"},
+        {name: 'twitter:description', content: "helping creators build, grow & monetize their community"},
+        {name: 'twitter:image', content: "https://creatormate.com/android-chrome-512x512.png"},
         {name: 'og:title', content: "the all-in-one workspace for creators"},
-        {name: 'og:description', content: "a discription here would be nice"},
-        {name: 'og:image', content: "https://creatormate.com/favicon.svg"},
+        {name: 'og:description', content: "helping creators build, grow & monetize their community"},
+        {name: 'og:image', content: "https://creatormate.com/android-chrome-512x512.png"},
         {name: 'og:url', content: "https://creatormate.com"},
         {name: 'description', content: 'Creatormate is the all-in-one workspace for creators, join our waiting list now!'},
         {name: 'keywords', content: 'creatormate, optimize instagram, how do i grow my instagram, instagram, grow, optimize, platform, creator, mate, facebook, meta, waitlist, joinlist, creatormate.com creatormate.net'},
