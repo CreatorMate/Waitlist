@@ -72,14 +72,13 @@
 
 <template>
     <h2 class="text-2xl mb-6 font-medium">{{register ? 'create account' : 'login'}}</h2>
-    <button @click="withGoogle" class="bg-white w-full rounded-full py-3 text-black font-medium leading-6 hover:bg-opacity-80 transition duration-300">
+    <button v-if="!isInEmbeddedBrowser()" @click="withGoogle" class="bg-white w-full rounded-full py-3 text-black font-medium leading-6 hover:bg-opacity-80 transition duration-300">
         <Icon class="mr-1 pb-1 leading-6" size="24px" name="ri:google-fill"></Icon>
         continue with google
     </button>
-    <div class="flex items-center w-full">
+    <div v-if="!isInEmbeddedBrowser()" class="flex items-center w-full">
         <div class="h-[1px] w-full mx-4 bg-white bg-opacity-20"></div>
-        <p v-if="!isInEmbeddedBrowser()" class="py-4 text-white text-opacity-40">or</p>
-        <p v-else class="py-4 text-blue-500">or</p>
+        <p class="py-4 text-white text-opacity-40">or</p>
         <div class="h-[1px] w-full mx-4 bg-white bg-opacity-20"></div>
     </div>
     <input @keydown.enter="signIn" v-model="email" placeholder="your@email.com" style="background-color: rgba(255, 255, 255, 0.10)" class="w-full py-3 px-4 text-center rounded-full placeholder-opacity-40 placeholder-white text-white mb-2 outline-0 border border-black focus:shadow-input focus:border focus:border-white" type="email">
