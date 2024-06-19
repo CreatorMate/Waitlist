@@ -32,13 +32,12 @@
     }
 
     function isInEmbeddedBrowser() {
-        let ua = navigator.userAgent.toLowerCase();
-        let isSocialMediaApp = ua.match(/facebook|instagram|linkedin|twitter|snapchat|whatsapp|telegram|vk|weibo|qq/i);
+        var ua = navigator.userAgent;
+        var isFacebook = ua.match(/FBAN\/\w+/);
+        var isInstagram = ua.match(/Instagram/i);
+        var isLinkedIn = ua.match(/(LinkedIn|li)/i);
 
-        // Additional checks for specific embedded browser signatures
-        let isEmbeddedBrowser = ua.match(/FBAN|Instagram/i) || ua.match(/li|tw|snap|wa|tg|vk|wb|qq/i);
-
-        return!!isSocialMediaApp &&!!isEmbeddedBrowser;
+        return!!isFacebook ||!!isInstagram ||!!isLinkedIn;
     }
 
     async function signIn() {
