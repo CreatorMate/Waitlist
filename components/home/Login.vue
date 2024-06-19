@@ -20,6 +20,12 @@
         if(user.value) {
             await router.push('/callback')
         }
+
+        if(isInEmbeddedBrowser()) {
+            toastStore.addToast("Website in maintenance, some features may not work as intended", ToastType.WARNING)
+        } else {
+            toastStore.addToast("Website in maintenance! some features may not work as intended", ToastType.WARNING)
+        }
     })
     async function withGoogle() {
         const {data, error} = await supabase.auth.signInWithOAuth({
