@@ -20,8 +20,6 @@
         if(user.value) {
             await router.push('/callback')
         }
-
-        isInEmbeddedBrowser();
     })
     async function withGoogle() {
         const {data, error} = await supabase.auth.signInWithOAuth({
@@ -34,13 +32,23 @@
     }
 
     function isInEmbeddedBrowser() {
-        var ua = navigator.userAgent;
-        toastStore.addToast(`Website in maintenance ignore this message, ${ua}` , ToastType.WARNING)
-        var isFacebook = ua.match(/FBAN\/\w+/);
-        var isInstagram = ua.match(/Instagram/i);
-        var isLinkedIn = ua.match(/(LinkedIn|li)/i);
+        let ua = navigator.userAgent.toLowerCase();
+        let embeddedBrowsers = [
+            "linkedinapp",
+            "linkedin",
+            "meta",
+            "facebook",
+            "fban",
+            "instagram",
+        ]
 
-        return!!isFacebook ||!!isInstagram ||!!isLinkedIn;
+        for (let embeddedBrowser of embeddedBrowsers) {
+            if (ua.includes(embeddedBrowser)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     async function signIn() {
@@ -70,7 +78,7 @@
     </button>
     <div class="flex items-center w-full">
         <div class="h-[1px] w-full mx-4 bg-white bg-opacity-20"></div>
-        <p v-if="isInEmbeddedBrowser" class="py-4 text-white text-opacity-40">or</p>
+        <p v-if="!isInEmbeddedBrowser()" class="py-4 text-white text-opacity-40">or</p>
         <p v-else class="py-4 text-blue-500">or</p>
         <div class="h-[1px] w-full mx-4 bg-white bg-opacity-20"></div>
     </div>
