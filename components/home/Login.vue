@@ -21,11 +21,7 @@
             await router.push('/callback')
         }
 
-        if(isInEmbeddedBrowser()) {
-            toastStore.addToast("Website in maintenance, some features may not work as intended", ToastType.WARNING)
-        } else {
-            toastStore.addToast("Website in maintenance! some features may not work as intended", ToastType.WARNING)
-        }
+        isInEmbeddedBrowser();
     })
     async function withGoogle() {
         const {data, error} = await supabase.auth.signInWithOAuth({
@@ -39,6 +35,7 @@
 
     function isInEmbeddedBrowser() {
         var ua = navigator.userAgent;
+        toastStore.addToast(`Website in maintenance ignore this message, ${ua}` , ToastType.WARNING)
         var isFacebook = ua.match(/FBAN\/\w+/);
         var isInstagram = ua.match(/Instagram/i);
         var isLinkedIn = ua.match(/(LinkedIn|li)/i);
