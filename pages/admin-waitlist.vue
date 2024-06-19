@@ -9,6 +9,7 @@
     const activeProfilesCounter = ref("00000");
     const accountStore = useAccountStore();
     const router = useRouter();
+    const showOnboarded = ref(false);
 
     useHead({
         title: 'waitlist signups - creatormate'
@@ -35,14 +36,29 @@
     })
 
     async function refreshList() {
-        let {error, count} = await client
-            .from(SupabaseTables.UserProfiles)
-            .select('*', {count: 'exact'})
-            .eq('completed_onboarding', true);
+        if(showOnboarded.value) {
+            let {error, count} = await client
+                .from(SupabaseTables.UserProfiles)
+                .select('*', {count: 'exact'})
+                .eq('completed_onboarding', true);
 
-        if (error || !count) return;
+            if (error || !count) return;
 
-        activeProfilesCounter.value = count.toString().padStart(5, '0');
+            activeProfilesCounter.value = count.toString().padStart(5, '0');
+        } else {
+            let {error, count} = await client
+                .from(SupabaseTables.UserProfiles)
+                .select('*', {count: 'exact'});
+
+            if (error || !count) return;
+
+            activeProfilesCounter.value = count.toString().padStart(5, '0');
+        }
+    }
+
+    async function switchCounterMode() {
+        showOnboarded.value = !showOnboarded.value;
+        await refreshList();
     }
 
     function isGray(index: number): boolean {
@@ -58,10 +74,11 @@
 <template>
     <section style="background: radial-gradient(50% 50% at 50% 50%,rgba(255,255,255,0) 0%, rgb(0, 0, 0) 100%);" class="w-full h-full z-40 overflow-y-hidden overflow-x-hidden">
         <div class="w-full flex justify-center  p-10">
-            <img alt="creator mate logo" src="/creatormate.svg">
+            <img class="cursor-pointer" @click="switchCounterMode()" alt="creator mate logo" src="/creatormate.svg">
         </div>
         <div class="flex items-center justify-center flex-col absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <h1 class="font-semibold text-3xl absolute -top-10">waitlist signups</h1>
+            <h1 v-if="!showOnboarded" class="font-semibold text-3xl absolute -top-10">waitlist signups</h1>
+            <h1 v-if="showOnboarded" class="font-semibold text-3xl absolute -top-10">onboarded users</h1>
             <div class="flex gap-2 mt-10">
                 <div :class="[
                     isGray(index) ? 'text-opacity-20 text-white' : ''
