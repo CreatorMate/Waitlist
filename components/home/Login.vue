@@ -24,10 +24,21 @@
     async function withGoogle() {
         const {data, error} = await supabase.auth.signInWithOAuth({
             provider: 'google',
+
             options: {
                 redirectTo: `${window.location.origin}/callback`,
             }
         });
+    }
+
+    function isInEmbeddedBrowser() {
+        let ua = navigator.userAgent.toLowerCase();
+        let isSocialMediaApp = ua.match(/facebook|instagram|linkedin|twitter|snapchat|whatsapp|telegram|vk|weibo|qq/i);
+
+        // Additional checks for specific embedded browser signatures
+        let isEmbeddedBrowser = ua.match(/FBAN|Instagram/i) || ua.match(/li|tw|snap|wa|tg|vk|wb|qq/i);
+
+        return!!isSocialMediaApp &&!!isEmbeddedBrowser;
     }
 
     async function signIn() {
@@ -57,7 +68,8 @@
     </button>
     <div class="flex items-center w-full">
         <div class="h-[1px] w-full mx-4 bg-white bg-opacity-20"></div>
-        <p class="py-4 text-white text-opacity-40">or</p>
+        <p v-if="isInEmbeddedBrowser" class="py-4 text-white text-opacity-40">or</p>
+        <p v-else class="py-4 text-blue-500">or</p>
         <div class="h-[1px] w-full mx-4 bg-white bg-opacity-20"></div>
     </div>
     <input @keydown.enter="signIn" v-model="email" placeholder="your@email.com" style="background-color: rgba(255, 255, 255, 0.10)" class="w-full py-3 px-4 text-center rounded-full placeholder-opacity-40 placeholder-white text-white mb-2 outline-0 border border-black focus:shadow-input focus:border focus:border-white" type="email">
