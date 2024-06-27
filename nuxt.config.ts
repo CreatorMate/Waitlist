@@ -48,7 +48,7 @@ export default defineNuxtConfig({
         {name: 'og:description', content: "a creator’s best friend. it’s the all-in-one workspace for content creators to build, grow & monetise their community."},
         {name: 'og:image', content: "https://creatormate.com/web_banner.png"},
         {name: 'og:url', content: "https://creatormate.com"},
-        {name: 'description', content: 'a creator’s best friend. it’s the all-in-one workspace for content creators to build, grow & monetise their community.!'},
+        {name: 'description', content: 'it’s the all-in-one workspace for content creators to build, grow & monetise their community.!'},
         {name: 'keywords', content: 'creatormate, optimize instagram, how do i grow my instagram, instagram, grow, optimize, platform, creator, mate, facebook, meta, waitlist, joinlist, creatormate.com creatormate.net'},
       ],
       link: [
