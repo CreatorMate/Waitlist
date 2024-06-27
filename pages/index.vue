@@ -39,7 +39,7 @@
             </div>
             <div class="gap-2 md:gap-6 flex">
                 <PrimaryButton @click="modelActive = true">
-                    {{user ? 'go to waitlist' : 'join waitlist'}}
+                    {{user ? 'go to community' : 'join community'}}
                 </PrimaryButton>
                 <PrimaryButton v-if="account.isBetaTester" @click="toBeta()">
                     Go to beta

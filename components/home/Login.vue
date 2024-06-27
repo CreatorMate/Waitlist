@@ -62,6 +62,7 @@
         const response = await supabase.auth.signInWithOtp({email: email.value});
         loading.value = false;
         if(response.error) {
+            console.log(response.error)
             toastStore.addToast("something went wrong while trying to email you, come back again later", ToastType.ERROR);
             return;
         }

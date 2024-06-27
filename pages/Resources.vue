@@ -5,7 +5,6 @@
     import {useRouter} from "#app";
 
     const supabase = useSupabaseClient();
-    const resources: Ref<Resource[]> = ref([]);
     const currentResources: Ref<Resource[]> = ref([]);
     const categories: Ref<Set<string>> = ref(new Set);
     const selectedCat = ref("");
@@ -15,6 +14,8 @@
     useHead({
         title: 'resources - creatormate'
     })
+
+    const resources: Ref<Resource[]> = ref([]);
 
     onMounted(async () => {
         await getResources();
@@ -28,10 +29,14 @@
         }
         loading.value = false;
         resources.value = data
-        currentResources.value = data
-        resources.value.forEach((resource) => {
-            categories.value.add(resource.category)
-        })
+
+
+
+
+        // currentResources.value = data
+        // resources.value.forEach((resource) => {
+        //     categories.value.add(resource.category)
+        // })
 
     }
 
