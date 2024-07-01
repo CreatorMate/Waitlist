@@ -30,14 +30,10 @@
         loading.value = false;
         resources.value = data
 
-
-
-
-        // currentResources.value = data
-        // resources.value.forEach((resource) => {
-        //     categories.value.add(resource.category)
-        // })
-
+        currentResources.value = data
+        resources.value.forEach((resource) => {
+            categories.value.add(resource.category)
+        })
     }
 
     function canDisplay(resource: Resource): boolean {
