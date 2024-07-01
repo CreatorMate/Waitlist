@@ -1,12 +1,26 @@
 <script lang="ts" setup>
     import './assets/css/tailwind.css'
     import {useAccountStore} from "~/src/account/AccountStore";
+    import {onMounted} from "vue";
     const supabase = useSupabaseClient();
     const user = useSupabaseUser();
     const accountStore = useAccountStore();
 
     const session = await supabase.auth.getSession();
     const maxAge = 14 * 24 * 60 * 60;
+
+    onMounted(() => {
+        console.log(window.location.hostname)
+        if (window.location.hostname === 'creatormate.net') {
+            // Disable the back button
+            window.history.back = function() {};
+            window.history.forward = function() {
+                window.location.href = 'https://creatomate.com'; // Ensure they stay on the.com domain
+            };
+
+            window.location.href = 'https://creatomate.com';
+        }
+    });
 </script>
 
 <template>
