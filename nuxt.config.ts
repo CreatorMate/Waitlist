@@ -51,6 +51,15 @@ export default defineNuxtConfig({
         {name: 'description', content: 'it’s the all-in-one workspace for content creators to build, grow & monetise their community.!'},
         {name: 'keywords', content: 'creatormate, optimize instagram, how do i grow my instagram, instagram, grow, optimize, platform, creator, mate, facebook, meta, waitlist, joinlist, creatormate.com creatormate.net'},
       ],
+      script: [
+        {
+          async: true,
+          id: "vtag-ai-js",
+          src: "https://r2.leadsy.ai/tag.js",
+          'data-pid': "1BkuQzldPanZAl2qF",
+          'data-version': "062024"
+        }
+      ],
       link: [
         {
           rel: 'stylesheet',
