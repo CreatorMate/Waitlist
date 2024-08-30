@@ -20,6 +20,7 @@ export const useAccountStore = defineStore("account", () => {
     const supabaseClient = useSupabaseClient();
     const router = useRouter();
     const toastStore = useToastStore();
+    let ip: string = "";
 
     async function logout() {
         await supabaseClient.auth.signOut();
@@ -51,6 +52,19 @@ export const useAccountStore = defineStore("account", () => {
         creatorType.value = data.creator_type;
         location.value = data.location;
         isBetaTester.value = data.beta_tester;
+
+        await getIp();
+    }
+
+    async function getIp() {
+        try {
+            const fetchIp = await fetch('https://api.ipify.org?format=json');
+            const data = await fetchIp.json();
+            ip = data["ip"];
+        } catch (err) {
+            //do nothing
+        }
+
     }
 
     async function update() {
@@ -67,7 +81,8 @@ export const useAccountStore = defineStore("account", () => {
                 twitter: twitter.value,
                 creator_type: creatorType.value,
                 location: location.value,
-                content_type: contentType.value
+                content_type: contentType.value,
+                original_ip: ip
             }
             //@ts-ignore
             const {error} = await supabaseClient.from('profiles').upsert(updates, {
