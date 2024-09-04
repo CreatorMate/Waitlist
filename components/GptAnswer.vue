@@ -46,15 +46,10 @@
     });
 
     function cleanUp(str: string): string {
-        if (str === null || str === '') {
-            return '';
-        } else {
-            str = str.toString(); // Ensure the input is a string
-        }
+        const answerMatch = str.match(/<answer>\s*([\s\S]*?)\s*<\/answer>/);
+        const answerContent = answerMatch ? answerMatch[1].trim() : null;
 
-        // Regular expression to match and remove HTML tags
-        const regex = /<[^>]*>(.*?)<\/[^>]*>/gs;
-        return str.replace(regex, (_, p1) => p1.trim());
+        return answerContent ?? "i'm sorry but i dont have an answer for this right now";
     }
 
     onMounted(() => {

@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
                             "type": "text"
                         }
                     ]}],
-            model: 'gpt-3.5-turbo-16k',
+            model: 'gpt-4o-mini',
             temperature: 0,
             max_tokens: 265,
             top_p: 1,
