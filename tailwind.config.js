@@ -1,5 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    safelist: [
+        'bg-[#2f2f2f]',
+        'bg-[#324A5E]',
+        'bg-[#324C3A]',
+        'bg-[#463356]',
+        'bg-[#2A3B56]',
+        'bg-[#3A5E5C]',
+        'bg-[#171717]',
+        'bg-[#5A2D3E]',
+        'bg-[#503F5B]',
+    ],
     theme: {
         screens: {
             'xxs': '400px',

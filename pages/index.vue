@@ -1,14 +1,14 @@
 <script lang="ts" setup>
     import Login from "~/components/home/Login.vue";
-    import PrimaryButton from "~/components/common/PrimaryButton.vue";
     import {useAccountStore} from "~/src/account/AccountStore";
+    import CalendarHeader from "~/components/calendar/CalendarHeader.vue";
+    import CalendarView from "~/components/calendar/CalendarView.vue";
+    import {onMounted, type Ref} from "vue";
+
+    const calendar: Ref<HTMLDivElement|null> = ref(null);
 
     const router = useRouter();
-    const user = useSupabaseUser();
     const account = useAccountStore();
-    definePageMeta({
-        layout: 'platform'
-    });
     useHead({
         title: 'join the waitlist now! - creatormate'
     })
@@ -25,17 +25,24 @@
     function toBeta() {
         window.location.href = "https://app.creatormate.com";
     }
+
+    onMounted(() => {
+        calendar.value?.addEventListener('wheel', (e: WheelEvent) => {
+            e.preventDefault();
+            if(!calendar.value) return;
+
+            calendar.value.scrollLeft += e.deltaY * 0.7
+        })
+    })
 </script>
 
 <template>
-    <section style="" class="background-mask w-full h-full flex flex-col items-center justify-between z-40">
-        <PrimaryButton @click="modelActive = true">
-            {{user ? 'go to community' : 'join community'}}
-        </PrimaryButton>
+    <section class="w-full h-full flex flex-col custom_scroll overflow-y-hidden">
+        <CalendarHeader @joinButton="modelActive = true"/>
+        <div ref="calendar" class="flex flex-1 overflow-x-scroll">
+            <CalendarView></CalendarView>
+        </div>
     </section>
-    <PrimaryButton v-if="account.isBetaTester" @click="toBeta()">
-        Go to beta
-    </PrimaryButton>
     <BaseModelVue :model-active="modelActive" @close="modelActive = false">
         <Login v-if="!verifying" @verify="verify"></Login>
         <HomeVerify :email="email" v-else></HomeVerify>
@@ -43,7 +50,20 @@
 </template>
 
 <style scoped>
-.background-mask {
-    background: radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,0.10) 0%, rgb(0, 0, 0, 0.90) 90%);
+.custom_scroll {
+    ::-webkit-scrollbar {
+        width: 2em;
+    }
+    ::-webkit-scrollbar-track {
+        background: hsl(0, 0%, 21%);
+        margin-block: .5em;
+        border-radius: 100vw;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: hsl(0, 0%, 6%);
+        border-radius: 100vw;
+        padding: 10px;
+    }
 }
 </style>

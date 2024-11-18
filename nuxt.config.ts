@@ -1,8 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/robots', '@nuxtjs/sitemap', "@nuxtjs/supabase", '@pinia/nuxt', 'nuxt-icon'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/robots', '@nuxtjs/sitemap', "@nuxtjs/supabase", '@pinia/nuxt', 'nuxt-icon', '@nuxt/image', '@nuxt/icon'],
   plugins: ['~/plugins/click-outside.js'],
+
   runtimeConfig: {
     royalution: {
       apiKey: process.env.NUXT_ONBOARDING_API_KEY,
@@ -11,6 +12,7 @@ export default defineNuxtConfig({
       secretKey: process.env.NUXT_OPENAI_API_KEY,
     },
   },
+
   supabase: {
     cookieOptions: {
       domain: process.env.NUXT_MODE == 'Development' ? '.localhost' : ".creatormate.com",
@@ -22,6 +24,7 @@ export default defineNuxtConfig({
       exclude: ['/', '/callback']
     }
   },
+
   sitemap: {
     //@ts-ignore
     path: "/sitemap.xml",
@@ -29,9 +32,11 @@ export default defineNuxtConfig({
     cacheTime: 1000 * 60 * 15,
     hostname: process.env.WEBSITE_URL
   },
+
   robots: {
     configPath: './robots.config.js',
   },
+
   app: {
     head: {
       htmlAttrs: {
@@ -67,5 +72,7 @@ export default defineNuxtConfig({
         },
       ]
     }
-  }
+  },
+
+  compatibilityDate: '2024-11-18'
 })
