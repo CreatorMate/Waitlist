@@ -6,7 +6,7 @@
 </script>
 
 <template>
-    <nav class="py-4 px-20 flex items-center justify-between">
+    <nav class="py-4 px-6 md:px-10 xl:px-20 flex items-center justify-between">
         <NuxtImg class="h-4" src="/favicon.svg"></NuxtImg>
         <div class="flex gap-4">
             <button class="font-semibold hover:text-opacity-80 text-white">login</button>

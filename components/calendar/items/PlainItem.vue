@@ -8,8 +8,7 @@
 </script>
 
 <template>
-    <div class="px-5 py-4 flex flex-col">
-        <p>{{calendarItem.title}}</p>
-        <PostedBy class="mb-36" :name="calendarItem.postedBy"/>
+    <div class="px-5 py-4 flex flex-col mb-6 lg:mb-36">
+        <PostedBy class="mb-36" :calendarItem/>
     </div>
 </template>

@@ -1,12 +1,17 @@
 <script setup lang='ts'>
-    const {name} = defineProps<{
-        name: string
+    import type {CalendarItem} from "~/src/calendar/calendar_items";
+
+    const {calendarItem} = defineProps<{
+        calendarItem: CalendarItem
     }>();
 </script>
 
 <template>
-    <div class="flex text-[#D1D1D1] text-xs items-center gap-2 mt-3">
+    <div>
+        <p class="font-semibold text-sm">{{calendarItem.title}}</p>
+    </div>
+    <div class="flex text-[#D1D1D1] text-xs items-center gap-2 mt-2.5">
         <Icon size="14" name="mage:pin"/>
-        <p>posted by {{name}}</p>
+        <p>posted by {{calendarItem.postedBy}}</p>
     </div>
 </template>

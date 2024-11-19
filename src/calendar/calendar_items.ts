@@ -1,5 +1,5 @@
 export enum CalendarItemType {
-    PLAIN, FOTO, STORY, GALLARY, SHARE,
+    PLAIN, FOTO, STORY, GALLARY, SHARE, SOCIAL
 }
 
 export enum CalendarRowAlignment {
@@ -220,7 +220,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "waitlist_1.png",
                 ],
                 type: CalendarItemType.GALLARY,
-                color: "#324A5E"
+                color: "#324A5E",
+                small: true
             }
         ]
     },
@@ -324,7 +325,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "tooling_1.png",
                 ],
                 type: CalendarItemType.GALLARY,
-                color: "#2A3B56"
+                color: "#2A3B56",
+                small: true
             }
         ]
     },
@@ -388,6 +390,29 @@ export const calendar_rows: CalendarRowType[] = [
             }
         ]
     },
+    {
+        date: "nov 1",
+        year: 2024,
+        postition: CalendarRowAlignment.END,
+        items: [],
+        socials: true
+    },
+    {
+        date: "",
+        year: 2024,
+        postition: CalendarRowAlignment.TOP,
+        items: [
+            {
+                postedBy: "marnix",
+                title: "want to join our team? \n" +
+                    "email: jens@creatormate.com",
+                images: ["join_our_Team.png"],
+                type: CalendarItemType.FOTO,
+                color: "#2f2f2f"
+            }
+        ],
+        final: true
+    },
 ]
 
 export type CalendarItem = {
@@ -395,7 +420,8 @@ export type CalendarItem = {
     title: string,
     images: string[],
     type: CalendarItemType
-    color: string
+    color: string,
+    small?: boolean
 }
 
 export type CalendarRowType = {
@@ -404,6 +430,8 @@ export type CalendarRowType = {
     items: CalendarItem[],
     postition: CalendarRowAlignment,
     color?: string
+    final?: boolean,
+    socials?: boolean
 }
 
 
