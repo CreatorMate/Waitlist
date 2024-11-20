@@ -6,6 +6,10 @@ export enum CalendarRowAlignment {
     TOP = "TOP", BETWEEN = "BETWEEN", CENTER = "CENTER", END = "END"
 }
 
+export enum CalendarItemHoverAction {
+    STORY
+}
+
 export const calendar_rows: CalendarRowType[] = [
     {
         date: "feb 21",
@@ -17,7 +21,8 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "we bought creatormate.com",
                 images: [],
                 type: CalendarItemType.PLAIN,
-                color: "#324A5E"
+                color: "#324A5E",
+                hover: CalendarItemHoverAction.STORY
             }
         ]
     },
@@ -31,11 +36,13 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "figure out what creatormate could be (with f&f in spain)",
                 images: [
                     "spain.png",
-                    "spain.png",
-                    "spain.png",
+                    "find_out_what_1.png",
+                    "find_out_what_2.png",
+                    "find_out_what_3.png",
                 ],
                 type: CalendarItemType.STORY,
-                color: "#324C3A"
+                color: "#324C3A",
+                hover: CalendarItemHoverAction.STORY,
             },
             {
                 postedBy: "marnix",
@@ -46,7 +53,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "jens.png",
                 ],
                 type: CalendarItemType.STORY,
-                color: "#324A5E"
+                color: "#324A5E",
+                hover: CalendarItemHoverAction.STORY
             }
         ]
     },
@@ -60,7 +68,8 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "the biggest cm inspo",
                 images: [],
                 type: CalendarItemType.PLAIN,
-                color: "#324C3A"
+                color: "#324C3A",
+                link: "https://www.youtube.com/watch?v=jG7dSXcfVqE"
             },
             {
                 postedBy: "jens",
@@ -145,7 +154,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "robin_joins.png",
                 ],
                 type: CalendarItemType.STORY,
-                color: "#324A5E"
+                color: "#324A5E",
+                hover: CalendarItemHoverAction.STORY
             }
         ]
     },
@@ -361,7 +371,7 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "and we made some amazing friends along the way",
                 images: [],
                 type: CalendarItemType.PLAIN,
-                color: "#324C3A"
+                color: "#324C3A",
             },
             {
                 postedBy: "jens",
@@ -421,7 +431,9 @@ export type CalendarItem = {
     images: string[],
     type: CalendarItemType
     color: string,
-    small?: boolean
+    small?: boolean,
+    hover?: CalendarItemHoverAction,
+    link?: string
 }
 
 export type CalendarRowType = {

@@ -14,7 +14,7 @@
 </script>
 
 <template>
-    <div class="w-[350px] sm:w-1/2 lg:w-1/4 2xl:w-1/5 xxl:w-[320px] flex-none flex flex-col ">
+    <div class="w-[60vw] sm:w-1/2 lg:w-1/4 2xl:w-1/5 xxl:w-[320px] flex-none flex flex-col ">
         <div class="flex flex-col items-center py-3">
             <p v-if="calendarRow.final" class="text-[12px]">{{formattedDate}}</p>
             <p v-else class="text-[12px]">{{calendarRow.date}}</p>
