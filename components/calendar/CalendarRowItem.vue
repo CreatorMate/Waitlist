@@ -44,8 +44,6 @@
             @click="handleClick()"
             class="rounded-2xl hover:duration-100 hover:scale-95 transition-transform relative z-10"
             :class="[
-
-
   `bg-[${calendarItem.color}]`
 ]">
             <GallaryItem v-if="calendarItem.type == CalendarItemType.GALLARY" :calendar-item></GallaryItem>
@@ -55,7 +53,7 @@
             <ShareItem v-if="calendarItem.type == CalendarItemType.SHARE" :calendar-item></ShareItem>
         </div>
         <Transition>
-            <StoryHover @click.stop v-if="calendarItem.hover == CalendarItemHoverAction.STORY && itemActive"
+            <StoryHover v-if="calendarItem.hover == CalendarItemHoverAction.STORY && itemActive" :parent-block="item" @click.stop
                         @click-outside="handleClickOutside()" :calendar-item></StoryHover>
         </Transition>
     </div>
@@ -66,11 +64,6 @@
     opacity: 0;
     transform: scale(0);
     transition: all 0.5s ease;
-}
-
-.item:hover {
-    transform: scale(1.05); /* Slightly increase scale on hover */
-    transition: transform 0.2s ease; /* Faster transition for hover */
 }
 
 .item.popup-animation {

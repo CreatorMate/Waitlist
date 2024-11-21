@@ -8,7 +8,7 @@
 </script>
 
 <template>
-    <div class="px-5 py-4 flex flex-col mb-6 lg:mb-36">
-        <PostedBy class="mb-36" :calendarItem/>
+    <div class="px-5 py-4 flex flex-col pb-6 lg:pb-36">
+        <PostedBy :calendarItem/>
     </div>
 </template>

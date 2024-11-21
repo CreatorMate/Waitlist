@@ -7,4 +7,7 @@
     <div class="h-full w-screen flex flex-nowrap ">
         <CalendarRow :calendar-row="calendarRow" v-for="calendarRow of calendar_rows" />
     </div>
+    <div id="modal">
+
+    </div>
 </template>
