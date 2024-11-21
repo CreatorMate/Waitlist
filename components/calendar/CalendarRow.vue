@@ -1,6 +1,7 @@
 <script setup lang='ts'>
     import {CalendarRowAlignment, type CalendarRowType} from "~/src/calendar/calendar_items";
     import CalendarRowItem from "~/components/calendar/CalendarRowItem.vue";
+    import SocialItems from "~/components/calendar/items/SocialItems.vue";
 
     const {calendarRow} = defineProps<{
         calendarRow: CalendarRowType
@@ -14,7 +15,7 @@
 </script>
 
 <template>
-    <div class="w-[60vw] sm:w-1/2 lg:w-1/4 2xl:w-1/5 xxl:w-[320px] flex-none flex flex-col ">
+    <div class="w-[60vw] sm:w-1/2 lg:w-1/4 2xl:w-1/5 flex-none flex flex-col ">
         <div class="flex flex-col items-center py-3">
             <p v-if="calendarRow.final" class="text-[12px]">{{formattedDate}}</p>
             <p v-else class="text-[12px]">{{calendarRow.date}}</p>
@@ -29,6 +30,7 @@
             }"
         >
             <CalendarRowItem v-for="calendarItem of calendarRow.items" :calendar-item="calendarItem"></CalendarRowItem>
+            <SocialItems v-if="calendarRow.socials"></SocialItems>
         </div>
 
     </div>
