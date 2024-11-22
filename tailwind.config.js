@@ -10,6 +10,15 @@ module.exports = {
         'bg-[#171717]',
         'bg-[#5A2D3E]',
         'bg-[#503F5B]',
+        'text-[#1c1c1c]',
+        'text-[#1e2c38]',
+        'text-[#1e2e23]',
+        'text-[#2a1f34]',
+        'text-[#192334]',
+        'text-[#233837]',
+        'text-[#0e0e0e]',
+        'text-[#361b25]',
+        'text-[#302637]'
     ],
     theme: {
         screens: {

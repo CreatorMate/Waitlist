@@ -7,7 +7,7 @@ export enum CalendarRowAlignment {
 }
 
 export enum CalendarItemHoverAction {
-    STORY
+    STORY, GALLARY
 }
 
 export const calendar_rows: CalendarRowType[] = [
@@ -22,7 +22,8 @@ export const calendar_rows: CalendarRowType[] = [
                 images: [],
                 type: CalendarItemType.PLAIN,
                 color: "#324A5E",
-                hover: CalendarItemHoverAction.STORY
+                hover: CalendarItemHoverAction.STORY,
+                textColor: "#283b4b"
             }
         ]
     },
@@ -42,6 +43,7 @@ export const calendar_rows: CalendarRowType[] = [
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324C3A",
+                textColor: "#283d2e",
                 hover: CalendarItemHoverAction.STORY,
             },
             {
@@ -54,7 +56,11 @@ export const calendar_rows: CalendarRowType[] = [
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324A5E",
-                hover: CalendarItemHoverAction.STORY
+                textColor: "#283b4b",
+                hover: CalendarItemHoverAction.GALLARY,
+                hoverText: "the guy who thought starting a tech company with zero coding skills was a solid plan. marketeer, creator, and part-time chaos manager. powered by coffee and big dreams.",
+                hoverTitle: "meet jens",
+                linkTo: ""
             }
         ]
     },
@@ -69,6 +75,7 @@ export const calendar_rows: CalendarRowType[] = [
                 images: [],
                 type: CalendarItemType.PLAIN,
                 color: "#324C3A",
+                textColor: "#283d2e",
                 link: "https://www.youtube.com/watch?v=jG7dSXcfVqE"
             },
             {
@@ -78,7 +85,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "meet_marnix.png"
                 ],
                 type: CalendarItemType.STORY,
-                color: "#324A5E"
+                color: "#324A5E",
+                textColor: "#283b4b"
             }
         ]
     },
@@ -96,7 +104,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "jelmer_joins.png",
                 ],
                 type: CalendarItemType.STORY,
-                color: "#324A5E"
+                color: "#324A5E",
+                textColor: "#283b4b"
             }
         ]
     },
@@ -114,7 +123,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "jesse_joins.png",
                 ],
                 type: CalendarItemType.STORY,
-                color: "#324A5E"
+                color: "#324A5E",
+                textColor: "#283b4b"
             },
             {
                 postedBy: "jens",
@@ -125,7 +135,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "build_in_arms_1.png",
                 ],
                 type: CalendarItemType.GALLARY,
-                color: "#503F5B"
+                color: "#503F5B",
+                textColor: "#403249"
             }
         ]
     },
@@ -143,7 +154,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "boni_joins.png",
                 ],
                 type: CalendarItemType.STORY,
-                color: "#324A5E"
+                color: "#324A5E",
+                textColor: "#283b4b"
             },
             {
                 postedBy: "marnix",
@@ -155,6 +167,7 @@ export const calendar_rows: CalendarRowType[] = [
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324A5E",
+                textColor: "#283b4b",
                 hover: CalendarItemHoverAction.STORY
             }
         ]
@@ -169,7 +182,8 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "video shoot took 6 hours",
                 images: [],
                 type: CalendarItemType.PLAIN,
-                color: "#324A5E"
+                color: "#324A5E",
+                textColor: "#283b4b"
             }
         ]
     },
@@ -183,7 +197,8 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "raise $220k from angel investors",
                 images: [],
                 type: CalendarItemType.PLAIN,
-                color: "#5A2D3E"
+                color: "#5A2D3E",
+                textColor:"#482432",
             },
             {
                 postedBy: "jens",
@@ -194,7 +209,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "girl_sitting.png",
                 ],
                 type: CalendarItemType.GALLARY,
-                color: "#2A3B56"
+                color: "#2A3B56",
+                textColor: "#222f45"
             }
         ]
     },
@@ -212,7 +228,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "retreat_1.png",
                 ],
                 type: CalendarItemType.GALLARY,
-                color: "#171717"
+                color: "#171717",
+                textColor: "#121212"
             }
         ]
     },
@@ -231,6 +248,7 @@ export const calendar_rows: CalendarRowType[] = [
                 ],
                 type: CalendarItemType.GALLARY,
                 color: "#324A5E",
+                textColor: "#283b4b",
                 small: true
             }
         ]
@@ -249,7 +267,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "oliver_joins_creatormate.png",
                 ],
                 type: CalendarItemType.STORY,
-                color: "#324A5E"
+                color: "#324A5E",
+                textColor: "#283b4b"
             },
             {
                 postedBy: "marnix",
@@ -260,7 +279,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "liam_joins_creatormate.png",
                 ],
                 type: CalendarItemType.STORY,
-                color: "#324A5E"
+                color: "#324A5E",
+                textColor: "#283b4b"
             }
         ]
     },
@@ -278,7 +298,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "this_is_boni.png",
                 ],
                 type: CalendarItemType.STORY,
-                color: "#324A5E"
+                color: "#324A5E",
+                textColor: "#283b4b"
             }
         ]
     },
@@ -296,7 +317,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "office_1.png",
                 ],
                 type: CalendarItemType.GALLARY,
-                color: "#3A5E5C"
+                color: "#3A5E5C",
+                textColor: "#2e4b4a"
             }
         ]
     },
@@ -310,14 +332,16 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "ben joins creatormate",
                 images: [],
                 type: CalendarItemType.STORY,
-                color: "#324A5E"
+                color: "#324A5E",
+                textColor: "#283b4b"
             },
             {
                 postedBy: "jens",
                 title: "launched our first beta(private)",
                 images: [],
                 type: CalendarItemType.PLAIN,
-                color: "#2f2f2f"
+                color: "#2f2f2f",
+                textColor: '#262626'
             }
         ]
     },
@@ -336,6 +360,7 @@ export const calendar_rows: CalendarRowType[] = [
                 ],
                 type: CalendarItemType.GALLARY,
                 color: "#2A3B56",
+                textColor: "#222f45",
                 small: true
             }
         ]
@@ -350,14 +375,16 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "sam joins creatormate",
                 images: [],
                 type: CalendarItemType.STORY,
-                color: "#324A5E"
+                color: "#324A5E",
+                textColor: "#283b4b"
             },
             {
                 postedBy: "jens",
                 title: "the hackathon 2.0",
                 images: ["hackathon.png"],
                 type: CalendarItemType.FOTO,
-                color: "#463356"
+                color: "#463356",
+                textColor: "#382945"
             }
         ]
     },
@@ -372,6 +399,7 @@ export const calendar_rows: CalendarRowType[] = [
                 images: [],
                 type: CalendarItemType.PLAIN,
                 color: "#324C3A",
+                textColor: "#283d2e"
             },
             {
                 postedBy: "jens",
@@ -382,7 +410,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "testing.png",
                 ],
                 type: CalendarItemType.STORY,
-                color: "#324A5E"
+                color: "#324A5E",
+                textColor: "#283b4b"
             }
         ]
     },
@@ -396,7 +425,8 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "shooting our upcoming yt series",
                 images: ["shooting_yt_video.png"],
                 type: CalendarItemType.FOTO,
-                color: "#2f2f2f"
+                color: "#2f2f2f",
+                textColor: "#262626"
             }
         ]
     },
@@ -418,7 +448,8 @@ export const calendar_rows: CalendarRowType[] = [
                     "email: jens@creatormate.com",
                 images: ["join_our_Team.png"],
                 type: CalendarItemType.FOTO,
-                color: "#2f2f2f"
+                color: "#2f2f2f",
+                textColor: "#262626"
             }
         ],
         final: true
@@ -431,9 +462,13 @@ export type CalendarItem = {
     images: string[],
     type: CalendarItemType
     color: string,
+    textColor: string
     small?: boolean,
     hover?: CalendarItemHoverAction,
-    link?: string
+    link?: string,
+    hoverText?: string,
+    linkTo?: string,
+    hoverTitle?: string
 }
 
 export type CalendarRowType = {
@@ -443,7 +478,7 @@ export type CalendarRowType = {
     postition: CalendarRowAlignment,
     color?: string
     final?: boolean,
-    socials?: boolean
+    socials?: boolean,
 }
 
 

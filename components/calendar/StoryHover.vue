@@ -35,7 +35,7 @@
 
         setTimeout(() => {
             teleportBlock.value?.classList.add("animationStory");
-        }, 10); // Delay to ensure the browser renders the initial state
+        }, 10);
     });
 
     onUnmounted(() => {

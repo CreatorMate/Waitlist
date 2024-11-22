@@ -8,10 +8,10 @@
 
 <template>
     <div>
-        <p class="font-semibold text-sm">{{calendarItem.title}}</p>
+        <p class="font-semibold text-sm md:text-[16px] ">{{calendarItem.title}}</p>
     </div>
-    <div class="flex text-[#D1D1D1] text-xs items-center gap-2 mt-2.5">
+    <div class="flex text-[#D1D1D1] text-[12px] md:text-sm items-center gap-2 mt-2.5">
         <Icon size="14" name="mage:pin"/>
-        <p>posted by {{calendarItem.postedBy}}</p>
+        <p class="text-[12px] md:text-sm">posted by {{calendarItem.postedBy}}</p>
     </div>
 </template>

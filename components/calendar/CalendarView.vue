@@ -4,7 +4,7 @@
 </script>
 
 <template>
-    <div class="h-full w-screen flex flex-nowrap ">
+    <div class="h-full w-full flex flex-nowrap">
         <CalendarRow :calendar-row="calendarRow" v-for="calendarRow of calendar_rows" />
     </div>
     <div id="modal">

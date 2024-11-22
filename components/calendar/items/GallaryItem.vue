@@ -13,18 +13,26 @@
 </script>
 
 <template>
-    <div class=" px-5 py-4">
-        <PostedBy :calendar-item/>
-    </div>
-    <div class="relative inline-block px-5 w-[85%] h-[170px] lg:h-auto">
-        <div class="invisible">
-            <NuxtImg class=" rounded lg:w-full top-0 z-10 mb-12 object-contain h-[150px] lg:h-auto"
-                     :src="`calandar/${calendarItem.images[0]}`"></NuxtImg>
+    <div class="max-h-full flex flex-col h-[50vh]">
+        <div class="px-5 py-4 flex flex-col">
+            <PostedBy :calendar-item/>
         </div>
-        <NuxtImg class="absolute rotate-2 rounded w-full top-0 z-10 object-contain h-[150px] lg:h-auto"
-                 :src="`calandar/${calendarItem.images[0]}`"></NuxtImg>
-        <NuxtImg class="absolute -rotate-2 rounded w-full top-0 z-10 object-contain h-[150px] lg:h-auto"
-                 :src="`calandar/${calendarItem.images[1]}`"></NuxtImg>
-        <NuxtImg class="absolute w-full z-50 top-0 object-contain h-[150px] lg:h-auto" :src="`calandar/${calendarItem.images[2]}`"></NuxtImg>
+        <div class="relative flex flex-grow px-5 w-full h-[170px] lg:h-[90%] 5xl:w-[95%] flex">
+            <div class="relative w-full h-[90%] flex items-center justify-center">
+<!--                <div class="invisible">-->
+<!--                    <NuxtImg class=" rounded lg:w-full top-0 z-10 mb-12 object-contain h-[150px] lg:h-full"-->
+<!--                             :src="`calandar/${calendarItem.images[0]}`"></NuxtImg>-->
+<!--                </div>-->
+                <NuxtImg
+                    class="absolute rotate-2 rounded w-full top-0 z-10 object-cover h-[150px] lg:h-full max-h-full max-w-full"
+                    :src="`calandar/${calendarItem.images[0]}`"></NuxtImg>
+                <NuxtImg
+                    class="absolute -rotate-2 rounded w-full top-0 z-10 object-cover h-[150px] lg:h-full max-h-full max-w-full"
+                    :src="`calandar/${calendarItem.images[1]}`"></NuxtImg>
+                <NuxtImg class="absolute w-full z-50 top-0 object-cover h-[150px] lg:h-full max-h-full max-w-full"
+                         :src="`calandar/${calendarItem.images[2]}`"></NuxtImg>
+            </div>
+        </div>
     </div>
+
 </template>

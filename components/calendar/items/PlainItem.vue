@@ -8,7 +8,7 @@
 </script>
 
 <template>
-    <div class="px-5 py-4 flex flex-col pb-6 lg:pb-36">
+    <div class="px-5 py-4 flex flex-col pb-6 lg:pb-36 h-[30vh]" :class="`text-[${calendarItem.textColor}]`">
         <PostedBy :calendarItem/>
     </div>
 </template>

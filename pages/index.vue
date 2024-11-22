@@ -37,9 +37,9 @@
 </script>
 
 <template>
-    <section class="w-full h-full flex flex-col custom_scroll overflow-y-hidden">
+    <section class="w-full h-full flex flex-col custom_scroll overflow-y-hidden relative">
         <CalendarHeader @joinButton="modelActive = true"/>
-        <div ref="calendar" class="flex flex-1 overflow-x-scroll">
+        <div ref="calendar" class="flex h-full overflow-x-scroll overflow-y-hidden">
             <CalendarView></CalendarView>
         </div>
     </section>

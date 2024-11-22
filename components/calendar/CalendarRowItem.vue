@@ -6,6 +6,7 @@
     import StoryItem from "~/components/calendar/items/StoryItem.vue";
     import ShareItem from "~/components/calendar/items/ShareItem.vue";
     import StoryHover from "~/components/calendar/StoryHover.vue";
+    import GallaryHover from "~/components/calendar/items/GallaryHover.vue";
 
     const {calendarItem} = defineProps<{
         calendarItem: CalendarItem
@@ -24,7 +25,7 @@
     })
 
     function handleClick() {
-        if (calendarItem.hover == CalendarItemHoverAction.STORY) {
+        if (calendarItem.hover == CalendarItemHoverAction.STORY || calendarItem.hover || CalendarItemHoverAction.GALLARY) {
             itemActive.value = !itemActive.value
         }
 
@@ -39,10 +40,11 @@
 </script>
 
 <template>
-    <div ref="item" class="item" :class="{ 'popup-animation': targetIsVisible || loaded },{ 'z-50': itemActive }">
+    <div ref="item" class="item" :class="{ 'popup-animation': targetIsVisible || loaded },{ 'z-50': itemActive },
+    {'max-h-[35vh]' : calendarItem.type == CalendarItemType.STORY || calendarItem.type == CalendarItemType.GALLARY}">
         <div
             @click="handleClick()"
-            class="rounded-2xl hover:duration-100 hover:scale-95 transition-transform relative z-10"
+            class="rounded-2xl hover:duration-100 hover:scale-95 transition-transform relative z-10 h-full w-full"
             :class="[
   `bg-[${calendarItem.color}]`
 ]">
@@ -55,6 +57,10 @@
         <Transition>
             <StoryHover v-if="calendarItem.hover == CalendarItemHoverAction.STORY && itemActive" :parent-block="item" @click.stop
                         @click-outside="handleClickOutside()" :calendar-item></StoryHover>
+        </Transition>
+        <Transition>
+            <GallaryHover v-if="calendarItem.hover == CalendarItemHoverAction.GALLARY && itemActive" @click.stop
+                        @click-outside="handleClickOutside()" :calendar-item></GallaryHover>
         </Transition>
     </div>
 </template>

@@ -8,10 +8,10 @@
 </script>
 
 <template>
-    <div class="py-5 px-2.5">
+    <div class="py-5 px-2.5 h-full w-full">
         <div class="px-2 mb-4">
             <PostedBy :calendar-item />
         </div>
-        <NuxtImg class="w-full h-[150px] object-cover lg:h-auto" :src="`calandar/${calendarItem.images[0]}`"></NuxtImg>
+        <NuxtImg class="w-full object-cover max-h-full max-w-full" :src="`calandar/${calendarItem.images[0]}`"></NuxtImg>
     </div>
 </template>
