@@ -27,12 +27,16 @@
     }
 
     onMounted(() => {
-        calendar.value?.addEventListener('wheel', (e: WheelEvent) => {
+        document.addEventListener('wheel', (e: WheelEvent) => {
             e.preventDefault();
             if(!calendar.value) return;
 
             calendar.value.scrollLeft += e.deltaY * 0.7
         })
+    })
+
+    onUnmounted(() => {
+        document.removeEventListener('wheel', (e: WheelEvent) => {});
     })
 </script>
 

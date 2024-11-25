@@ -35,7 +35,7 @@
                              :src="`calandar/${calendarItem.images[2]}`"></NuxtImg>
                 </div>
                 <div class="justify-center flex w-full mt-9">
-                    <div class="bg-black rounded-xl px-10 py-6 text-center flex flex-col items-center">
+                    <div class="bg-zinc-900 rounded-xl px-10 py-6 text-center flex flex-col items-center">
                         <h3 class="font-semibold text-xl mb-2">{{calendarItem.hoverTitle}}</h3>
                         <p class="text-sm xs:text-base w-[95%] xs:w-[35vh] text-white text-opacity-80">{{calendarItem.hoverText}}</p>
                         <a :href="calendarItem.linkTo" target="_blank" class="bg-white hover:bg-opacity-80 flex items-center mt-4 text-black py-2 px-4 rounded-xl gap-2">

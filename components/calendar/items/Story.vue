@@ -27,11 +27,34 @@
 
     const container = ref<HTMLDivElement|null>(null);
     onClickOutside(parentBlock, event => emits('click-outside'))
+
+    function goLeft() {
+        currentPhoto.value--;
+        if(currentPhoto.value == 0) {
+            currentPhoto.value = calendarItem.images.length - 1;
+        }
+        timer.value = 0;
+    }
+
+    function goRight() {
+        currentPhoto.value++;
+        if(currentPhoto.value == calendarItem.images.length) {
+            currentPhoto.value = 1;
+        }
+
+        timer.value = 0;
+    }
 </script>
 
 <template>
-    <div ref="container" class="relative rounded-xl">
-        <NuxtImg class="w-full md:w-[300px]" :src="`calandar/${calendarItem.images[currentPhoto]}`"/>
+    <div ref="container" class="relative rounded-xl z-50">
+        <div @click="goLeft" class="absolute h-full top-0 left-0 w-1/4">
+
+        </div>
+        <div @click="goRight" class="absolute h-full right-0 top-0 w-1/4">
+
+        </div>
+        <NuxtImg class="w-full md:w-[400px]" :src="`calandar/${calendarItem.images[currentPhoto]}`"/>
         <div class="absolute flex top-[11px] gap-2 left-1/2 -translate-x-1/2">
             <div v-for="(item, index) of loopIndices" class="h-[5px] w-[21px] rounded-full" :class="
                 [

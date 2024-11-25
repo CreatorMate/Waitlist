@@ -66,7 +66,6 @@ export const useAccountStore = defineStore("account", () => {
         }
 
     }
-
     async function update() {
         try {
             const updates = {
