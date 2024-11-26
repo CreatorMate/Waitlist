@@ -15,3 +15,10 @@
         <NuxtImg class="w-full object-cover h-full" :src="`calandar/${calendarItem.images[0]}`"></NuxtImg>
     </div>
 </template>
+
+<style>
+.cover_img {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.80) 0%, rgba(0, 0, 0, 0.00) 100%), lightgray 50% / cover no-repeat;
+
+}
+</style>

@@ -60,7 +60,7 @@
          class="bg-black absolute z-50 p-1 rounded-xl"
          :class="[
             isDivOnTopOrBottom() == 'top' ? 'top-0' : 'bottom-0',
-            isDivOnLeftOrRight() == 'left' ? '-right-[420px]' : '-left-[320px]',
+            isDivOnLeftOrRight() == 'left' ? '-right-[320px] xl:-right-[420px]' : '-left-[320px] xl:-left-[420px]',
             ]"
     >
         <Story :parent-block @close="close" :calendar-item @click-outside="emits('click-outside')"/>

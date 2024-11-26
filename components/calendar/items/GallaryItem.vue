@@ -1,8 +1,6 @@
 <script setup lang="ts">
     import type {CalendarItem} from "~/src/calendar/calendar_items";
     import PostedBy from "~/components/calendar/items/PostedBy.vue";
-    import {onBeforeMount, onMounted, type Ref} from "vue";
-    import {relative} from "pathe";
 
     const {calendarItem} = defineProps<{
         calendarItem: CalendarItem;
@@ -19,10 +17,6 @@
         </div>
         <div @mouseover="hovering = true" @mouseleave="hovering = false" class="relative flex flex-grow px-5 w-full h-[170px] lg:h-[90%] 5xl:w-[95%] flex">
             <div class="relative w-full h-[90%] flex items-center justify-center">
-<!--                <div class="invisible">-->
-<!--                    <NuxtImg class=" rounded lg:w-full top-0 z-10 mb-12 object-contain h-[150px] lg:h-full"-->
-<!--                             :src="`calandar/${calendarItem.images[0]}`"></NuxtImg>-->
-<!--                </div>-->
                 <NuxtImg
                     class="absolute rotate-2 w-full top-0 z-10 object-cover h-[150px] lg:h-full max-h-full max-w-full duration-150 transition-transform ease-in-out rounded-[50px]"
                     :src="`calandar/${calendarItem.images[0]}`"

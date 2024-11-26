@@ -18,11 +18,13 @@
     const targetIsVisible = useElementVisibility(item);
     const loaded = ref(false);
 
+    const currentActiveItem = useState('currentActiveItem')
+
     watch(targetIsVisible, async (newValue) => {
         if (newValue) {
             loaded.value = true;
         }
-    })
+    });
 
     function handleClick() {
         if (calendarItem.hover == CalendarItemHoverAction.STORY || calendarItem.hover || CalendarItemHoverAction.GALLARY) {
@@ -32,6 +34,14 @@
         if(calendarItem.link) {
             window.open(calendarItem.link, '_blank')
         }
+
+        if(calendarItem.hover == CalendarItemHoverAction.MAILTO) {
+            window.location.assign("mailto:jens@creatormate.com");
+        }
+
+        if(itemActive.value) {
+            currentActiveItem.value = calendarItem.title;
+        }
     }
 
     function handleClickOutside() {
@@ -40,7 +50,7 @@
 </script>
 
 <template>
-    <div ref="item" class="item" :class="{ 'popup-animation': targetIsVisible || loaded },{ 'z-50': itemActive },
+    <div ref="item" class="item" :class="{ 'popup-animation': targetIsVisible || loaded },{ 'z-50': itemActive && currentActiveItem == calendarItem.title },
     {'max-h-[35vh]' : calendarItem.type == CalendarItemType.STORY || calendarItem.type == CalendarItemType.GALLARY}">
         <div
             @click="handleClick()"

@@ -7,7 +7,7 @@ export enum CalendarRowAlignment {
 }
 
 export enum CalendarItemHoverAction {
-    STORY, GALLARY
+    STORY, GALLARY, MAILTO
 }
 
 export const calendar_rows: CalendarRowType[] = [
@@ -19,7 +19,9 @@ export const calendar_rows: CalendarRowType[] = [
             {
                 postedBy: "jens",
                 title: "we bought creatormate.com",
-                images: [],
+                images: [
+                    "we_bought_creatormate.png",
+                ],
                 type: CalendarItemType.PLAIN,
                 color: "#324A5E",
                 hover: CalendarItemHoverAction.STORY,
@@ -36,10 +38,9 @@ export const calendar_rows: CalendarRowType[] = [
                 postedBy: "jens",
                 title: "figure out what creatormate could be (with f&f in spain)",
                 images: [
-                    "spain.png",
-                    "find_out_what_1.png",
-                    "find_out_what_2.png",
-                    "find_out_what_3.png",
+                    "spain.jpeg",
+                    "spain.mp4",
+                    "find_out_what_3.jpeg",
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324C3A",
@@ -51,8 +52,9 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "about jens(cofounder)",
                 images: [
                     "jens.png",
-                    "jens.png",
-                    "jens.png",
+                    "IMG_8936.jpeg",
+                    "jens_02.jpeg",
+                    "jens_03.png",
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324A5E",
@@ -60,7 +62,7 @@ export const calendar_rows: CalendarRowType[] = [
                 hover: CalendarItemHoverAction.GALLARY,
                 hoverText: "the guy who thought starting a tech company with zero coding skills was a solid plan. marketeer, creator, and part-time chaos manager. powered by coffee and big dreams.",
                 hoverTitle: "meet jens",
-                linkTo: ""
+                linkTo: "https://www.instagram.com/trycreatormate/"
             }
         ]
     },
@@ -82,11 +84,18 @@ export const calendar_rows: CalendarRowType[] = [
                 postedBy: "jens",
                 title: "about marnix(cofounder)",
                 images: [
-                    "meet_marnix.png"
+                    "meet_marnix.png",
+                    "meet_marnix_1.jpeg",
+                    "meet_marnix_2.jpeg",
+                    "meet_marnix_3.jpeg",
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324A5E",
-                textColor: "#283b4b"
+                textColor: "#283b4b",
+                hover: CalendarItemHoverAction.GALLARY,
+                hoverText: "the guy who thought starting a tech company with zero coding skills was a solid plan. marketeer, creator, and part-time chaos manager. powered by coffee and big dreams.",
+                hoverTitle: "meet marnix",
+                linkTo: "https://www.instagram.com/trycreatormate/"
             }
         ]
     },
@@ -100,12 +109,17 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "jelmer joins creatormate",
                 images: [
                     "jelmer_joins.png",
-                    "jelmer_joins.png",
-                    "jelmer_joins.png",
+                    "meet_jelmer_1.jpeg",
+                    "meet_jelmer_2.png",
+                    "meet_jelmer_3.jpeg",
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324A5E",
-                textColor: "#283b4b"
+                textColor: "#283b4b",
+                hover: CalendarItemHoverAction.GALLARY,
+                hoverText: "our ai god and resident data junkie. ask him anything, and chances are the answer’s the same: “we need more data.” ly",
+                hoverTitle: "meet jelmer",
+                linkTo: "https://www.instagram.com/trycreatormate/"
             }
         ]
     },
@@ -119,24 +133,30 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "jesse joins creatormate",
                 images: [
                     "jesse_joins.png",
-                    "jesse_joins.png",
-                    "jesse_joins.png",
+                    "meet_jesse_1.jpeg",
+                    "meet_jesse_2.jpg",
+                    "meet_jesse_3.jpg",
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324A5E",
-                textColor: "#283b4b"
+                textColor: "#283b4b",
+                hover: CalendarItemHoverAction.GALLARY,
+                hoverText: "design mastermind, branding backbone, and the raw egg guy. a passionate perfectionist obsessed with every little detail—yes, all the details.",
+                hoverTitle: "meet jesse",
+                linkTo: "https://www.instagram.com/trycreatormate/"
             },
             {
                 postedBy: "jens",
                 title: "back in ams with lots of new creators & founders",
                 images: [
-                    "build_in_arms_3.png",
-                    "build_in_arms_2.png",
-                    "build_in_arms_1.png",
+                    "back_in_arms_2.jpeg",
+                    "back_in_arms_3.jpeg",
+                    "back_in_arms.jpeg",
                 ],
                 type: CalendarItemType.GALLARY,
                 color: "#503F5B",
-                textColor: "#403249"
+                textColor: "#403249",
+                hover: CalendarItemHoverAction.STORY
             }
         ]
     },
@@ -150,25 +170,34 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "boni joins creatormate",
                 images: [
                     "boni_joins.png",
-                    "boni_joins.png",
-                    "boni_joins.png",
+                    "meet_boni_1.jpeg",
+                    "meet_boni_2.jpeg",
+                    "meet_boni_3.JPG",
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324A5E",
-                textColor: "#283b4b"
+                textColor: "#283b4b",
+                hover: CalendarItemHoverAction.GALLARY,
+                hoverText: "the king of “winging it” with results that somehow slap every time. no plan, all vibes—boni’s behind most of our content with jens.",
+                hoverTitle: "meet boni",
+                linkTo: "https://www.instagram.com/trycreatormate/"
             },
             {
                 postedBy: "marnix",
                 title: "robin joins creatormate",
                 images: [
                     "robin_joins.png",
-                    "robin_joins.png",
-                    "robin_joins.png",
+                    "meet_robin_1.jpg",
+                    "meet_robin_2.jpg",
+                    "meet_robin_3.PNG",
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324A5E",
                 textColor: "#283b4b",
-                hover: CalendarItemHoverAction.STORY
+                hover: CalendarItemHoverAction.GALLARY,
+                hoverText: "mr quality himself. not your average developer—this guy writes code like poetry. funny, passionate, and the team’s unofficial hype man.",
+                hoverTitle: "meet robin",
+                linkTo: "https://www.instagram.com/trycreatormate/"
             }
         ]
     },
@@ -183,7 +212,8 @@ export const calendar_rows: CalendarRowType[] = [
                 images: [],
                 type: CalendarItemType.PLAIN,
                 color: "#324A5E",
-                textColor: "#283b4b"
+                textColor: "#283b4b",
+                link: 'https://www.youtube.com/watch?v=s7gVVLWGw4M&feature=youtu.be',
             }
         ]
     },
@@ -204,13 +234,14 @@ export const calendar_rows: CalendarRowType[] = [
                 postedBy: "jens",
                 title: "talked to 250+ creators",
                 images: [
-                    "girl_sitting_3.png",
-                    "girl_sitting_2.png",
-                    "girl_sitting.png",
+                    "talked_to_creators_1.png",
+                    "talked_to_creators_2.png",
+                    "talked_to_creators_3.png",
                 ],
                 type: CalendarItemType.GALLARY,
                 color: "#2A3B56",
-                textColor: "#222f45"
+                textColor: "#222f45",
+                hover: CalendarItemHoverAction.STORY
             }
         ]
     },
@@ -223,13 +254,14 @@ export const calendar_rows: CalendarRowType[] = [
                 postedBy: "jens",
                 title: "the hackathon 1.0",
                 images: [
-                    "retreat_3.png",
-                    "retreat_2.png",
-                    "retreat_1.png",
+                    "retreat_3.jpeg",
+                    "retreat_2.jpeg",
+                    "retreat_1.jpeg",
                 ],
                 type: CalendarItemType.GALLARY,
                 color: "#171717",
-                textColor: "#121212"
+                textColor: "#121212",
+                hover: CalendarItemHoverAction.STORY
             }
         ]
     },
@@ -242,14 +274,15 @@ export const calendar_rows: CalendarRowType[] = [
                 postedBy: "jens",
                 title: "launched our first landing page",
                 images: [
-                    "waitlist_3.png",
-                    "waitlist_2.png",
-                    "waitlist_1.png",
+                    "landing_page_1.png",
+                    "landing_page_2.png",
+                    "landing_page_3.png",
                 ],
                 type: CalendarItemType.GALLARY,
                 color: "#324A5E",
                 textColor: "#283b4b",
-                small: true
+                small: true,
+                hover: CalendarItemHoverAction.STORY
             }
         ]
     },
@@ -263,24 +296,34 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "oliver joins creatormate",
                 images: [
                     "oliver_joins_creatormate.png",
-                    "oliver_joins_creatormate.png",
-                    "oliver_joins_creatormate.png",
+                    "meet_oliver_1.jpeg",
+                    "meet_oliver_2.jpg",
+                    "meet_oliver_3.png",
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324A5E",
-                textColor: "#283b4b"
+                textColor: "#283b4b",
+                hover: CalendarItemHoverAction.GALLARY,
+                hoverText: "30 minutes with him, and you’ll rethink your entire existence. pro tip: limit it to once a month, or you’ll never get anything done. absolute legend.",
+                hoverTitle: "meet oliver",
+                linkTo: "https://www.instagram.com/trycreatormate/"
             },
             {
                 postedBy: "marnix",
                 title: "liam joins creatormate",
                 images: [
                     "liam_joins_creatormate.png",
-                    "liam_joins_creatormate.png",
-                    "liam_joins_creatormate.png",
+                    "meet_liam_1.jpeg",
+                    "meet_liam_2.png",
+                    "meet_liam_3.png",
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324A5E",
-                textColor: "#283b4b"
+                textColor: "#283b4b",
+                hover: CalendarItemHoverAction.GALLARY,
+                hoverText: "best-looking and most caring—yes, he’s both. born in cape town, he brought the vibes to amsterdam… just not the sun.",
+                hoverTitle: "meet liam",
+                linkTo: "https://www.instagram.com/trycreatormate/"
             }
         ]
     },
@@ -294,12 +337,14 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "launched based on real startup series",
                 images: [
                     "this_is_boni.png",
-                    "this_is_boni.png",
-                    "this_is_boni.png",
+                    "launched_series_1.jpeg",
+                    "launched_series_2.jpeg",
+                    "launched_series_3.JPG",
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324A5E",
-                textColor: "#283b4b"
+                textColor: "#283b4b",
+                hover: CalendarItemHoverAction.STORY
             }
         ]
     },
@@ -318,7 +363,8 @@ export const calendar_rows: CalendarRowType[] = [
                 ],
                 type: CalendarItemType.GALLARY,
                 color: "#3A5E5C",
-                textColor: "#2e4b4a"
+                textColor: "#2e4b4a",
+                hover: CalendarItemHoverAction.STORY
             }
         ]
     },
@@ -331,7 +377,7 @@ export const calendar_rows: CalendarRowType[] = [
                 postedBy: "jens",
                 title: "ben joins creatormate",
                 images: [],
-                type: CalendarItemType.STORY,
+                type: CalendarItemType.PLAIN,
                 color: "#324A5E",
                 textColor: "#283b4b"
             },
@@ -355,13 +401,14 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "lots of feedback & interations later...",
                 images: [
                     "tooling_3.png",
-                    "tooling_2.png",
-                    "tooling_1.png",
+                    "why_spaces.png",
+                    "feedback_2.png",
                 ],
                 type: CalendarItemType.GALLARY,
                 color: "#2A3B56",
                 textColor: "#222f45",
-                small: true
+                small: true,
+                hover: CalendarItemHoverAction.STORY
             }
         ]
     },
@@ -374,7 +421,7 @@ export const calendar_rows: CalendarRowType[] = [
                 postedBy: "jens",
                 title: "sam joins creatormate",
                 images: [],
-                type: CalendarItemType.STORY,
+                type: CalendarItemType.PLAIN,
                 color: "#324A5E",
                 textColor: "#283b4b"
             },
@@ -406,12 +453,12 @@ export const calendar_rows: CalendarRowType[] = [
                 title: "waitlist turned into community platform",
                 images: [
                     "testing.png",
-                    "testing.png",
-                    "testing.png",
+                    "why_waitlist.png"
                 ],
                 type: CalendarItemType.STORY,
                 color: "#324A5E",
-                textColor: "#283b4b"
+                textColor: "#283b4b",
+                hover: CalendarItemHoverAction.STORY
             }
         ]
     },
@@ -423,10 +470,14 @@ export const calendar_rows: CalendarRowType[] = [
             {
                 postedBy: "jens",
                 title: "shooting our upcoming yt series",
-                images: ["shooting_yt_video.png"],
+                images: [
+                    "shooting_yt_video.png",
+                    "real.mp4"
+                ],
                 type: CalendarItemType.FOTO,
                 color: "#2f2f2f",
-                textColor: "#262626"
+                textColor: "#262626",
+                hover: CalendarItemHoverAction.STORY
             }
         ]
     },
@@ -449,7 +500,8 @@ export const calendar_rows: CalendarRowType[] = [
                 images: ["join_our_Team.png"],
                 type: CalendarItemType.FOTO,
                 color: "#2f2f2f",
-                textColor: "#262626"
+                textColor: "#262626",
+                hover: CalendarItemHoverAction.MAILTO
             }
         ],
         final: true

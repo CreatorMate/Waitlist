@@ -1,9 +1,11 @@
 <script setup lang='ts'>
-
+    function clickTo(url: string, target: string) {
+        window.open(url, target);
+    }
 </script>
 
 <template>
-    <div class="w-full bg-[#2A3B56] rounded-xl h-[30vh] relative p-6 hover:scale-95 transition-transform">
+    <div @click="clickTo('https://www.linkedin.com/company/creatormate/?originalSubdomain=nl', '_blank')" class="w-full bg-[#2A3B56] rounded-xl h-[30vh] relative p-6 hover:scale-95 transition-transform">
         <p class="font-semibold">share the linkedin post!</p>
         <div class="absolute bottom-0 right-0 w-2/3 xs:w-1/3 md:w-auto">
             <svg class="w-full h-full md:h-auto md:w-auto" xmlns="http://www.w3.org/2000/svg" width="183" height="178" viewBox="0 0 183 178" fill="none">
@@ -12,7 +14,7 @@
         </div>
 
     </div>
-    <div style="background: linear-gradient(126deg, #684389 0%, #924F80 25%, #B75E77 50%, #C38052 75%, #C9C165 100%);
+    <div @click="clickTo('https://www.instagram.com/trycreatormate/', '_blank')" style="background: linear-gradient(126deg, #684389 0%, #924F80 25%, #B75E77 50%, #C38052 75%, #C9C165 100%);
 " class="w-full bg-[#2A3B56] rounded-xl h-[30vh] relative p-6 hover:scale-95 transition-transform">
         <p class="font-semibold">share the ig post!</p>
         <div class="absolute bottom-0 right-0 w-2/3 xs:w-1/3 md:w-auto">
