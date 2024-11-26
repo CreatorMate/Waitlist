@@ -1,14 +1,14 @@
 <script lang="ts" setup>
     import Login from "~/components/home/Login.vue";
-    import PrimaryButton from "~/components/common/PrimaryButton.vue";
     import {useAccountStore} from "~/src/account/AccountStore";
+    import CalendarHeader from "~/components/calendar/CalendarHeader.vue";
+    import CalendarView from "~/components/calendar/CalendarView.vue";
+    import {onMounted, type Ref} from "vue";
+
+    const calendar: Ref<HTMLDivElement|null> = ref(null);
 
     const router = useRouter();
-    const user = useSupabaseUser();
     const account = useAccountStore();
-    definePageMeta({
-        layout: 'platform'
-    });
     useHead({
         title: 'join the waitlist now! - creatormate'
     })
@@ -25,33 +25,28 @@
     function toBeta() {
         window.location.href = "https://app.creatormate.com";
     }
+
+    onMounted(() => {
+        document.addEventListener('wheel', (e: WheelEvent) => {
+            e.preventDefault();
+            if(!calendar.value) return;
+
+            calendar.value.scrollLeft += e.deltaY * 0.7
+        })
+    })
+
+    onUnmounted(() => {
+        document.removeEventListener('wheel', (e: WheelEvent) => {});
+    })
 </script>
 
 <template>
-    <section style="" class="background-mask w-full h-full flex flex-col items-center justify-between z-40">
-        <div class="p-10">
-            <img alt="creator mate logo"  src="/creatormate.svg">
-        </div>
-        <div class="flex flex-col justify-center items-center gap-6 md:gap-10 w-full md:w-[1200px]">
-            <div class="flex flex-col gap-6 items-center">
-                <h1 class="text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl flex-wrap font-medium text-center px-4 md:px-0">a creator's best friend</h1>
-                <p class="text-sm xxs:text-base md:text-xl font-normal px-4 text-center">helping creators build, grow & monetize their community</p>
-            </div>
-            <div class="gap-2 md:gap-6 flex">
-                <PrimaryButton @click="modelActive = true">
-                    {{user ? 'go to community' : 'join community'}}
-                </PrimaryButton>
-                <PrimaryButton v-if="account.isBetaTester" @click="toBeta()">
-                    Go to beta
-                </PrimaryButton>
-            </div>
-        </div>
-        <div class="p-8 flex gap-6">
-            <a class="hover:text-opacity-60" href="mailto:hello@creatormate.com">email</a>
-            <a class="hover:text-opacity-20" target="_blank" href="https://www.instagram.com/trycreatormate/">instagram</a>
+    <section class="w-full h-full flex flex-col custom_scroll overflow-y-hidden relative">
+        <CalendarHeader @joinButton="modelActive = true"/>
+        <div ref="calendar" class="flex h-full overflow-x-scroll overflow-y-hidden">
+            <CalendarView></CalendarView>
         </div>
     </section>
-    <HomeCarousel></HomeCarousel>
     <BaseModelVue :model-active="modelActive" @close="modelActive = false">
         <Login v-if="!verifying" @verify="verify"></Login>
         <HomeVerify :email="email" v-else></HomeVerify>
@@ -59,7 +54,20 @@
 </template>
 
 <style scoped>
-.background-mask {
-    background: radial-gradient(50% 50% at 50% 50%,rgba(0,0,0,0.10) 0%, rgb(0, 0, 0, 0.90) 90%);
+.custom_scroll {
+    ::-webkit-scrollbar {
+        width: 2em;
+    }
+    ::-webkit-scrollbar-track {
+        background: hsl(0, 0%, 21%);
+        margin-block: .5em;
+        border-radius: 100vw;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: hsl(0, 0%, 6%);
+        border-radius: 100vw;
+        padding: 10px;
+    }
 }
 </style>

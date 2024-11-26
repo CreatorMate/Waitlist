@@ -73,7 +73,7 @@
 
 <template>
     <h2 class="text-2xl mb-6 font-medium">{{register ? 'create account' : 'login'}}</h2>
-    <button v-if="!isInEmbeddedBrowser()" @click="withGoogle" class="bg-white w-full rounded-full py-3 text-black font-medium leading-6 hover:bg-opacity-80 transition duration-300">
+    <button v-if="!isInEmbeddedBrowser()" @click="withGoogle" class="bg-white w-full rounded-full py-3 text-black font-medium leading-6 hover:bg-opacity-80 transition duration-300 flex items-center justify-center">
         <Icon class="mr-1 pb-1 leading-6" size="24px" name="ri:google-fill"></Icon>
         continue with google
     </button>
