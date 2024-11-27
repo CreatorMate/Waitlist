@@ -57,7 +57,7 @@
 
 <template>
     <div v-if="isWideScreen"
-         class="bg-black absolute z-50 p-1 rounded-xl"
+         class="bg-zinc-900 absolute z-50 p-1 rounded-xl"
          :class="[
             isDivOnTopOrBottom() == 'top' ? 'top-0' : 'bottom-0',
             isDivOnLeftOrRight() == 'left' ? '-right-[320px] xl:-right-[420px]' : '-left-[320px] xl:-left-[420px]',
@@ -67,7 +67,7 @@
     </div>
     <Teleport v-else to="body">
         <div ref="teleportBlock"
-             class="teleportedStory bg-black absolute z-50 p-1 rounded-xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] xs:w-9/12 text-white">
+             class="teleportedStory bg-zinc-900 absolute z-50 p-1 rounded-xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] xs:w-9/12 text-white">
             <Story @close="close" :parent-block :calendar-item/>
         </div>
     </Teleport>
