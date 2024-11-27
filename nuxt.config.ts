@@ -12,7 +12,9 @@ export default defineNuxtConfig({
       secretKey: process.env.NUXT_OPENAI_API_KEY,
     },
   },
-
+  image: {
+    domains: ['accounts.creatormate.com'],
+  },
   supabase: {
     cookieOptions: {
       domain: process.env.NUXT_MODE == 'Development' ? '.localhost' : ".creatormate.com",

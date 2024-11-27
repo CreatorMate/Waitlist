@@ -12,7 +12,7 @@
         <div class="mb-6 px-5 py-6 absolute top-0">
             <PostedBy :calendar-item/>
         </div>
-        <NuxtImg class="w-full object-cover h-full" :src="`calandar/${calendarItem.images[0]}`"></NuxtImg>
+        <NuxtImg class="w-full object-cover h-full" :src="`https://accounts.creatormate.com/storage/v1/object/public/calendar_images/${calendarItem.images[0]}`"></NuxtImg>
     </div>
 </template>
 

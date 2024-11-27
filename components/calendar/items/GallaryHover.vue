@@ -26,13 +26,13 @@
                  class="w-[95%] lg:w-auto teleportedStory absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 text-white">
                 <div class="flex w-full">
                     <NuxtImg
-                        class=" rotate-6 rounded z-10 object-cover w-[33%] lg:w-[35vh] h-[33%] lg:h-[35vh] rounded-2xl"
-                        :src="`calandar/${calendarItem.images[1]}`"></NuxtImg>
+                        class=" rotate-6 z-10 object-cover min-w-[33%] lg:min-w-[35vh] min-h-[33%] lg:min-h-[35vh] max-w-[33%] lg:max-w-[35vh] max-h-[33%] lg:max-h-[35vh] rounded-2xl"
+                        :src="`https://accounts.creatormate.com/storage/v1/object/public/calendar_images/${calendarItem.images[1]}`"></NuxtImg>
                     <NuxtImg
-                        class=" -rotate-6 rounded z-10 object-cover w-[33%] lg:w-[35vh] h-[33%] lg:h-[35vh] rounded-2xl"
-                        :src="`calandar/${calendarItem.images[2]}`"></NuxtImg>
-                    <NuxtImg class="rotate-12 z-50 object-cover w-[33%] lg:w-[35vh] h-[33%] lg:h-[35vh] rounded-2xl"
-                             :src="`calandar/${calendarItem.images[3]}`"></NuxtImg>
+                        class=" -rotate-6 z-10 object-cover min-w-[33%] lg:min-w-[35vh] min-h-[33%] lg:min-h-[35vh] max-w-[33%] lg:max-w-[35vh] max-h-[33%] lg:max-h-[35vh] rounded-2xl"
+                        :src="`https://accounts.creatormate.com/storage/v1/object/public/calendar_images/${calendarItem.images[2]}`"></NuxtImg>
+                    <NuxtImg class="rotate-12 z-50 object-cover min-w-[33%] lg:min-w-[35vh] min-h-[33%] lg:min-h-[35vh] max-w-[33%] lg:max-w-[35vh] max-h-[33%] lg:max-h-[35vh] rounded-2xl"
+                             :src="`https://accounts.creatormate.com/storage/v1/object/public/calendar_images/${calendarItem.images[3]}`"></NuxtImg>
                 </div>
                 <div class="justify-center flex w-full mt-9">
                     <div class="bg-zinc-900 rounded-xl px-10 py-6 text-center flex flex-col items-center">
