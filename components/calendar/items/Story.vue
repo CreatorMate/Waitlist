@@ -56,8 +56,8 @@
         <div @click="goRight" class="absolute h-full right-0 top-0 w-1/4 cursor-pointer z-50">
 
         </div>
-        <NuxtImg v-if="!calendarItem.images[currentPhoto].includes('mp4')" class="w-full md:w-[300px] xl:w-[400px]" :src="`calandar/${calendarItem.images[currentPhoto]}`"/>
-        <video autoplay v-else class="w-full md:w-[300px] xl:w-[400px]" :src="`calandar/${calendarItem.images[currentPhoto]}`"/>
+        <NuxtImg v-if="!calendarItem.images[currentPhoto].includes('mp4')" class="w-full md:w-[300px] xl:w-[400px]" :src="`https://accounts.creatormate.com/storage/v1/object/public/calendar_images/${calendarItem.images[currentPhoto]}`"/>
+        <video autoplay v-else class="w-full md:w-[300px] xl:w-[400px]" :src="`https://accounts.creatormate.com/storage/v1/object/public/calendar_images/${calendarItem.images[currentPhoto]}`"/>
         <div v-if="calendarItem.images.length > 1" class="absolute flex top-[11px] gap-2 left-1/2 -translate-x-1/2">
             <div v-for="(item, index) of calendarItem.images" class="h-[5px] w-[21px] rounded-full" :class="
                 [
