@@ -41,7 +41,7 @@
 </script>
 
 <template>
-    <section class="w-full h-full flex flex-col custom_scroll overflow-y-hidden relative">
+    <section class="bg-white w-full h-full flex flex-col custom_scroll overflow-y-hidden relative">
         <CalendarHeader @joinButton="modelActive = true"/>
         <div ref="calendar" class="flex h-full overflow-x-scroll overflow-y-hidden">
             <CalendarView></CalendarView>
@@ -59,13 +59,13 @@
         width: 2em;
     }
     ::-webkit-scrollbar-track {
-        background: hsl(0, 0%, 21%);
+        background: hsl(0, 0%, 79%);
         margin-block: .5em;
         border-radius: 100vw;
     }
 
     ::-webkit-scrollbar-thumb {
-        background: hsl(0, 0%, 6%);
+        background: hsl(0, 0%, 95%);
         border-radius: 100vw;
         padding: 10px;
     }

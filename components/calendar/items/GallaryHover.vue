@@ -35,11 +35,11 @@
                              :src="`https://accounts.creatormate.com/storage/v1/object/public/calendar_images/${calendarItem.images[3]}`"></NuxtImg>
                 </div>
                 <div class="justify-center flex w-full mt-9">
-                    <div class="bg-zinc-900 rounded-xl px-10 py-6 text-center flex flex-col items-center">
+                    <div class="bg-[#F5F5F5] rounded-xl px-10 py-6 text-center flex flex-col items-center text-black">
                         <h3 class="font-semibold text-xl mb-2">{{calendarItem.hoverTitle}}</h3>
-                        <p class="text-sm xs:text-base w-[95%] xs:w-[35vh] text-white text-opacity-80">{{calendarItem.hoverText}}</p>
-                        <a :href="calendarItem.linkTo" target="_blank" class="bg-white hover:bg-opacity-80 flex items-center mt-4 text-black py-2 px-4 rounded-xl gap-2">
-                            <Icon class="text-black text-opacity-80" name="ri:instagram-line"></Icon>
+                        <p class="text-sm xs:text-base w-[95%] xs:w-[35vh]">{{calendarItem.hoverText}}</p>
+                        <a :href="calendarItem.linkTo" target="_blank" class="flex items-center mt-4 text-white py-2 px-4 rounded-xl gap-2 bg-black">
+                            <Icon class="text-white" name="ri:instagram-line"></Icon>
                             follow
                         </a>
                     </div>

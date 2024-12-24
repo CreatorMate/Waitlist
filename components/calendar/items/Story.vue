@@ -71,7 +71,7 @@
             </div>
         </div>
     </div>
-    <div class="flex items-center justify-between p-1 py-4">
+    <div class="flex items-center justify-between p-1 py-4 text-black">
         <div class=" flex items-center gap-3">
             <NuxtImg src="https://accounts.creatormate.com/storage/v1/object/public/calendar_images/jens_profile.png" class="w-6 rounded-full "></NuxtImg>
             by {{calendarItem.postedBy}}

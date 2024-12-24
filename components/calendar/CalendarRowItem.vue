@@ -50,7 +50,7 @@
 </script>
 
 <template>
-    <div ref="item" class="item" :class="{ 'popup-animation': targetIsVisible || loaded },{ 'z-50': itemActive && currentActiveItem == calendarItem.title },
+    <div ref="item" class="item text-white" :class="{ 'popup-animation': targetIsVisible || loaded },{ 'z-50': itemActive && currentActiveItem == calendarItem.title },
     {'max-h-[35vh]' : calendarItem.type == CalendarItemType.STORY || calendarItem.type == CalendarItemType.GALLARY}">
         <div
             @click="handleClick()"

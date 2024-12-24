@@ -57,7 +57,7 @@
 
 <template>
     <div v-if="isWideScreen"
-         class="bg-zinc-900 absolute z-50 p-1 rounded-xl"
+         class="bg-[#ffff] absolute z-50 p-1 rounded-xl"
          :class="[
             isDivOnTopOrBottom() == 'top' ? 'top-0' : 'bottom-0',
             isDivOnLeftOrRight() == 'left' ? '-right-[320px] xl:-right-[420px]' : '-left-[320px] xl:-left-[420px]',
