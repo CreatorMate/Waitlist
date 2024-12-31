@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     redirectOptions: {
       login: '',
       callback: '/callback',
-      exclude: ['/', '/callback']
+      exclude: ['/', '/callback', '/work', '/about-us']
     }
   },
 
