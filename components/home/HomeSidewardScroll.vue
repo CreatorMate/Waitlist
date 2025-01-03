@@ -20,8 +20,6 @@
             e.preventDefault();
             const relativeScroll = (scrollY - boxTop) / maxVerticalScroll;
             scrollingElement.scrollLeft = relativeScroll * maxHorizontalScroll;
-            // Lock vertical scroll to the top of the box
-
         }
     }
 

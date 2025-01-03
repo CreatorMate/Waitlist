@@ -13,7 +13,7 @@
 </script>
 
 <template>
-    <div class="flex gap-2">
+    <div class="flex gap-2 bg-black">
         <p class="px-4 py-2 border border-white rounded-full" v-for="questionnaire of questionnaires">{{questionnaire.name}}</p>
     </div>
     <div v-if="questionnaires.length != 0">

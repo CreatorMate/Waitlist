@@ -12,11 +12,13 @@ definePageMeta({
 
 <template>
     <section class="flex flex-col items-center bg-white">
-        <h1 class="text-center text-[96px] leading-[86px] pt-32 pageTitle">independent creator <br/> & social agency</h1>
-        <h2 class="text-center text-xl normal-case mt-6 pageTitle">AI for accessing, learning and applying all your company's collective knowledge.</h2>
+        <h1 class="text-center text-[36px] leading-[32px] lg:text-[96px] lg:leading-[86px] pt-32 pageTitle">independent creator <br/> & social agency</h1>
+        <h2 class="text-center text-sm lg:text-xl normal-case mt-6 pageTitle">AI for accessing, learning and applying all your company's collective knowledge.</h2>
         <HomeButton class="mt-6 mb-12 text-xl bg-black text-white pageTitle"/>
-        <HomeBrands class="mb-14 pageTitle"/>
-        <div class="h-96 w-full bg-gray-500"></div>
+        <HomeBrands class="mb-14"/>
+        <div class="w-full lg:px-0 px-3">
+            <div class="h-96 w-full bg-gray-500"></div>
+        </div>
         <HomeWhatWeDo />
         <HomeChallenges/>
         <HomeSidewardScroll/>

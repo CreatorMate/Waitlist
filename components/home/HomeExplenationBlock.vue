@@ -7,13 +7,16 @@
 </script>
 
 <template>
-    <div @click="open = !open" class="border-b py-7 first-of-type:border-t border-[#5E5E5E] flex flex-col transition-all duration-150 cursor-pointer hover:pl-8">
+    <div @click="open = !open" class="border-b py-7 first-of-type:border-t border-[#5E5E5E] flex flex-col transition-all duration-150 cursor-pointer lg:hover:pl-8">
         <div class="flex justify-between items-center">
-            <div class="flex items-center gap-14">
-                <p class="text-[36px] pt-3">{{ number }}</p>
-                <p class="text-[64px]">{{ title }}</p>
+            <div class="flex items-center gap-3 lg:gap-14">
+                <p class="text-2xl lg:text-[36px] lg:pt-3">{{ number }}</p>
+                <p class="text-2xl lg:text-[64px]">{{ title }}</p>
             </div>
-            <Icon class="text-[#1C1B1F]" :class="{
+            <Icon class="text-[#1C1B1F] flex lg:hidden" :class="{
+            'rotate-180': open
+        }" size="32" name="mdi:arrow-down"></Icon>
+            <Icon class="text-[#1C1B1F] hidden lg:flex" :class="{
             'rotate-180': open
         }" size="64" name="mdi:arrow-down"></Icon>
         </div>

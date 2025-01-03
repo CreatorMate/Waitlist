@@ -1,6 +1,6 @@
 <template>
     <div class="w-full h-full 5xl:flex 5xl:justify-center">
-        <main class=" text-black pb-4 w-full 5xl:w-[2500px]">
+        <main class="text-black w-full 5xl:w-[2500px]">
             <HomeNav/>
             <slot></slot>
         </main>

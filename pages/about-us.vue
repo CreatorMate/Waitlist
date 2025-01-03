@@ -4,6 +4,8 @@
     import CalendarHeader from "~/components/calendar/CalendarHeader.vue";
     import CalendarView from "~/components/calendar/CalendarView.vue";
     import {onMounted, type Ref} from "vue";
+    import {definePageMeta} from "#imports";
+
 
     const calendar: Ref<HTMLDivElement|null> = ref(null);
 
@@ -12,19 +14,6 @@
     useHead({
         title: 'join the waitlist now! - creatormate'
     })
-
-    const modelActive = ref(false)
-    const verifying = ref(false);
-    const email = ref("");
-
-    function verify(value: string) {
-        email.value = value;
-        verifying.value = true;
-    }
-
-    function toBeta() {
-        window.location.href = "https://app.creatormate.com";
-    }
 
     onMounted(() => {
         document.addEventListener('wheel', (e: WheelEvent) => {
@@ -41,16 +30,13 @@
 </script>
 
 <template>
-    <section class="bg-white w-full h-full flex flex-col custom_scroll overflow-y-hidden relative">
-        <CalendarHeader @joinButton="modelActive = true"/>
+    <section class="bg-white text-black w-full h-full flex flex-col custom_scroll overflow-y-hidden relative">
+<!--        <CalendarHeader @joinButton="modelActive = true"/>-->
+        <HomeNav/>
         <div ref="calendar" class="flex h-full overflow-x-scroll overflow-y-hidden">
             <CalendarView></CalendarView>
         </div>
     </section>
-    <BaseModelVue :model-active="modelActive" @close="modelActive = false">
-        <Login v-if="!verifying" @verify="verify"></Login>
-        <HomeVerify :email="email" v-else></HomeVerify>
-    </BaseModelVue>
 </template>
 
 <style scoped>

@@ -172,7 +172,7 @@
 </script>
 
 <template>
-    <div class="flex flex-col min-h-full items-center relative">
+    <div class="flex flex-col min-h-full items-center relative bg-black">
         <div ref="chatContainer" @scroll="onScroll" class="overflow-y-auto overflow-x-hidden w-full min-h-full flex items-center flex-col">
             <header class="p-6 md:p-10 w-full top-0 sticky flex justify-center bg-black bg-opacity-60 backdrop-blur-[8px]">
                 <img alt="creator mate logo"  src="/creatormate.svg">

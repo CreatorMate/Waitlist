@@ -54,7 +54,7 @@
 </script>
 
 <template>
-    <section class="flex flex-col flex-grow overflow-x-hidden">
+    <section class="flex flex-col flex-grow overflow-x-hidden bg-black">
         <TopBar></TopBar>
         <div class=" w-full h-full">
             <div v-if="!loading && currentResources.length == 0" class="flex justify-center w-full mt-6 md:mt-12">

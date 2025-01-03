@@ -48,7 +48,7 @@
 
 <template>
 
-    <section class="flex flex-col min-h-full items-center relative">
+    <section class="flex flex-col min-h-full items-center relative bg-black">
         <div ref="chatContainer"
              class="overflow-y-auto overflow-x-hidden w-full min-h-full flex items-center flex-col">
             <TopBar/>
