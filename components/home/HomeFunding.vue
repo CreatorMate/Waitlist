@@ -9,7 +9,7 @@
             <div class="w-full lg:w-1/2 lg:mb-0 mb-12">
                 <h5 class="text-2xl lg:text-[48px] lg:leading-[48px]">we are backed by leading <br/> <span class="gelica font-medium">creators & brands</span></h5>
             </div>
-            <div class="w-full lg:w-1/2 text-sm lg:text-lg font-medium">
+            <div class=" text-sm lg:text-lg font-medium">
                 <h5 class="text-2xl lg:text-[48px] lg:leading-[48px]">over 200k$ in total funding<br/> with our latest round</h5>
                 <div class="flex justify-start w-full">
                     <RouterLink to="/select-login">join now <Icon name="material-symbols:north-east pt-1"/></RouterLink>

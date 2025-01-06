@@ -22,8 +22,12 @@ definePageMeta({
         <HomeWhatWeDo  class="5xl:w-[2500px]"/>
         <div class="5xl:w-[2500px] lg:px-0 px-3 bg-white">
             <video class="rounded-none bg-white" autoplay loop muted width="100%" src="https://res.cloudinary.com/dusb7aq4h/video/upload/v1736165552/0301_CREATORMATE_WALLPAPER_ysuh8w.mp4"></video>
+            <div class="w-full">
+                <p class="font-semibold mt-3">ai software provides unmatched insights</p>
+            </div>
         </div>
-        <p class="font-semibold mt-3">ai software provides unmatched insights</p>
+
+
         <HomeChallenges class="5xl:w-[2500px]"/>
         <HomeSidewardScroll/>
         <HomeFunding class="5xl:w-[2500px]"/>
