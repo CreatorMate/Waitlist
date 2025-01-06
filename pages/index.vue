@@ -16,13 +16,17 @@ definePageMeta({
         <h2 class="text-center text-sm lg:text-xl normal-case mt-6 pageTitle">AI for accessing, learning and applying all your company's collective knowledge.</h2>
         <HomeButton class="mt-6 mb-12 text-xl bg-black text-white pageTitle"/>
         <HomeBrands class="mb-14"/>
-        <div class="w-full lg:px-0 px-3">
-            <div class="h-96 w-full bg-gray-500"></div>
+        <div class="w-full lg:px-0 px-3 bg-white">
+            <video class="rounded-none bg-white" autoplay loop muted width="100%" src="https://res.cloudinary.com/dusb7aq4h/video/upload/v1736165552/0301_CREATORMATE_WALLPAPER_ysuh8w.mp4"></video>
         </div>
-        <HomeWhatWeDo />
-        <HomeChallenges/>
+        <HomeWhatWeDo  class="5xl:w-[2500px]"/>
+        <div class="5xl:w-[2500px] lg:px-0 px-3 bg-white">
+            <video class="rounded-none bg-white" autoplay loop muted width="100%" src="https://res.cloudinary.com/dusb7aq4h/video/upload/v1736165552/0301_CREATORMATE_WALLPAPER_ysuh8w.mp4"></video>
+        </div>
+        <p class="font-semibold mt-3">ai software provides unmatched insights</p>
+        <HomeChallenges class="5xl:w-[2500px]"/>
         <HomeSidewardScroll/>
-        <HomeFunding/>
+        <HomeFunding class="5xl:w-[2500px]"/>
         <HomeFooter/>
     </section>
 </template>

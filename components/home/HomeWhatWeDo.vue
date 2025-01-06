@@ -18,7 +18,6 @@
                 <p class="mt-3">measure partnership performance</p>
             </div>
         </div>
-        <div class="w-full bg-black h-96"></div>
-        <p class="font-semibold mt-3">ai software provides unmatched insights</p>
+
     </section>
 </template>

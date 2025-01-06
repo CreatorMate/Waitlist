@@ -16,13 +16,13 @@
             <Icon class="text-[#1C1B1F] flex lg:hidden" :class="{
             'rotate-180': open
         }" size="32" name="mdi:arrow-down"></Icon>
-            <Icon class="text-[#1C1B1F] hidden lg:flex" :class="{
+            <Icon class="text-[#1C1B1F] hidden lg:flex w-[28px] h-[31px]" :class="{
             'rotate-180': open
-        }" size="64" name="mdi:arrow-down"></Icon>
+        }" name="mdi:arrow-down"></Icon>
         </div>
         <transition name="menu-show">
             <div v-if="open" class="v-menu">
-                <div class="ml-[95px] flex items-center gap-1" v-for="item of items">
+                <div class="lg:ml-[95px] flex items-center gap-1" v-for="item of items">
                     <icon name="mdi:add"></icon>
                     <p>{{ item }}</p>
                 </div>

@@ -7,6 +7,7 @@
         video_2: string
         video_3: string
     }>();
+
 </script>
 
 <template>
@@ -15,14 +16,14 @@
         <h2 class="lg:leading-[86px] lg:text-[96px] text-4xl font-regular mb-3">{{title}}</h2>
         <p class="mb-3 text-sm">{{description}}</p>
         <div class="my-2.5 flex md:flex-row flex-col gap-6 mb-24">
-            <div class="video-container">
-                <video width="100%" height="100%" loop autoplay muted v-if="video_1" :src="video_1"></video>
+            <div class="2xl:w-[370px] 2xl:h-[600px] relative text-white">
+                <HomeVideoBlock :video="video_1"></HomeVideoBlock>
             </div>
-            <div class="video-container">
-                <video width="100%" height="100%" loop autoplay muted v-if="video_2" :src="video_2"></video>
+            <div class="2xl:w-[370px] 2xl:h-[600px] relative text-white">
+                <HomeVideoBlock :video="video_2"></HomeVideoBlock>
             </div>
-            <div class="video-container">
-                <video width="100%" height="100%" loop autoplay muted v-if="video_3" :src="video_3"></video>
+            <div class="2xl:w-[370px] 2xl:h-[600px] relative text-white">
+                <HomeVideoBlock :video="video_3"></HomeVideoBlock>
             </div>
         </div>
     </div>
