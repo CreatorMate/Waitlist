@@ -32,8 +32,8 @@
 <template>
     <section class="bg-white text-black w-full h-full flex flex-col custom_scroll overflow-y-hidden relative">
 <!--        <CalendarHeader @joinButton="modelActive = true"/>-->
-        <HomeNav/>
-        <div ref="calendar" class="flex h-full overflow-x-scroll overflow-y-hidden">
+        <HomeNav class=""/>
+        <div ref="calendar" class="flex h-full overflow-x-scroll overflow-y-hidden pt-1">
             <CalendarView></CalendarView>
         </div>
     </section>
