@@ -41,7 +41,7 @@
 <template>
     <div class="mt-16">
     </div>
-    <div ref="horizontalBox" class="relative w-full " :style="`height: ${screenHeight * 2.5}px;`">
+    <div ref="horizontalBox" class="relative w-full horizontalBox h-[250vh] 6xl:h-[150vh]">
         <div ref="scrollingBox" :style="`max-height: ${screenHeight}px;`" class="top-0 sticky overflow-x-hidden overflow-y-hidden min-h-screen flex justify-start h-screen">
             <div class="flex-shrink-0 flex flex-col h-full">
                 <CldImage height="1000" width="1000" class="w-full h-1/2 " src="slider_pic_1_ootxel"></CldImage>
