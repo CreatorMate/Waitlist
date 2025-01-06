@@ -44,7 +44,7 @@ export default defineNuxtConfig({
             htmlAttrs: {
                 lang: 'en'
             },
-            title: 'creator mate',
+            title: 'creatormate',
             meta: [
                 {name: 'twitter:card', content: "summary_large_image"},
                 {name: 'twitter:site', content: "https://creatormate.com"},

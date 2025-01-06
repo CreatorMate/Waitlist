@@ -5,6 +5,11 @@ import WorkBlock from "~/components/home/WorkBlock.vue";
 definePageMeta({
     layout: 'white'
 });
+
+useHead({
+    title: `creatormate - work`
+})
+
 </script>
 
 <template>
