@@ -50,7 +50,7 @@
 </script>
 
 <template>
-    <div ref="item" class="item" :class="{ 'popup-animation': targetIsVisible || loaded },{ 'z-50': itemActive && currentActiveItem == calendarItem.title },
+    <div ref="item" class="item text-white" :class="{ 'popup-animation': targetIsVisible || loaded },{ 'z-50': itemActive && currentActiveItem == calendarItem.title },
     {'max-h-[35vh]' : calendarItem.type == CalendarItemType.STORY || calendarItem.type == CalendarItemType.GALLARY}">
         <div
             @click="handleClick()"
@@ -64,14 +64,16 @@
             <StoryItem v-if="calendarItem.type == CalendarItemType.STORY" :calendar-item></StoryItem>
             <ShareItem v-if="calendarItem.type == CalendarItemType.SHARE" :calendar-item></ShareItem>
         </div>
-        <Transition>
-            <StoryHover v-if="calendarItem.hover == CalendarItemHoverAction.STORY && itemActive" :parent-block="item" @click.stop
-                        @click-outside="handleClickOutside()" :calendar-item></StoryHover>
-        </Transition>
-        <Transition>
-            <GallaryHover v-if="calendarItem.hover == CalendarItemHoverAction.GALLARY && itemActive" @click.stop
-                        @click-outside="handleClickOutside()" :calendar-item></GallaryHover>
-        </Transition>
+        <ClientOnly>
+            <Transition>
+                <StoryHover :active="itemActive" v-if="calendarItem.hover == CalendarItemHoverAction.STORY" :parent-block="item" @click.stop
+                            :calendar-item  @click-outside="handleClickOutside()"></StoryHover>
+            </Transition>
+            <Transition>
+                <GallaryHover :active="itemActive" v-if="calendarItem.hover == CalendarItemHoverAction.GALLARY" @click.stop
+                              @click-outside="handleClickOutside()" :calendar-item></GallaryHover>
+            </Transition>
+        </ClientOnly>
     </div>
 </template>
 

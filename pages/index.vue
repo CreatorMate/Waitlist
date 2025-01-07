@@ -1,73 +1,42 @@
-<script lang="ts" setup>
-    import Login from "~/components/home/Login.vue";
-    import {useAccountStore} from "~/src/account/AccountStore";
-    import CalendarHeader from "~/components/calendar/CalendarHeader.vue";
-    import CalendarView from "~/components/calendar/CalendarView.vue";
-    import {onMounted, type Ref} from "vue";
+<script setup lang='ts'>
+import {definePageMeta} from "#imports";
+import HomeBrands from "~/components/home/HomeBrands.vue";
+import HomeWhatWeDo from "~/components/home/HomeWhatWeDo.vue";
+import HomeFunding from "~/components/home/HomeFunding.vue";
+import HomeFooter from "~/components/home/HomeFooter.vue";
 
-    const calendar: Ref<HTMLDivElement|null> = ref(null);
-
-    const router = useRouter();
-    const account = useAccountStore();
-    useHead({
-        title: 'join the waitlist now! - creatormate'
-    })
-
-    const modelActive = ref(false)
-    const verifying = ref(false);
-    const email = ref("");
-
-    function verify(value: string) {
-        email.value = value;
-        verifying.value = true;
-    }
-
-    function toBeta() {
-        window.location.href = "https://app.creatormate.com";
-    }
-
-    onMounted(() => {
-        document.addEventListener('wheel', (e: WheelEvent) => {
-            e.preventDefault();
-            if(!calendar.value) return;
-
-            calendar.value.scrollLeft += e.deltaY * 0.7
-        })
-    })
-
-    onUnmounted(() => {
-        document.removeEventListener('wheel', (e: WheelEvent) => {});
-    })
+definePageMeta({
+    layout: 'white'
+});
 </script>
 
 <template>
-    <section class="w-full h-full flex flex-col custom_scroll overflow-y-hidden relative">
-        <CalendarHeader @joinButton="modelActive = true"/>
-        <div ref="calendar" class="flex h-full overflow-x-scroll overflow-y-hidden">
-            <CalendarView></CalendarView>
+    <section class="flex flex-col items-center bg-white">
+        <h1 class="text-center text-[36px] leading-[32px] lg:text-[96px] lg:leading-[86px] pt-32 pageTitle tracking-[-1.92px">the creator marketing <br/> partner for brands</h1>
+        <h2 class="text-center text-sm lg:text-xl normal-case mt-6 pageTitle tracking-[-0.4px]">helping brands measure partnerships, improve sales funnel and build interesting social accounts</h2>
+        <HomeButton class="mt-6 mb-12 text-xl bg-black text-white pageTitle hover:bg-[#303030]"/>
+        <HomeBrands class="mb-14"/>
+        <div class="w-full lg:px-0 px-3 bg-white">
+            <video class="rounded-none bg-white" autoplay loop muted width="100%" src="https://res.cloudinary.com/dusb7aq4h/video/upload/v1736250617/landing1_wdlfld.mp4"></video>
         </div>
+        <HomeWhatWeDo  class="5xl:w-[2500px]"/>
+        <div class="5xl:w-[2500px] px-3 bg-white">
+            <video class="rounded-none bg-white" autoplay loop muted width="100%" src="https://res.cloudinary.com/dusb7aq4h/video/upload/v1736250604/landing2_htvqdm.mp4"></video>
+            <div class="w-full flex gap-24 flex-col text-xl">
+                <p class="font-semibold mt-3 tracking-[-0.4px]">software that analyses large-scale social media data to identify audience engagement patterns</p>
+                <p class="pb-6 border-b border-[#5E5E5E] tracking-[-0.4px]">what we do</p>
+            </div>
+        </div>
+        <HomeChallenges class="5xl:w-[2500px]"/>
+        <HomeSidewardScroll/>
+        <HomeFunding class="5xl:w-[2500px]"/>
+        <HomeFooter/>
     </section>
-    <BaseModelVue :model-active="modelActive" @close="modelActive = false">
-        <Login v-if="!verifying" @verify="verify"></Login>
-        <HomeVerify :email="email" v-else></HomeVerify>
-    </BaseModelVue>
 </template>
 
-<style scoped>
-.custom_scroll {
-    ::-webkit-scrollbar {
-        width: 2em;
-    }
-    ::-webkit-scrollbar-track {
-        background: hsl(0, 0%, 21%);
-        margin-block: .5em;
-        border-radius: 100vw;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: hsl(0, 0%, 6%);
-        border-radius: 100vw;
-        padding: 10px;
-    }
+<style>
+.pageTitle {
+    animation: 1s fadeInUp;
 }
+
 </style>

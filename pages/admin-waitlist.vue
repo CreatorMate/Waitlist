@@ -19,46 +19,46 @@
         await router.replace('/home')
     }
 
-    // let realtimeChannel: RealtimeChannel
-    // onMounted(async () => {
-    //     await refreshList();
-    //     realtimeChannel = client.channel('profile counter').on('postgres_changes', {
-    //         event: '*',
-    //         schema: 'public',
-    //         table: SupabaseTables.UserProfiles
-    //     }, async () => {
-    //         await refreshList();
-    //     }).subscribe();
-    // });
-    //
-    // onUnmounted(() => {
-    //     client.removeChannel(realtimeChannel);
-    // })
-    //
-    // async function refreshList() {
-    //     if(showOnboarded.value) {
-    //         let {error, count} = await client
-    //             .from(SupabaseTables.UserProfiles)
-    //             .select('*', {count: 'exact'})
-    //             .eq('completed_onboarding', true);
-    //
-    //         if (error || !count) return;
-    //
-    //         activeProfilesCounter.value = count.toString().padStart(5, '0');
-    //     } else {
-    //         let {error, count} = await client
-    //             .from(SupabaseTables.UserProfiles)
-    //             .select('*', {count: 'exact'});
-    //
-    //         if (error || !count) return;
-    //
-    //         activeProfilesCounter.value = count.toString().padStart(5, '0');
-    //     }
-    // }
+    let realtimeChannel: RealtimeChannel
+    onMounted(async () => {
+        await refreshList();
+        realtimeChannel = client.channel('profile counter').on('postgres_changes', {
+            event: '*',
+            schema: 'public',
+            table: SupabaseTables.UserProfiles
+        }, async () => {
+            await refreshList();
+        }).subscribe();
+    });
+
+    onUnmounted(() => {
+        client.removeChannel(realtimeChannel);
+    })
+
+    async function refreshList() {
+        if(showOnboarded.value) {
+            let {error, count} = await client
+                .from(SupabaseTables.UserProfiles)
+                .select('*', {count: 'exact'})
+                .eq('completed_onboarding', true);
+
+            if (error || !count) return;
+
+            activeProfilesCounter.value = count.toString().padStart(5, '0');
+        } else {
+            let {error, count} = await client
+                .from(SupabaseTables.UserProfiles)
+                .select('*', {count: 'exact'});
+
+            if (error || !count) return;
+
+            activeProfilesCounter.value = count.toString().padStart(5, '0');
+        }
+    }
 
     async function switchCounterMode() {
-        // showOnboarded.value = !showOnboarded.value;
-        // await refreshList();
+        showOnboarded.value = !showOnboarded.value;
+        await refreshList();
     }
 
     function isGray(index: number): boolean {

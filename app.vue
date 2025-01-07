@@ -22,10 +22,28 @@
 </script>
 
 <template>
-    <main class="screen-size bg-black text-white flex flex-col lowercase">
+    <main class="screen-size text-white flex flex-col lowercase">
         <ToastModel></ToastModel>
         <NuxtLayout>
             <NuxtPage></NuxtPage>
         </NuxtLayout>
     </main>
 </template>
+
+<style>
+tr:hover {
+    background-color: #f0f8ff;
+    transition: background-color 0.2s ease;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(10%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+</style>
