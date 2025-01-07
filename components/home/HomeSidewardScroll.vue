@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-9 w-full">
-                <h6 :style="`opacity: ${scrollPercentage + 0.8}`" class="text-white leading-[60px] text-[64px] text-center">no one matches our <br/> <span :style="`opacity: ${scrollPercentage + 0.5}`">understanding or trust</span><br/> <span :style="`opacity: ${scrollPercentage + 0.2}`">with creators.</span></h6>
+                <h6 :style="`opacity: ${scrollPercentage + 0.8}`" class="text-white leading-[60px] text-[64px] text-center tracking-[-1.28px]">no one matches our <br/> <span :style="`opacity: ${scrollPercentage + 0.5}`">understanding or trust</span><br/> <span :style="`opacity: ${scrollPercentage + 0.2}`">with creators.</span></h6>
                 <RouterLink to="/select-login" class=" px-3 py-2 rounded-lg duration-150 flex gap-1 items-center bg-white text-black">get started <Icon name="mdi:arrow-right"/></RouterLink>
             </div>
         </div>

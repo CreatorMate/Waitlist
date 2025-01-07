@@ -12,8 +12,8 @@ definePageMeta({
 
 <template>
     <section class="flex flex-col items-center bg-white">
-        <h1 class="text-center text-[36px] leading-[32px] lg:text-[96px] lg:leading-[86px] pt-32 pageTitle">a remote creator <br/> marketing partner</h1>
-        <h2 class="text-center text-sm lg:text-xl normal-case mt-6 pageTitle">helping brands measure partnerships, improve sales funnel and build interesting social accounts</h2>
+        <h1 class="text-center text-[36px] leading-[32px] lg:text-[96px] lg:leading-[86px] pt-32 pageTitle tracking-[-1.92px">the creator marketing <br/> partner for brands</h1>
+        <h2 class="text-center text-sm lg:text-xl normal-case mt-6 pageTitle tracking-[-0.4px]">helping brands measure partnerships, improve sales funnel and build interesting social accounts</h2>
         <HomeButton class="mt-6 mb-12 text-xl bg-black text-white pageTitle hover:bg-[#303030]"/>
         <HomeBrands class="mb-14"/>
         <div class="w-full lg:px-0 px-3 bg-white">
@@ -23,8 +23,8 @@ definePageMeta({
         <div class="5xl:w-[2500px] px-3 bg-white">
             <video class="rounded-none bg-white" autoplay loop muted width="100%" src="https://res.cloudinary.com/dusb7aq4h/video/upload/v1736250604/landing2_htvqdm.mp4"></video>
             <div class="w-full flex gap-24 flex-col text-xl">
-                <p class="font-semibold mt-3">software that analyses large-scale social media data to identify audience engagement patterns</p>
-                <p class="pb-6 border-b border-[#5E5E5E]">what we do</p>
+                <p class="font-semibold mt-3 tracking-[-0.4px]">software that analyses large-scale social media data to identify audience engagement patterns</p>
+                <p class="pb-6 border-b border-[#5E5E5E] tracking-[-0.4px]">what we do</p>
             </div>
         </div>
         <HomeChallenges class="5xl:w-[2500px]"/>
