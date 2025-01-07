@@ -1,10 +1,7 @@
 <script lang="ts" setup>
-    import Login from "~/components/home/Login.vue";
     import {useAccountStore} from "~/src/account/AccountStore";
-    import CalendarHeader from "~/components/calendar/CalendarHeader.vue";
     import CalendarView from "~/components/calendar/CalendarView.vue";
     import {onMounted, type Ref} from "vue";
-    import {definePageMeta} from "#imports";
 
 
     const calendar: Ref<HTMLDivElement|null> = ref(null);

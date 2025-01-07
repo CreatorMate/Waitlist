@@ -11,15 +11,15 @@
 
     onMounted(() => {
         if(calendarItem.images.length == 1) return;
-        const a = setInterval(() => {
-            if(calendarItem.images[currentPhoto.value].includes('.mp4')) return;
-            timer.value++;
-            if(timer.value == 1000) {
-                currentPhoto.value++;
-                timer.value = 0;
-                if(currentPhoto.value == calendarItem.images.length) currentPhoto.value = 1;
-            }
-        }, 1);
+        // const a = setInterval(() => {
+        //     if(calendarItem.images[currentPhoto.value].includes('.mp4')) return;
+        //     timer.value++;
+        //     if(timer.value == 1000) {
+        //         currentPhoto.value++;
+        //         timer.value = 0;
+        //         if(currentPhoto.value == calendarItem.images.length) currentPhoto.value = 1;
+        //     }
+        // }, 1);
     });
 
 
@@ -56,7 +56,10 @@
         <div @click="goRight" class="absolute h-full right-0 top-0 w-1/4 cursor-pointer z-50">
 
         </div>
-        <NuxtImg v-if="!calendarItem.images[currentPhoto].includes('mp4')" class="w-full h-full md:w-[300px] xl:w-[400px] md:h-[350px] xl:h-[480px] object-cover rounded-xl" :src="`https://accounts.creatormate.com/storage/v1/object/public/calendar_images/${calendarItem.images[currentPhoto]}`"/>
+        <div v-if="!calendarItem.images[currentPhoto].includes('mp4')" class="h-full w-full md:w-[300px] xl:w-[400px] md:h-[350px] xl:h-[480px]">
+            <CldImage width="400" height="480" class="object-cover rounded-xl" :src="calendarItem.images[currentPhoto]"/>
+        </div>
+
         <video autoplay v-else class="w-full md:w-[300px] xl:w-[400px] h-full  xl:h-[480px] md:h-[350px] object-cover rounded-xl" :src="`https://accounts.creatormate.com/storage/v1/object/public/calendar_images/${calendarItem.images[currentPhoto]}`"/>
         <div v-if="calendarItem.images.length > 1" class="absolute flex top-[11px] gap-2 left-1/2 -translate-x-1/2">
             <div v-for="(item, index) of calendarItem.images" class="h-[5px] w-[21px] rounded-full" :class="

@@ -5,8 +5,9 @@
 
     const props = defineProps<{
         calendarItem: CalendarItem,
+        active: boolean
     }>();
-    const {calendarItem} = toRefs(props)
+    const {calendarItem, active} = toRefs(props)
     const emits = defineEmits(['click-outside'])
 
     const teleportBlock = ref<HTMLDivElement | null>(null);
@@ -21,18 +22,19 @@
 
 <template>
     <Teleport to="body">
-        <div style="background: rgba(0, 0, 0, 0.40);" class="w-full h-full z-50 absolute top-0 left-0">
+        <div :class="{'hidden': !active}" style="background: rgba(0, 0, 0, 0.40);" class="w-full h-full z-50 absolute top-0 left-0">
             <div ref="teleportBlock"
                  class="w-[95%] lg:w-auto teleportedStory absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 text-white">
                 <div class="flex w-full">
-                    <NuxtImg
+                    <CldImage width="500" height="500"
                         class=" rotate-6 z-10 object-cover min-w-[33%] lg:min-w-[35vh] min-h-[33%] lg:min-h-[35vh] max-w-[33%] lg:max-w-[35vh] max-h-[33%] lg:max-h-[35vh] rounded-2xl"
-                        :src="`https://accounts.creatormate.com/storage/v1/object/public/calendar_images/${calendarItem.images[1]}`"></NuxtImg>
-                    <NuxtImg
+                        :src="calendarItem.images[1]"></CldImage>
+                    <CldImage width="500" height="500"
                         class=" -rotate-6 z-10 object-cover min-w-[33%] lg:min-w-[35vh] min-h-[33%] lg:min-h-[35vh] max-w-[33%] lg:max-w-[35vh] max-h-[33%] lg:max-h-[35vh] rounded-2xl"
-                        :src="`https://accounts.creatormate.com/storage/v1/object/public/calendar_images/${calendarItem.images[2]}`"></NuxtImg>
-                    <NuxtImg class="rotate-12 z-50 object-cover min-w-[33%] lg:min-w-[35vh] min-h-[33%] lg:min-h-[35vh] max-w-[33%] lg:max-w-[35vh] max-h-[33%] lg:max-h-[35vh] rounded-2xl"
-                             :src="`https://accounts.creatormate.com/storage/v1/object/public/calendar_images/${calendarItem.images[3]}`"></NuxtImg>
+                        :src="calendarItem.images[2]"></CldImage>
+                    <CldImage width="500" height="500"
+                        class="rotate-12 z-50 object-cover min-w-[33%] lg:min-w-[35vh] min-h-[33%] lg:min-h-[35vh] max-w-[33%] lg:max-w-[35vh] max-h-[33%] lg:max-h-[35vh] rounded-2xl"
+                             :src="calendarItem.images[3]"></CldImage>
                 </div>
                 <div class="justify-center flex w-full mt-9">
                     <div class="bg-[#F5F5F5] rounded-xl px-10 py-6 text-center flex flex-col items-center text-black">

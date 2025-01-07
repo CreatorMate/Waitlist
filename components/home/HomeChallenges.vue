@@ -4,21 +4,20 @@ import HomeExplenationBlock from "~/components/home/HomeExplenationBlock.vue";
 </script>
 
 <template>
-    <section class="flex flex-col w-full px-3 lg:px-32 pt-24">
-        <h1 class="text-[32px] leading-[32px] lg:text-[96px] lg:leading-[96px]">we make brand accounts <br/> interesting to follow</h1>
-        <p class="text-sm lg:text-[18px] mt-6 text-[#68677E]">swap manual admin and messy reporting for automated <br/>learning programs and instand performance insights</p>
-        <HomeButton class="mt-3 pl-0 hover:text-[#303030]"></HomeButton>
-        <div class="mt-24">
-            <HomeExplenationBlock title="creator marketing" number="01" :items="['find formats about your brand', 'match you with the right creators', 'handle concept to production', 'optimize posts based on results']"/>
-            <HomeExplenationBlock title="partnerships software" number="02" :items="['better data, smarter decisions', 'bigger impact', 'track performance across creators', 'optimise every creator partnership']"/>
-            <HomeExplenationBlock title="creator capital" number="03" :items="['turn hobby creators into businesses', 'connect creators with investors', 'partnerships with leading brands']"/>
-            <HomeExplenationBlock title="creator meet-ups" number="04" :items="['host creator events across europe', 'spark connections & collaborations', 'bild a stronger creative community']"/>
+    <section class="flex flex-col w-full px-3 lg:px-32 pt-12">
+        <h1 class="text-[32px] leading-[32px] lg:text-[96px] lg:leading-[96px]">making brand accounts <br/> interesting to follow</h1>
+<!--        <p class="text-sm lg:text-[18px] mt-6 text-[#68677E]">swap manual admin and messy reporting for automated <br/>learning programs and instand performance insights</p>-->
+        <div class="mt-12">
+            <HomeExplenationBlock title="brand marketing" number="01" description="we act as your remote creator marketing team, creating campaigns that fit your brand’s goals, audience, and budget. Using our creator network and software, we analyze large-scale social media data to understand global audience preferences and optimize your sales funnel."/>
+            <HomeExplenationBlock title="creator partnerships" number="02" description="we help your brand connect with top creative talent by managing the entire process—from identifying the right creators and handling briefings to executing campaigns that resonate with your audience. Whether for one-time projects or long-term partnerships, we simplify the process to help you build meaningful online connections."/>
+            <HomeExplenationBlock title="performance software" number="03" description="we’ve invested over $200,000 in AI software that analyses large-scale social media data to identify audience engagement patterns. This enables us to determine which copy, edits, graphics, and sentiments resonate most with your audience, optimizing your sales funnel for better performance."/>
+            <HomeExplenationBlock title="creator experience" number="04" description="we help creators with AI tools, funding, brand partnerships, knowledge, and events to bring the next generation of filmmakers and storytellers together. Interested? join us (it's free)"/>
         </div>
         <div class="flex flex-col lg:flex-row justify-between w-full mt-24">
             <div class="w-full lg:w-1/3 lg:mb-0 mb-12">
                 <p class="text-3xl lg:text-[64px] lg:leading-[48px] ">our creators</p>
             </div>
-            <div class="w-full lg:w-[653px] text-sm lg:text-lg font-medium">
+            <div class="w-full lg:w-[653px] text-sm lg:text-lg ">
                 <p class="text-3xl lg:text-[64px] lg:leading-[64px] font-normal break-words">are from <span class="gelica italic font-medium">amsterdam, berlin, london, los angeles, new york, </span> and many more places.</p>
                 <p class="lg:mt-24 mt-12">amsterdam</p>
                 <p class="mt-3">oudeschans 85</p>

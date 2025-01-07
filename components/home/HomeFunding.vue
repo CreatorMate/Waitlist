@@ -11,8 +11,8 @@
             </div>
             <div class=" text-sm lg:text-lg font-medium">
                 <h5 class="text-2xl lg:text-[48px] lg:leading-[48px]">over 200k$ in total funding<br/> with our latest round</h5>
-                <div class="flex justify-start w-full">
-                    <RouterLink to="/select-login">join now <Icon name="material-symbols:north-east pt-1"/></RouterLink>
+                <div class="flex justify-start w-full mt-6">
+                    <RouterLink class="pb-2 border-b border-black" to="/select-login">join now <Icon class="" name="material-symbols:north-east"/></RouterLink>
                 </div>
             </div>
         </div>

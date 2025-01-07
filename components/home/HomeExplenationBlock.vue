@@ -1,6 +1,6 @@
 <script setup lang='ts'>
-    const {number, title, items} = defineProps<{
-        number: string, title: string, items: string[]
+    const {number, title, description} = defineProps<{
+        number: string, title: string, description: string
     }>();
 
     const open = ref(false);
@@ -22,9 +22,11 @@
         </div>
         <transition name="menu-show">
             <div v-if="open" class="v-menu mt-6">
-                <div class="lg:ml-[95px] flex items-center gap-1" v-for="item of items">
-                    <icon name="mdi:add"></icon>
-                    <p>{{ item }}</p>
+                <div class="lg:ml-[95px] flex justify-center flex-col gap-1 w-full pr-10 lg:pr-0 lg:w-1/2 text-xl">
+                    <p class="">{{description}}</p>
+                    <div class="mt-6">
+                        <NuxtLink to="/select-login" class=" pb-2 border-b hover:text-[#303030] hover:border-[#303030] cursor-pointer border-black mb-3 w-auto">interested?</NuxtLink>
+                    </div>
                 </div>
             </div>
         </transition>
