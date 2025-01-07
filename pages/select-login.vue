@@ -15,19 +15,18 @@
 </script>
 
 <template>
-    <section class="w-full h-full bg-white text-black flex justify-center items-center px-3">
-        <div class="flex flex-col gap-3">
+    <section class="w-full h-full bg-white text-black flex md:justify-center items-center px-3">
+        <div class="flex md:w-auto w-full flex-col gap-3">
             <div class="flex items-center gap-3">
                 <Icon @click="router.back()" class="text-[#1C1B1F] rotate-90" size="20" name="mdi:arrow-down"></Icon>
                 <NuxtImg width="40" src="/logo-light.svg"/>
             </div>
-
             <p class="text-xl">welcome at creatormate</p>
             <h1>choose how you will use the platform.</h1>
-            <div class="w-full md:w-[780px] flex flex-col md:flex-row gap-12 justify-between mt-5 ">
+            <div class="w-full md:w-[780px] flex flex-col md:flex-row gap-6 md:gap-12 justify-between mt-5 overflow-x-hidden">
                 <NuxtLink to="https://app.creatormate.com" class="w-full md:w-1/2 card flex flex-col py-3 overflow-x-hidden">
                     <p class="px-6">i am a brand</p>
-                    <h2 class="text-2xl mt-4 mb-32 px-6">looking for creators</h2>
+                    <h2 class="text-2xl mt-4 mb-10 md:mb-32 px-6">looking for creators</h2>
                     <div class="flex flex-col gap-3">
                         <div class="flex sliding-left w-full">
                             <div class="flex items-center justify-between text-xs w-[200%] flex-shrink-0">
@@ -65,7 +64,7 @@
                                 <p class="label mr-3">i'm a fan</p>
                             </div>
                         </div>
-                        <div class="flex sliding-left w-full">
+                        <div class="hidden md:flex sliding-left w-full">
                             <div class="flex items-center justify-between text-xs w-[200%] flex-shrink-0">
                                 <p class="label">i'm a content manager</p>
                                 <p class="label">i'm a marketeer</p>
@@ -74,7 +73,7 @@
                                 <p class="label">i'm a head of marketing</p>
                                 <p class="label mr-3">i'm a fan</p>
                             </div>
-                            <div class="flex items-center justify-between text-xs w-[200%] flex-shrink-0">
+                            <div class="flex items-center justify-between text-xs w-[200%] flex-shrink-0 ">
                                 <p class="label">i'm a content manager</p>
                                 <p class="label">i'm a marketeer</p>
                                 <p class="label mr-3">i'm a fan</p>
@@ -88,7 +87,7 @@
                 </NuxtLink>
                 <div @click="modelActive = true" class="w-full md:w-1/2 card flex flex-col py-3 overflow-x-hidden">
                     <p class="px-6">i am a creator</p>
-                    <h2 class="text-2xl mt-4 mb-32 px-6">looking for work and hire</h2>
+                    <h2 class="text-2xl mt-4 mb-10 md:mb-32 px-6">looking for work and hire</h2>
                     <div class="flex gap-3 flex-col">
                         <div class="flex sliding-left w-full">
                             <div class="flex items-center justify-between text-xs w-[200%] flex-shrink-0">
@@ -127,7 +126,7 @@
                                 <p class="label">i'm an editor</p>
                             </div>
                         </div>
-                        <div class="flex sliding-left w-full">
+                        <div class="hidden md:flex sliding-left w-full">
                             <div class="flex items-center justify-between text-xs w-[200%] flex-shrink-0">
                                 <p class="label">i'm a videographer</p>
                                 <p class="label">i'm a color grading editor</p>
@@ -194,5 +193,4 @@
         -webkit-transform: translateX(0);
     }
 }
-</style
 </style>

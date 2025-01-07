@@ -17,6 +17,5 @@
                 <p class="mt-3">we measure performance to find content market fit</p>
             </div>
         </div>
-
     </section>
 </template>

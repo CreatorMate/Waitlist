@@ -22,7 +22,7 @@ definePageMeta({
         <HomeWhatWeDo  class="5xl:w-[2500px]"/>
         <div class="5xl:w-[2500px] px-3 bg-white">
             <video class="rounded-none bg-white" autoplay loop muted width="100%" src="https://res.cloudinary.com/dusb7aq4h/video/upload/v1736250604/landing2_htvqdm.mp4"></video>
-            <div class="w-full flex gap-24 flex-col">
+            <div class="w-full flex gap-24 flex-col text-xl">
                 <p class="font-semibold mt-3">software that analyses large-scale social media data to identify audience engagement patterns</p>
                 <p class="pb-6 border-b border-[#5E5E5E]">what we do</p>
             </div>
