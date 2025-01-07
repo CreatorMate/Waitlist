@@ -166,11 +166,11 @@
 }
 
 .sliding-left {
-    animation: 10s slide-left infinite linear;
+    animation: 30s slide-left infinite linear;
 }
 
 .sliding-right {
-    animation: 10s slide-right infinite linear;
+    animation: 30s slide-right infinite linear;
 }
 
 

@@ -66,7 +66,7 @@
         </div>
         <ClientOnly>
             <Transition>
-                <StoryHover :class="{'hidden': !itemActive}" v-if="calendarItem.hover == CalendarItemHoverAction.STORY" :parent-block="item" @click.stop
+                <StoryHover :active="itemActive" v-if="calendarItem.hover == CalendarItemHoverAction.STORY" :parent-block="item" @click.stop
                             :calendar-item  @click-outside="handleClickOutside()"></StoryHover>
             </Transition>
             <Transition>

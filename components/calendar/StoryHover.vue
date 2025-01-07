@@ -5,10 +5,11 @@
 
     const props = defineProps<{
         calendarItem: CalendarItem,
-        parentBlock: HTMLDivElement
+        parentBlock: HTMLDivElement,
+        active: boolean
     }>();
 
-    const {parentBlock, calendarItem} = toRefs(props)
+    const {parentBlock, calendarItem, active} = toRefs(props)
     const emits = defineEmits(['click-outside'])
 
     function isDivOnLeftOrRight() {
@@ -59,6 +60,7 @@
     <div v-if="isWideScreen"
          class="bg-[#ffff] absolute z-50 p-1 rounded-xl"
          :class="[
+             {'hidden': !active},
             isDivOnTopOrBottom() == 'top' ? 'top-0' : 'bottom-0',
             isDivOnLeftOrRight() == 'left' ? '-right-[320px] xl:-right-[420px]' : '-left-[320px] xl:-left-[420px]',
             ]"
@@ -66,19 +68,14 @@
         <Story :parent-block @close="close" :calendar-item @click-outside="emits('click-outside')"/>
     </div>
     <Teleport v-else to="body">
-        <div ref="teleportBlock"
-             class="teleportedStory bg-zinc-900 absolute z-50 p-1 rounded-xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] xs:w-9/12 text-white">
+        <div :class="{'hidden': !active}" ref="teleportBlock"
+             class="teleportedStory bg-white absolute z-50 p-1 rounded-xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] xs:w-9/12 text-white">
             <Story @close="close" :parent-block :calendar-item/>
         </div>
     </Teleport>
 </template>
 
 <style scoped>
-.teleportedStory {
-    opacity: 0;
-    transition: all 0.3s ease;
-    scale: 0;
-}
 
 .animationStory {
     opacity: 1;
