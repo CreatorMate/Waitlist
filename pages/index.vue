@@ -12,7 +12,7 @@ definePageMeta({
 
 <template>
     <section class="flex flex-col items-center bg-white">
-        <h1 class="text-center text-[36px] leading-[32px] lg:text-[96px] lg:leading-[86px] pt-32 pageTitle tracking-[-1.92px">the creator marketing <br/> partner for brands</h1>
+        <h1 class="text-center text-[36px] leading-[32px] lg:text-[96px] lg:leading-[86px] pt-32 pageTitle tracking-[-1.92px">your creator <br/> marketing partner</h1>
         <h2 class="text-center text-sm lg:text-xl normal-case mt-6 pageTitle tracking-[-0.4px]">helping brands measure partnerships, improve sales funnel and build interesting social accounts</h2>
         <HomeButton class="mt-6 mb-12 text-xl bg-black text-white pageTitle hover:bg-[#303030]"/>
         <HomeBrands class="mb-14"/>

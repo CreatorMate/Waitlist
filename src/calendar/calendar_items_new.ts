@@ -129,23 +129,6 @@ export const calendar_rows: CalendarRowType[] = [
         postition: CalendarRowAlignment.TOP,
         items: [
             {
-                postedBy: "marnix",
-                title: "jesse joins creatormate",
-                images: [
-                    "jesse_joins_ntzolk",
-                    "meet_jesse_1_epu84v",
-                    "meet_jesse_2_hcwk1q",
-                    "meet_jesse_3_ni1u6s",
-                ],
-                type: CalendarItemType.STORY,
-                color: "#324A5E",
-                textColor: "#283b4b",
-                hover: CalendarItemHoverAction.GALLARY,
-                hoverText: "design mastermind, branding backbone, and the raw egg guy. a passionate perfectionist obsessed with every little detail—yes, all the details.",
-                hoverTitle: "meet jesse",
-                linkTo: "https://www.instagram.com/trycreatormate/"
-            },
-            {
                 postedBy: "jens",
                 title: "back in ams with lots of new creators & founders",
                 images: [
@@ -308,23 +291,6 @@ export const calendar_rows: CalendarRowType[] = [
                 hoverTitle: "meet oliver",
                 linkTo: "https://www.instagram.com/trycreatormate/"
             },
-            {
-                postedBy: "marnix",
-                title: "liam joins creatormate",
-                images: [
-                    "liam_joins_creatormate_ejc0ge",
-                    "meet_liam_1_lfrdte",
-                    "meet_liam_2_lkj1c7",
-                    "meet_liam_3_ov1gv5",
-                ],
-                type: CalendarItemType.STORY,
-                color: "#324A5E",
-                textColor: "#283b4b",
-                hover: CalendarItemHoverAction.GALLARY,
-                hoverText: "best-looking and most caring—yes, he’s both. born in cape town, he brought the vibes to amsterdam… just not the sun.",
-                hoverTitle: "meet liam",
-                linkTo: "https://www.instagram.com/trycreatormate/"
-            }
         ]
     },
     {
