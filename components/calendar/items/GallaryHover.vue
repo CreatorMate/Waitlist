@@ -2,6 +2,7 @@
 
     import type {CalendarItem} from "~/src/calendar/calendar_items";
     import {onMounted} from "vue";
+    import {getSupabaseImage} from "~/src/utils/SupabaseStorage";
 
     const props = defineProps<{
         calendarItem: CalendarItem,
@@ -18,6 +19,10 @@
             teleportBlock.value?.classList.add("animationStory");
         }, 10);
     });
+
+    const image1 = getSupabaseImage('calendar_images', calendarItem.value.images[1]);
+    const image2 = getSupabaseImage('calendar_images', calendarItem.value.images[2]);
+    const image3 = getSupabaseImage('calendar_images', calendarItem.value.images[3]);
 </script>
 
 <template>
@@ -26,15 +31,15 @@
             <div ref="teleportBlock"
                  class="w-[95%] lg:w-auto teleportedStory absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 text-white">
                 <div class="flex w-full">
-                    <CldImage width="500" height="500"
+                    <NuxtImg width="500" height="500"
                         class=" rotate-6 z-10 object-cover min-w-[33%] lg:min-w-[35vh] min-h-[33%] lg:min-h-[35vh] max-w-[33%] lg:max-w-[35vh] max-h-[33%] lg:max-h-[35vh] rounded-2xl"
-                        :src="calendarItem.images[1]"></CldImage>
-                    <CldImage width="500" height="500"
+                        :src="image1"></NuxtImg>
+                    <NuxtImg width="500" height="500"
                         class=" -rotate-6 z-10 object-cover min-w-[33%] lg:min-w-[35vh] min-h-[33%] lg:min-h-[35vh] max-w-[33%] lg:max-w-[35vh] max-h-[33%] lg:max-h-[35vh] rounded-2xl"
-                        :src="calendarItem.images[2]"></CldImage>
-                    <CldImage width="500" height="500"
+                        :src="image2"></NuxtImg>
+                    <NuxtImg width="500" height="500"
                         class="rotate-12 z-50 object-cover min-w-[33%] lg:min-w-[35vh] min-h-[33%] lg:min-h-[35vh] max-w-[33%] lg:max-w-[35vh] max-h-[33%] lg:max-h-[35vh] rounded-2xl"
-                             :src="calendarItem.images[3]"></CldImage>
+                             :src="image3"></NuxtImg>
                 </div>
                 <div class="justify-center flex w-full mt-9">
                     <div class="bg-[#F5F5F5] rounded-xl px-10 py-6 text-center flex flex-col items-center text-black">

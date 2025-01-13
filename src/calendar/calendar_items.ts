@@ -129,23 +129,6 @@ export const calendar_rows: CalendarRowType[] = [
         postition: CalendarRowAlignment.TOP,
         items: [
             {
-                postedBy: "marnix",
-                title: "jesse joins creatormate",
-                images: [
-                    "jesse_joins.png",
-                    "meet_jesse_1.jpeg",
-                    "meet_jesse_2.jpg",
-                    "meet_jesse_3.jpg",
-                ],
-                type: CalendarItemType.STORY,
-                color: "#324A5E",
-                textColor: "#283b4b",
-                hover: CalendarItemHoverAction.GALLARY,
-                hoverText: "design mastermind, branding backbone, and the raw egg guy. a passionate perfectionist obsessed with every little detail—yes, all the details.",
-                hoverTitle: "meet jesse",
-                linkTo: "https://www.instagram.com/trycreatormate/"
-            },
-            {
                 postedBy: "jens",
                 title: "back in ams with lots of new creators & founders",
                 images: [
@@ -308,23 +291,6 @@ export const calendar_rows: CalendarRowType[] = [
                 hoverTitle: "meet oliver",
                 linkTo: "https://www.instagram.com/trycreatormate/"
             },
-            {
-                postedBy: "marnix",
-                title: "liam joins creatormate",
-                images: [
-                    "liam_joins_creatormate.png",
-                    "meet_liam_1.jpeg",
-                    "meet_liam_2.png",
-                    "meet_liam_3.png",
-                ],
-                type: CalendarItemType.STORY,
-                color: "#324A5E",
-                textColor: "#283b4b",
-                hover: CalendarItemHoverAction.GALLARY,
-                hoverText: "best-looking and most caring—yes, he’s both. born in cape town, he brought the vibes to amsterdam… just not the sun.",
-                hoverTitle: "meet liam",
-                linkTo: "https://www.instagram.com/trycreatormate/"
-            }
         ]
     },
     {

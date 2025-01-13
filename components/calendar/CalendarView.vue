@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-    import {calendar_rows} from "~/src/calendar/calendar_items_new";
+    import {calendar_rows} from "~/src/calendar/calendar_items";
     import CalendarRow from "~/components/calendar/CalendarRow.vue";
 </script>
 

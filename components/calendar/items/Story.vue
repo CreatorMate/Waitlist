@@ -1,6 +1,7 @@
 <script setup lang='ts'>
     import type {CalendarItem} from "~/src/calendar/calendar_items";
     import {onMounted} from "vue";
+    import {getSupabaseImage} from "~/src/utils/SupabaseStorage";
 
     const emits = defineEmits(['click-outside', 'close'])
 
@@ -57,7 +58,7 @@
 
         </div>
         <div v-if="!calendarItem.images[currentPhoto].includes('mp4')" class="h-full w-full md:w-[300px] xl:w-[400px] md:h-[350px] xl:h-[480px]">
-            <CldImage width="400" height="480" class="object-cover rounded-xl" :src="calendarItem.images[currentPhoto]"/>
+            <NuxtImg width="400" height="480" class="object-cover rounded-xl" :src="getSupabaseImage('calendar_images', calendarItem.images[currentPhoto])"/>
         </div>
 
         <video autoplay v-else class="w-full md:w-[300px] xl:w-[400px] h-full  xl:h-[480px] md:h-[350px] object-cover rounded-xl" :src="`https://accounts.creatormate.com/storage/v1/object/public/calendar_images/${calendarItem.images[currentPhoto]}`"/>

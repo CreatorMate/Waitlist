@@ -5,6 +5,14 @@
     const {calendarItem} = defineProps<{
         calendarItem: CalendarItem
     }>()
+
+    const supabase = useSupabaseClient();
+    const {data} = supabase.storage.from('calendar_images').getPublicUrl(calendarItem.images[0], {
+        transform: {
+            width: 700,
+            height: 700
+        }
+    });
 </script>
 
 <template>
@@ -12,6 +20,7 @@
         <div class="px-2 mb-4">
             <PostedBy :calendar-item />
         </div>
-        <CldImage width="700" height="700" class="w-full object-cover max-h-full max-w-full " :src="calendarItem.images[0]"></CldImage>
+        <img  />
+        <NuxtImg width="700" height="700" class="w-full object-cover max-h-full max-w-full" :src="data.publicUrl"></NuxtImg>
     </div>
 </template>

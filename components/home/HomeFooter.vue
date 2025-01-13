@@ -16,12 +16,12 @@
             </div>
             <div class="flex gap-12 lg:justify-end lg:w-1/2 w-full lg:text-base text-xs">
                 <div class="flex flex-col gap-2">
-                    <p>our story</p>
-                    <p>for brands</p>
+                    <NuxtLink class="hover:text-blue-500" to="about-us">our story</NuxtLink>
+                    <a class="hover:text-blue-500" target="_blank" href="https://tally.so/r/wL5rgG">for brands</a>
                 </div>
                 <div class="flex flex-col gap-2">
                     <p>reviews</p>
-                    <p>work with us</p>
+                    <a class="hover:text-blue-500" target="_blank" href="https://tally.so/r/wL5rgG">work with us</a>
                 </div>
                 <div class="flex flex-col gap-2">
                     <a class="hover:text-blue-500 font-medium text-gray-700" target="_blank" href="https://nl.linkedin.com/company/creatormate">linkedin</a>
@@ -37,13 +37,12 @@
                 <p class="font-medium text-gray-700">We’re a group of friends who grew up with creators, inspired by their impact. Now, we’re lucky enough to call helping them our job.</p>
                 <div class="flex gap-12 lg:justify-end lg:w-1/2 w-full lg:text-base text-sm mt-12">
                     <div class="flex flex-col gap-2">
-                        <p>our story</p>
-                        <p>for brands</p>
-                        <p>for creators</p>
+                        <NuxtLink to="about us">our story</NuxtLink>
+                        <a target="_blank" href="https://tally.so/r/wL5rgG">for brands</a>
                     </div>
                     <div class="flex flex-col gap-2">
                         <p>reviews</p>
-                        <p>work with us</p>
+                        <a target="_blank" href="https://tally.so/r/wL5rgG">work with us</a>
                     </div>
                 </div>
                 <div class="flex gap-2 justify-center mt-12 text-base">

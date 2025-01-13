@@ -24,7 +24,8 @@
             <p class="text-xl">welcome at creatormate</p>
             <h1>choose how you will use the platform.</h1>
             <div class="w-full md:w-[780px] flex flex-col md:flex-row gap-6 md:gap-12 justify-between mt-5 overflow-x-hidden">
-                <NuxtLink to="https://app.creatormate.com" class="w-full md:w-1/2 card flex flex-col py-3 overflow-x-hidden">
+                <NuxtLink to="https://tally.so/r/wL5rgG" class="w-full md:w-1/2 card flex flex-col py-3 overflow-x-hidden relative">
+                    <Icon name="material-symbols:north-east" class="absolute right-3 top-3" />
                     <p class="px-6">i am a brand</p>
                     <h2 class="text-2xl mt-4 mb-10 md:mb-32 px-6">looking for creators</h2>
                     <div class="flex flex-col gap-3">
@@ -85,7 +86,8 @@
 
                     </div>
                 </NuxtLink>
-                <div @click="modelActive = true" class="w-full md:w-1/2 card flex flex-col py-3 overflow-x-hidden">
+                <div @click="modelActive = true" class="w-full md:w-1/2 card flex flex-col py-3 overflow-x-hidden relative">
+                    <Icon name="material-symbols:north-east" class="absolute right-3 top-3" />
                     <p class="px-6">i am a creator</p>
                     <h2 class="text-2xl mt-4 mb-10 md:mb-32 px-6">looking for work and hire</h2>
                     <div class="flex gap-3 flex-col">

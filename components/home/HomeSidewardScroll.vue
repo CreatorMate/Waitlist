@@ -1,4 +1,6 @@
 <script setup lang='ts'>
+    import {getSupabaseImage} from "~/src/utils/SupabaseStorage";
+
     const horizontalBox = ref<HTMLDivElement|null>();
     const scrollingBox = ref<HTMLDivElement|null>();
     const screenHeight = ref(0);
@@ -40,6 +42,19 @@
         window.removeEventListener('scroll', handleScroll);
     });
 
+    const image1 = getSupabaseImage('CM_WEB', 'slider_pic_1.png', 1000, 1000);
+    const image2 = getSupabaseImage('CM_WEB', 'slider_pics_2.png', 1000, 1000);
+    const image3 = getSupabaseImage('CM_WEB', 'slider_pics_3.png', 1000, 1000);
+    const image4 = getSupabaseImage('CM_WEB', 'slider_pics_4.png', 1000, 1000);
+    const image5 = getSupabaseImage('CM_WEB', 'slider_pics_5.png', 1000, 1000);
+    const image6 = getSupabaseImage('CM_WEB', 'slider_pics_6.png', 1000, 1000);
+    const image7 = getSupabaseImage('CM_WEB', 'slider_pics_7.png', 1000, 1000);
+    const image8 = getSupabaseImage('CM_WEB', 'slider_pics_8.png', 1000, 1000);
+    const image9 = getSupabaseImage('CM_WEB', 'slider_pics_9.png', 1000, 1000);
+    const image10 = getSupabaseImage('CM_WEB', 'slider_pics_10.png', 1000, 1000);
+
+    console.log(image1);
+
 </script>
 
 <template>
@@ -49,26 +64,26 @@
         <div  :style="`max-height: ${screenHeight}px;`" class="top-0 sticky  overflow-y-hidden min-h-screen flex justify-start h-screen ">
             <div ref="scrollingBox" class="w-full h-full relative overflow-y-hidden min-h-screen flex overflow-x-hidden">
                 <div class="flex-shrink-0 flex flex-col h-full">
-                    <CldImage height="1000" width="1000" class="w-full h-1/2 " src="slider_pic_1_ootxel"></CldImage>
-                    <CldImage height="1000" width="1000" class="w-full h-1/2" src="slider_pic_2_yqx0pm"></CldImage>
+                    <NuxtImg height="1000" width="1000" class="w-full h-1/2 " :src="image1"></NuxtImg>
+                    <NuxtImg height="1000" width="1000" class="w-full h-1/2" :src="image2"></NuxtImg>
                 </div>
                 <div class="flex-shrink-0 flex flex-col h-full">
-                    <CldImage height="2000" width="1000" class="w-full h-full" src="slider_pic_3_h5vnzf"></CldImage>
+                    <NuxtImg height="2000" width="1000" class="w-full h-full" :src="image3"></NuxtImg>
                 </div>
                 <div class="flex-shrink-0 flex flex-col h-full">
-                    <CldImage height="1000" width="1000" class="w-full h-1/2" src="slider_pic_4_jjfd4m"></CldImage>
-                    <CldImage height="1000" width="1000" class="w-full h-1/2" src="slider_pic_5_xmdarp"></CldImage>
+                    <NuxtImg height="1000" width="1000" class="w-full h-1/2" :src="image4"></NuxtImg>
+                    <NuxtImg height="1000" width="1000" class="w-full h-1/2" :src="image5"></NuxtImg>
                 </div>
                 <div class="flex-shrink-0 flex flex-col h-full">
-                    <CldImage height="1000" width="1000" class="w-full h-1/2" src="slider_pic_6_a796cv"></CldImage>
-                    <CldImage height="1000" width="1000" class="w-full h-1/2" src="slider_pic_7_wd4tyn"></CldImage>
+                    <NuxtImg height="1000" width="1000" class="w-full h-1/2" :src="image6"></NuxtImg>
+                    <NuxtImg height="1000" width="1000" class="w-full h-1/2" :src="image7"></NuxtImg>
                 </div>
                 <div class="flex-shrink-0 flex flex-col h-full">
-                    <CldImage height="2000" width="1000" class="w-full h-full" src="slider_pic_9_shtmnh"></CldImage>
+                    <NuxtImg height="2000" width="1000" class="w-full h-full" :src="image9"></NuxtImg>
                 </div>
                 <div class="flex-shrink-0 flex flex-col h-full">
-                    <CldImage height="1000" width="1000" class="w-full h-1/2" src="slider_pic_8_qe3cna"></CldImage>
-                    <CldImage height="1000" width="1000" class="w-full h-1/2" src="slider_pic_10_qxjn3h"></CldImage>
+                    <NuxtImg height="1000" width="1000" class="w-full h-1/2" :src="image8"></NuxtImg>
+                    <NuxtImg height="1000" width="1000" class="w-full h-1/2" :src="image10"></NuxtImg>
                 </div>
             </div>
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-9 w-full">
