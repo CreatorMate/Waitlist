@@ -17,11 +17,11 @@ definePageMeta({
         <HomeButton class="mt-6 mb-12 text-xl bg-black text-white pageTitle hover:bg-[#303030]"/>
         <HomeBrands class="mb-14"/>
         <div class="w-full lg:px-0 px-3 bg-white">
-            <video class="rounded-none bg-white" autoplay loop muted width="100%" src="https://accounts.creatormate.com/storage/v1/object/public/CM_WEB/Landing.mp4?t=2025-01-13T10%3A41%3A10.509Z"></video>
+            <video class="rounded-none bg-white" autoplay loop muted width="100%" src="/videos/Landing.mp4"></video>
         </div>
         <HomeWhatWeDo  class="5xl:w-[2500px]"/>
         <div class="5xl:w-[2500px] px-3 bg-white">
-            <video class="rounded-none bg-white" autoplay loop muted width="100%" src="https://accounts.creatormate.com/storage/v1/object/public/CM_WEB/Landing2.mp4?t=2025-01-13T10%3A42%3A03.424Z"></video>
+            <video class="rounded-none bg-white" autoplay loop muted width="100%" src="/videos/Landing2.mp4"></video>
             <div class="w-full flex gap-24 flex-col text-xl">
                 <p class="font-semibold mt-3 tracking-[-0.4px]">software that analyses large-scale social media data to identify audience engagement patterns</p>
                 <p class="pb-6 border-b border-[#5E5E5E] tracking-[-0.4px]">what we do</p>
