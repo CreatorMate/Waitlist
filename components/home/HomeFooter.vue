@@ -8,8 +8,8 @@
             <div class="w-full lg:w-1/2 flex flex-col">
                 <p class="font-medium text-gray-700 text-lg">We’re a group of friends who grew up with creators,<br/> inspired by their impact. Now, we’re lucky enough to<br/> call helping them our job.</p>
                 <div class="flex gap-6 mt-12 lg:mt-6 flex-wrap">
-                    <p>privacy policy</p>
-                    <p>terms of use</p>
+                    <NuxtLink to="/privacy-policy" class="hover:text-blue-500">privacy policy</NuxtLink>
+                    <NuxtLink to="/terms-of-service" class="hover:text-blue-500">terms of use</NuxtLink>
                     <p>imprint</p>
                     <p>@ creatormate 2024</p>
                 </div>
@@ -51,8 +51,8 @@
                     <a target="_blank" href="https://x.com/trycreatormate?lang=en&mx=2">x.com</a>
                 </div>
                 <div class="flex gap-6 mt-6 lg:mt-6 justify-center">
-                    <p>privacy policy</p>
-                    <p>terms of use</p>
+                    <NuxtLink to="/privacy-policy">privacy policy</NuxtLink>
+                    <NuxtLink to="/terms-of-service">terms of use</NuxtLink>
                     <p>imprint</p>
                 </div>
                 <p class="mt-6 text-center">@ creatormate 2024</p>

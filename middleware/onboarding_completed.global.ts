@@ -2,7 +2,7 @@ import type {RouteLocationNormalized} from "vue-router";
 import {useAccountStore} from "~/src/account/AccountStore";
 import {navigateTo} from "#app";
 
-const allowedPaths = ['/login', '/', '/onboarding', '/logout', '/work', '/about-us'];
+const allowedPaths = ['/login', '/', '/onboarding', '/logout', '/work', '/about-us', "/about-us", '/terms-of-service', '/privacy-policy'];
 
 export default defineNuxtRouteMiddleware(async (to: RouteLocationNormalized, from: RouteLocationNormalized) => {
     const accountStore = useAccountStore();
