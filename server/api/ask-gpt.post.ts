@@ -34,6 +34,7 @@ export default defineEventHandler(async (event) => {
             data: answer
         });
     } catch (error: any) {
+        console.log(error);
         if(error instanceof OpenAI.APIError) {
             setResponseStatus(event, 400)
             return JSON.stringify({success: false, error: 'Something went wrong while trying to ask gpt'})

@@ -18,12 +18,7 @@
             return;
         }
         await accountStore.get(user.value.id);
-        if(accountStore.completedOnboarding) {
-            await router.push('/home');
-            return;
-        } else {
-            await router.push('/onboarding');
-        }
+        await router.push('/home');
     });
 </script>
 

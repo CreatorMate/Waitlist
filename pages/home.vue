@@ -41,7 +41,7 @@
     function reset() {
         chats.value = [];
         chats.value.push({
-            message: "welcome, what would you like to know about creator mate?",
+            message: "thank you for joining our waitlist is there anything you would like to know about creator mate?",
             sender: Sender.CREATORMATE,
             type: 'start'
         });
@@ -122,23 +122,8 @@
         <div ref="chatContainer" @scroll="onScroll"
              class="overflow-y-auto overflow-x-hidden w-full min-h-full flex items-center flex-col">
             <TopBar/>
-            <div class="px-6 md:px-0 w-full md:w-[500px] flex flex-col pt-12 flex-grow">
-                <div v-if="chats.length != 0" class="h-full flex flex-col gap-6">
-                    <div :key="chatMessage.message" v-for="chatMessage of chats" class="flex flex-col">
-                        <p class="text-gray-400 text-lg">{{ chatMessage.sender }}</p>
-                        <GptAnswer @resize="resize()" @done="disabled = false" :question="chatMessage"
-                                   v-if="chatMessage.sender == Sender.CREATORMATE"></GptAnswer>
-                        <p v-else>{{ chatMessage.message }}</p>
-                        <div v-if="chats.length < 2" class="w-full xl:w-2/3 flex md:hidden">
-                            <ExampleQuestions @ask="ask"></ExampleQuestions>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div v-if="chats.length < 2" class="w-full xl:w-2/3 hidden md:flex justify-center">
-                <ExampleQuestions @ask="ask"></ExampleQuestions>
-            </div>
-            <ChatInput @reset="reset" :show-back="chats.length > 1" :disabled="disabled" @on-keydown="keydown" @send="handleMessage"></ChatInput>
+            <p class="text-center font-medium text-xl mt-16">We are currently getting ready to deploy the next stage of <span class="font-bold">creatormate</span>, check back on 16-03-2025 for more information <br/> a big thank you for joining our waitlist and till next week! </p>
+            <p class="text-xl mt-2">-jens</p>
         </div>
     </section>
 </template>
